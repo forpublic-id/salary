@@ -19,8 +19,8 @@ Warna biru pemerintah yang profesional dan trustworthy
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.15 0 0);
   
-  /* Government Blue primary */
-  --primary: oklch(0.45 0.15 250);           /* Professional blue */
+  /* Indonesian Government Blue primary */
+  --primary: oklch(0.65 0.18 240);           /* Bright professional blue */
   --primary-foreground: oklch(0.98 0 0);
   
   /* Soft secondary colors */

@@ -10,23 +10,19 @@ Platform saat ini menggunakan **Government Blue Theme** yang lebih cerah dan pro
 
 ---
 
-## ✅ Current Theme: Government Blue
+## ✅ Current Theme: Indonesian Government Blue
 
 **Karakteristik:**
 - ✅ Background sangat cerah (putih bersih)
-- ✅ Primary color: Biru pemerintah yang profesional
-- ✅ Cocok untuk platform transparansi dan data
-- ✅ Kontras yang baik untuk readability
+- ✅ Primary color: Biru pemerintah Indonesia yang cerah `oklch(0.65 0.18 240)`
+- ✅ Tombol dan elemen utama mudah terlihat (tidak hitam lagi!)
+- ✅ Professional, trustworthy, accessible
+- ✅ Kontras optimal untuk readability
 
-```css
-:root {
-  --radius: 0.625rem;
-  --background: oklch(0.99 0 0);
-  --primary: oklch(0.45 0.15 250);
-  --secondary: oklch(0.96 0.02 240);
-  /* ... dst */
-}
-```
+**Warna Utama:**
+- **Primary**: `oklch(0.65 0.18 240)` - Biru cerah profesional
+- **Background**: `oklch(0.99 0 0)` - Hampir putih bersih
+- **Foreground**: `oklch(0.15 0 0)` - Text gelap yang mudah dibaca
 
 ---
 

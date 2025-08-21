@@ -40,8 +40,8 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.15 0 0);
   
-  /* Government Blue primary - profesional dan trustworthy */
-  --primary: oklch(0.45 0.15 250);
+  /* Indonesian Government Blue - cerah dan professional */
+  --primary: oklch(0.65 0.18 240);
   --primary-foreground: oklch(0.98 0 0);
   
   /* Soft secondary colors - biru lembut */
@@ -55,7 +55,7 @@
   /* Borders and inputs - lebih lembut */
   --border: oklch(0.88 0.02 240);
   --input: oklch(0.94 0.02 240);
-  --ring: oklch(0.5 0.15 250);
+  --ring: oklch(0.65 0.18 240);
   --destructive: oklch(0.55 0.25 15);
 }
 
