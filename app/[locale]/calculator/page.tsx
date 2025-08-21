@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server'
 import { SalaryCalculator } from '@/components/salary/SalaryCalculator'
+import { generateSEOMetadata, generatePageKeywords, generateCalculatorDescription } from '@/lib/seo'
 
 export async function generateMetadata({
   params
@@ -9,10 +10,15 @@ export async function generateMetadata({
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'calculator' })
   
-  return {
-    title: `${t('title')} - Salary ForPublic.id`,
-    description: t('subtitle'),
-  }
+  const keywords = generatePageKeywords('calculator', locale)
+  const description = generateCalculatorDescription(locale)
+  
+  return generateSEOMetadata({
+    title: t('title'),
+    description,
+    keywords,
+    locale
+  })
 }
 
 export default async function CalculatorPage({

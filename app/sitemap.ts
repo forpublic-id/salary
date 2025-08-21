@@ -3,28 +3,39 @@ import type { MetadataRoute } from 'next'
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://salary.forpublic.id'
   const locales = ['id', 'en']
-  const pages = ['', '/calculator', '/browse', '/analysis', '/officials', '/about']
+  const currentDate = new Date()
+  const weekAgo = new Date(currentDate.getTime() - 7 * 24 * 60 * 60 * 1000)
+  
+  // Core pages with SEO priorities
+  const pages = [
+    { path: '', priority: 1, changeFrequency: 'daily' as const, lastModified: currentDate },
+    { path: '/calculator', priority: 0.9, changeFrequency: 'weekly' as const, lastModified: currentDate },
+    { path: '/browse', priority: 0.9, changeFrequency: 'daily' as const, lastModified: currentDate },
+    { path: '/analysis', priority: 0.8, changeFrequency: 'weekly' as const, lastModified: weekAgo },
+    { path: '/officials', priority: 0.8, changeFrequency: 'monthly' as const, lastModified: weekAgo },
+    { path: '/about', priority: 0.6, changeFrequency: 'monthly' as const, lastModified: weekAgo }
+  ]
   
   const urls: MetadataRoute.Sitemap = []
+  
+  // Add root redirect (highest priority)
+  urls.push({
+    url: baseUrl,
+    lastModified: currentDate,
+    changeFrequency: 'daily',
+    priority: 1,
+  })
   
   // Add all page combinations for each locale
   locales.forEach(locale => {
     pages.forEach(page => {
       urls.push({
-        url: `${baseUrl}/${locale}${page}`,
-        lastModified: new Date(),
-        changeFrequency: page === '' ? 'daily' : 'weekly',
-        priority: page === '' ? 1 : 0.8,
+        url: `${baseUrl}/${locale}${page.path}`,
+        lastModified: page.lastModified,
+        changeFrequency: page.changeFrequency,
+        priority: page.priority,
       })
     })
-  })
-  
-  // Add root redirect
-  urls.push({
-    url: baseUrl,
-    lastModified: new Date(),
-    changeFrequency: 'daily',
-    priority: 1,
   })
   
   return urls

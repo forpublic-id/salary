@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
+import { salaryTracking } from '@/components/analytics/GoogleAnalytics'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'
@@ -72,6 +73,9 @@ export function SalaryCalculator({ locale }: SalaryCalculatorProps) {
 
     const result = calculateSalary(gajiPokok, tunjanganKinerja, tunjanganLain)
     setCalculation(result)
+
+    // Track calculator usage
+    salaryTracking.calculatorUse(golongan.golongan, selectedKementerian)
   }
 
   const availableKementerian = Array.from(new Set(

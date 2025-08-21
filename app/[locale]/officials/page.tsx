@@ -2,6 +2,7 @@ import { getTranslations } from 'next-intl/server'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
 import { formatCurrency } from '@/lib/utils'
+import { generateSEOMetadata, generatePageKeywords, generateOfficialsDescription } from '@/lib/seo'
 import type { OfficialSalary } from '@/lib/types/salary'
 
 export async function generateMetadata({
@@ -12,10 +13,15 @@ export async function generateMetadata({
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'officials' })
   
-  return {
-    title: `${t('title')} - Salary ForPublic.id`,
-    description: t('subtitle'),
-  }
+  const keywords = generatePageKeywords('officials', locale)
+  const description = generateOfficialsDescription(50, locale) // Estimate 50+ officials
+  
+  return generateSEOMetadata({
+    title: t('title'),
+    description,
+    keywords,
+    locale
+  })
 }
 
 async function getOfficialSalaryData(): Promise<{ officials: OfficialSalary[] }> {
