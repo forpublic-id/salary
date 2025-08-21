@@ -1,21 +1,27 @@
-"use client"
+"use client";
 
-import { useState } from 'react'
-import { useTranslations } from 'next-intl'
-import { Search, Filter, X } from 'lucide-react'
-import { Input } from '@/components/ui/Input'
-import { Button } from '@/components/ui/Button'
-import { Label } from '@/components/ui/Label'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/Select'
-import { Badge } from '@/components/ui/Badge'
-import type { SalaryFilter } from '@/lib/types/salary'
+import { useState } from "react";
+import { useTranslations } from "next-intl";
+import { Search, Filter, X } from "lucide-react";
+import { Input } from "@/components/ui/Input";
+import { Button } from "@/components/ui/Button";
+import { Label } from "@/components/ui/Label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/Select";
+import { Badge } from "@/components/ui/Badge";
+import type { SalaryFilter } from "@/lib/types/salary";
 
 interface SearchInterfaceProps {
-  onSearch: (query: string) => void
-  onFilter: (filters: SalaryFilter) => void
-  onSort: (sortBy: string) => void
-  availableGolongan: string[]
-  availableKementerian: string[]
+  onSearch: (query: string) => void;
+  onFilter: (filters: SalaryFilter) => void;
+  onSort: (sortBy: string) => void;
+  availableGolongan: string[];
+  availableKementerian: string[];
 }
 
 export function SearchInterface({
@@ -23,68 +29,72 @@ export function SearchInterface({
   onFilter,
   onSort,
   availableGolongan,
-  availableKementerian
+  availableKementerian,
 }: SearchInterfaceProps) {
-  const t = useTranslations('browse')
-  const tCommon = useTranslations('common')
-  
-  const [searchQuery, setSearchQuery] = useState('')
-  const [showFilters, setShowFilters] = useState(false)
-  const [activeFilters, setActiveFilters] = useState<SalaryFilter>({})
-  const [selectedGolongan, setSelectedGolongan] = useState<string[]>([])
-  const [selectedKementerian, setSelectedKementerian] = useState<string[]>([])
-  const [salaryMin, setSalaryMin] = useState('')
-  const [salaryMax, setSalaryMax] = useState('')
+  const t = useTranslations("browse");
+  const tCommon = useTranslations("common");
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const [showFilters, setShowFilters] = useState(false);
+  const [activeFilters, setActiveFilters] = useState<SalaryFilter>({});
+  const [selectedGolongan, setSelectedGolongan] = useState<string[]>([]);
+  const [selectedKementerian, setSelectedKementerian] = useState<string[]>([]);
+  const [salaryMin, setSalaryMin] = useState("");
+  const [salaryMax, setSalaryMax] = useState("");
 
   const handleSearch = (query: string) => {
-    setSearchQuery(query)
-    onSearch(query)
-  }
+    setSearchQuery(query);
+    onSearch(query);
+  };
 
   const applyFilters = () => {
     const filters: SalaryFilter = {
       ...(selectedGolongan.length > 0 && { golongan: selectedGolongan }),
-      ...(selectedKementerian.length > 0 && { kementerian: selectedKementerian }),
+      ...(selectedKementerian.length > 0 && {
+        kementerian: selectedKementerian,
+      }),
       ...((salaryMin || salaryMax) && {
         salaryRange: {
           min: salaryMin ? parseInt(salaryMin) : 0,
-          max: salaryMax ? parseInt(salaryMax) : Infinity
-        }
-      })
-    }
-    
-    setActiveFilters(filters)
-    onFilter(filters)
-  }
+          max: salaryMax ? parseInt(salaryMax) : Infinity,
+        },
+      }),
+    };
+
+    setActiveFilters(filters);
+    onFilter(filters);
+  };
 
   const clearFilters = () => {
-    setSelectedGolongan([])
-    setSelectedKementerian([])
-    setSalaryMin('')
-    setSalaryMax('')
-    setActiveFilters({})
-    onFilter({})
-  }
+    setSelectedGolongan([]);
+    setSelectedKementerian([]);
+    setSalaryMin("");
+    setSalaryMax("");
+    setActiveFilters({});
+    onFilter({});
+  };
 
   const removeFilter = (type: string, value?: string) => {
-    if (type === 'golongan' && value) {
-      const newGolongan = selectedGolongan.filter(g => g !== value)
-      setSelectedGolongan(newGolongan)
-    } else if (type === 'kementerian' && value) {
-      const newKementerian = selectedKementerian.filter(k => k !== value)
-      setSelectedKementerian(newKementerian)
-    } else if (type === 'salaryRange') {
-      setSalaryMin('')
-      setSalaryMax('')
+    if (type === "golongan" && value) {
+      const newGolongan = selectedGolongan.filter((g) => g !== value);
+      setSelectedGolongan(newGolongan);
+    } else if (type === "kementerian" && value) {
+      const newKementerian = selectedKementerian.filter((k) => k !== value);
+      setSelectedKementerian(newKementerian);
+    } else if (type === "salaryRange") {
+      setSalaryMin("");
+      setSalaryMax("");
     }
-    
-    // Reapply filters after removal
-    setTimeout(applyFilters, 0)
-  }
 
-  const hasActiveFilters = selectedGolongan.length > 0 || 
-                          selectedKementerian.length > 0 || 
-                          salaryMin || salaryMax
+    // Reapply filters after removal
+    setTimeout(applyFilters, 0);
+  };
+
+  const hasActiveFilters =
+    selectedGolongan.length > 0 ||
+    selectedKementerian.length > 0 ||
+    salaryMin ||
+    salaryMax;
 
   return (
     <div className="space-y-4">
@@ -93,7 +103,7 @@ export function SearchInterface({
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
           <Input
-            placeholder={t('search')}
+            placeholder={t("search")}
             value={searchQuery}
             onChange={(e) => handleSearch(e.target.value)}
             className="pl-10"
@@ -104,39 +114,47 @@ export function SearchInterface({
           onClick={() => setShowFilters(!showFilters)}
         >
           <Filter className="w-4 h-4 mr-2" />
-          {tCommon('filter')}
+          {tCommon("filter")}
         </Button>
       </div>
 
       {/* Active Filters Display */}
       {hasActiveFilters && (
         <div className="flex flex-wrap gap-2">
-          {selectedGolongan.map(golongan => (
-            <Badge key={golongan} variant="secondary" className="flex items-center gap-1">
+          {selectedGolongan.map((golongan) => (
+            <Badge
+              key={golongan}
+              variant="secondary"
+              className="flex items-center gap-1"
+            >
               {golongan}
-              <X 
-                className="w-3 h-3 cursor-pointer" 
-                onClick={() => removeFilter('golongan', golongan)}
+              <X
+                className="w-3 h-3 cursor-pointer"
+                onClick={() => removeFilter("golongan", golongan)}
               />
             </Badge>
           ))}
-          {selectedKementerian.map(kementerian => (
-            <Badge key={kementerian} variant="secondary" className="flex items-center gap-1">
+          {selectedKementerian.map((kementerian) => (
+            <Badge
+              key={kementerian}
+              variant="secondary"
+              className="flex items-center gap-1"
+            >
               {kementerian}
-              <X 
-                className="w-3 h-3 cursor-pointer" 
-                onClick={() => removeFilter('kementerian', kementerian)}
+              <X
+                className="w-3 h-3 cursor-pointer"
+                onClick={() => removeFilter("kementerian", kementerian)}
               />
             </Badge>
           ))}
           {(salaryMin || salaryMax) && (
             <Badge variant="secondary" className="flex items-center gap-1">
               {salaryMin && `Min: ${parseInt(salaryMin).toLocaleString()}`}
-              {salaryMin && salaryMax && ' - '}
+              {salaryMin && salaryMax && " - "}
               {salaryMax && `Max: ${parseInt(salaryMax).toLocaleString()}`}
-              <X 
-                className="w-3 h-3 cursor-pointer" 
-                onClick={() => removeFilter('salaryRange')}
+              <X
+                className="w-3 h-3 cursor-pointer"
+                onClick={() => removeFilter("salaryRange")}
               />
             </Badge>
           )}
@@ -152,11 +170,11 @@ export function SearchInterface({
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Golongan Filter */}
             <div className="space-y-2">
-              <Label>{t('filters.golongan')}</Label>
-              <Select 
+              <Label>{t("filters.golongan")}</Label>
+              <Select
                 onValueChange={(value) => {
                   if (!selectedGolongan.includes(value)) {
-                    setSelectedGolongan([...selectedGolongan, value])
+                    setSelectedGolongan([...selectedGolongan, value]);
                   }
                 }}
               >
@@ -165,23 +183,23 @@ export function SearchInterface({
                 </SelectTrigger>
                 <SelectContent>
                   {availableGolongan
-                    .filter(g => !selectedGolongan.includes(g))
-                    .map(golongan => (
-                    <SelectItem key={golongan} value={golongan}>
-                      {golongan}
-                    </SelectItem>
-                  ))}
+                    .filter((g) => !selectedGolongan.includes(g))
+                    .map((golongan) => (
+                      <SelectItem key={golongan} value={golongan}>
+                        {golongan}
+                      </SelectItem>
+                    ))}
                 </SelectContent>
               </Select>
             </div>
 
             {/* Kementerian Filter */}
             <div className="space-y-2">
-              <Label>{t('filters.kementerian')}</Label>
-              <Select 
+              <Label>{t("filters.kementerian")}</Label>
+              <Select
                 onValueChange={(value) => {
                   if (!selectedKementerian.includes(value)) {
-                    setSelectedKementerian([...selectedKementerian, value])
+                    setSelectedKementerian([...selectedKementerian, value]);
                   }
                 }}
               >
@@ -190,28 +208,36 @@ export function SearchInterface({
                 </SelectTrigger>
                 <SelectContent>
                   {availableKementerian
-                    .filter(k => !selectedKementerian.includes(k))
-                    .map(kementerian => (
-                    <SelectItem key={kementerian} value={kementerian}>
-                      {kementerian}
-                    </SelectItem>
-                  ))}
+                    .filter((k) => !selectedKementerian.includes(k))
+                    .map((kementerian) => (
+                      <SelectItem key={kementerian} value={kementerian}>
+                        {kementerian}
+                      </SelectItem>
+                    ))}
                 </SelectContent>
               </Select>
             </div>
 
             {/* Sort */}
             <div className="space-y-2">
-              <Label>{t('sortBy')}</Label>
+              <Label>{t("sortBy")}</Label>
               <Select onValueChange={onSort}>
                 <SelectTrigger>
                   <SelectValue placeholder="Sort by..." />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="salaryHigh">{t('sortOptions.salaryHigh')}</SelectItem>
-                  <SelectItem value="salaryLow">{t('sortOptions.salaryLow')}</SelectItem>
-                  <SelectItem value="golongan">{t('sortOptions.golongan')}</SelectItem>
-                  <SelectItem value="alphabetical">{t('sortOptions.alphabetical')}</SelectItem>
+                  <SelectItem value="salaryHigh">
+                    {t("sortOptions.salaryHigh")}
+                  </SelectItem>
+                  <SelectItem value="salaryLow">
+                    {t("sortOptions.salaryLow")}
+                  </SelectItem>
+                  <SelectItem value="golongan">
+                    {t("sortOptions.golongan")}
+                  </SelectItem>
+                  <SelectItem value="alphabetical">
+                    {t("sortOptions.alphabetical")}
+                  </SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -219,7 +245,7 @@ export function SearchInterface({
 
           {/* Salary Range */}
           <div className="space-y-2">
-            <Label>{t('filters.salaryRange')}</Label>
+            <Label>{t("filters.salaryRange")}</Label>
             <div className="flex gap-2 items-center">
               <Input
                 placeholder="Min salary..."
@@ -243,12 +269,10 @@ export function SearchInterface({
             <Button variant="outline" onClick={clearFilters}>
               Clear
             </Button>
-            <Button onClick={applyFilters}>
-              Apply Filters
-            </Button>
+            <Button onClick={applyFilters}>Apply Filters</Button>
           </div>
         </div>
       )}
     </div>
-  )
+  );
 }

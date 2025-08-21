@@ -1,0 +1,242 @@
+{
+  "metadata": {
+    "lastUpdated": "2025-01-01",
+    "source": "Peraturan Gubernur tentang UMP 2025",
+    "currency": "IDR",
+    "version": "2025.1",
+    "description": {
+      "id": "Data Upah Minimum Regional Indonesia tahun 2025",
+      "en": "Indonesia Regional Minimum Wage data for 2025"
+    }
+  },
+  "regionalWages": [
+    {
+      "id": "dki-jakarta",
+      "province": {
+        "id": "DKI Jakarta",
+        "en": "DKI Jakarta"
+      },
+      "city": {
+        "id": "Jakarta",
+        "en": "Jakarta"
+      },
+      "ump": 5316120,
+      "umr": 5316120,
+      "type": "provincial",
+      "effectiveDate": "2025-01-01",
+      "previousYear": 5067381,
+      "increasePercent": 4.91,
+      "costOfLiving": "very_high",
+      "population": 10562088
+    },
+    {
+      "id": "jawa-barat",
+      "province": {
+        "id": "Jawa Barat",
+        "en": "West Java"
+      },
+      "city": {
+        "id": "Provinsi",
+        "en": "Province"
+      },
+      "ump": 2084965,
+      "umr": 2084965,
+      "type": "provincial",
+      "effectiveDate": "2025-01-01",
+      "previousYear": 1986670,
+      "increasePercent": 4.95,
+      "costOfLiving": "medium",
+      "population": 48037827
+    },
+    {
+      "id": "bandung",
+      "province": {
+        "id": "Jawa Barat",
+        "en": "West Java"
+      },
+      "city": {
+        "id": "Kota Bandung",
+        "en": "Bandung City"
+      },
+      "ump": 2084965,
+      "umr": 3927829,
+      "type": "city",
+      "effectiveDate": "2025-01-01",
+      "previousYear": 3742276,
+      "increasePercent": 4.96,
+      "costOfLiving": "medium_high",
+      "population": 2444160
+    },
+    {
+      "id": "bekasi",
+      "province": {
+        "id": "Jawa Barat",
+        "en": "West Java"
+      },
+      "city": {
+        "id": "Kota Bekasi",
+        "en": "Bekasi City"
+      },
+      "ump": 2084965,
+      "umr": 5019944,
+      "type": "city",
+      "effectiveDate": "2025-01-01",
+      "previousYear": 4782935,
+      "increasePercent": 4.95,
+      "costOfLiving": "high",
+      "population": 2510951
+    },
+    {
+      "id": "jawa-tengah",
+      "province": {
+        "id": "Jawa Tengah",
+        "en": "Central Java"
+      },
+      "city": {
+        "id": "Provinsi",
+        "en": "Province"
+      },
+      "ump": 2107289,
+      "umr": 2107289,
+      "type": "provincial",
+      "effectiveDate": "2025-01-01",
+      "previousYear": 2006947,
+      "increasePercent": 5.0,
+      "costOfLiving": "low",
+      "population": 36516035
+    },
+    {
+      "id": "semarang",
+      "province": {
+        "id": "Jawa Tengah",
+        "en": "Central Java"
+      },
+      "city": {
+        "id": "Kota Semarang",
+        "en": "Semarang City"
+      },
+      "ump": 2107289,
+      "umr": 2766750,
+      "type": "city",
+      "effectiveDate": "2025-01-01",
+      "previousYear": 2635000,
+      "increasePercent": 5.0,
+      "costOfLiving": "medium",
+      "population": 1653524
+    },
+    {
+      "id": "jawa-timur",
+      "province": {
+        "id": "Jawa Timur",
+        "en": "East Java"
+      },
+      "city": {
+        "id": "Provinsi",
+        "en": "Province"
+      },
+      "ump": 2142000,
+      "umr": 2142000,
+      "type": "provincial",
+      "effectiveDate": "2025-01-01",
+      "previousYear": 2040000,
+      "increasePercent": 5.0,
+      "costOfLiving": "low",
+      "population": 40665696
+    },
+    {
+      "id": "surabaya",
+      "province": {
+        "id": "Jawa Timur",
+        "en": "East Java"
+      },
+      "city": {
+        "id": "Kota Surabaya",
+        "en": "Surabaya City"
+      },
+      "ump": 2142000,
+      "umr": 4866750,
+      "type": "city",
+      "effectiveDate": "2025-01-01",
+      "previousYear": 4635000,
+      "increasePercent": 5.0,
+      "costOfLiving": "medium_high",
+      "population": 2874314
+    },
+    {
+      "id": "bali",
+      "province": {
+        "id": "Bali",
+        "en": "Bali"
+      },
+      "city": {
+        "id": "Provinsi",
+        "en": "Province"
+      },
+      "ump": 2849356,
+      "umr": 2849356,
+      "type": "provincial",
+      "effectiveDate": "2025-01-01",
+      "previousYear": 2713672,
+      "increasePercent": 5.0,
+      "costOfLiving": "medium_high",
+      "population": 4317404
+    },
+    {
+      "id": "denpasar",
+      "province": {
+        "id": "Bali",
+        "en": "Bali"
+      },
+      "city": {
+        "id": "Kota Denpasar",
+        "en": "Denpasar City"
+      },
+      "ump": 2849356,
+      "umr": 2849356,
+      "type": "city",
+      "effectiveDate": "2025-01-01",
+      "previousYear": 2713672,
+      "increasePercent": 5.0,
+      "costOfLiving": "high",
+      "population": 897300
+    },
+    {
+      "id": "sumatra-utara",
+      "province": {
+        "id": "Sumatera Utara",
+        "en": "North Sumatra"
+      },
+      "city": {
+        "id": "Provinsi",
+        "en": "Province"
+      },
+      "ump": 2846018,
+      "umr": 2846018,
+      "type": "provincial",
+      "effectiveDate": "2025-01-01",
+      "previousYear": 2710493,
+      "increasePercent": 5.0,
+      "costOfLiving": "medium",
+      "population": 15386154
+    },
+    {
+      "id": "medan",
+      "province": {
+        "id": "Sumatera Utara",
+        "en": "North Sumatra"
+      },
+      "city": {
+        "id": "Kota Medan",
+        "en": "Medan City"
+      },
+      "ump": 2846018,
+      "umr": 3276000,
+      "type": "city",
+      "effectiveDate": "2025-01-01",
+      "previousYear": 3120000,
+      "increasePercent": 5.0,
+      "costOfLiving": "medium",
+      "population": 2435252
+    }
+  ]
+}

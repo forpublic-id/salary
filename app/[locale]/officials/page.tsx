@@ -1,124 +1,141 @@
-import { getTranslations } from 'next-intl/server'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card'
-import { Badge } from '@/components/ui/Badge'
-import { formatCurrency } from '@/lib/utils'
-import { generateSEOMetadata, generatePageKeywords, generateOfficialsDescription } from '@/lib/seo'
-import type { OfficialSalary } from '@/lib/types/salary'
+import { getTranslations } from "next-intl/server";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { formatCurrency } from "@/lib/utils";
+import {
+  generateSEOMetadata,
+  generatePageKeywords,
+  generateOfficialsDescription,
+} from "@/lib/seo";
+import type { OfficialSalary } from "@/lib/types/salary";
 
 export async function generateMetadata({
-  params
+  params,
 }: {
-  params: Promise<{ locale: string }>
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params
-  const t = await getTranslations({ locale, namespace: 'officials' })
-  
-  const keywords = generatePageKeywords('officials', locale)
-  const description = generateOfficialsDescription(50, locale) // Estimate 50+ officials
-  
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "officials" });
+
+  const keywords = generatePageKeywords("officials", locale);
+  const description = generateOfficialsDescription(50, locale); // Estimate 50+ officials
+
   return generateSEOMetadata({
-    title: t('title'),
+    title: t("title"),
     description,
     keywords,
-    locale
-  })
+    locale,
+  });
 }
 
-async function getOfficialSalaryData(): Promise<{ officials: OfficialSalary[] }> {
-  const response = await fetch('http://localhost:3000/data/salary/officials/nasional.json', {
-    cache: 'force-cache'
-  })
-  
+async function getOfficialSalaryData(): Promise<{
+  officials: OfficialSalary[];
+}> {
+  const response = await fetch(
+    "http://localhost:3000/data/salary/officials/nasional.json",
+    {
+      cache: "force-cache",
+    },
+  );
+
   if (!response.ok) {
-    return { officials: [] }
+    return { officials: [] };
   }
-  
-  return response.json()
+
+  return response.json();
 }
 
 export default async function OfficialsPage({
-  params
+  params,
 }: {
-  params: Promise<{ locale: string }>
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params
-  const t = await getTranslations('officials')
-  const tCommon = await getTranslations('common')
-  
-  const { officials } = await getOfficialSalaryData()
+  const { locale } = await params;
+  const t = await getTranslations("officials");
+  const tCommon = await getTranslations("common");
+
+  const { officials } = await getOfficialSalaryData();
 
   return (
     <div className="py-20 px-4 md:px-6 lg:px-8">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">
-            {t('title')}
-          </h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">{t("title")}</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t('subtitle')}
+            {t("subtitle")}
           </p>
         </div>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {officials.map((official) => (
-          <Card key={official.id} className="hover:shadow-lg transition-shadow">
-            <CardHeader>
-              <CardTitle className="text-lg">
-                {official.position[locale as 'id' | 'en']}
-              </CardTitle>
-              <CardDescription>
-                {tCommon('total')}: {formatCurrency(official.totalKompensasi, locale)}
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              {/* Base Salary */}
-              <div className="flex justify-between items-center p-3 bg-muted rounded-lg">
-                <span className="font-medium">Base Salary</span>
-                <Badge variant="secondary">
-                  {formatCurrency(official.gajiPokok, locale)}
-                </Badge>
-              </div>
-              
-              {/* Allowances */}
-              <div className="space-y-2">
-                <h4 className="font-semibold text-sm">Allowances:</h4>
-                {official.tunjangan.map((tunjangan, index) => (
-                  <div key={index} className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">
-                      {tunjangan.name[locale as 'id' | 'en']}
-                    </span>
-                    <span className="font-mono">
-                      {formatCurrency(tunjangan.nominal, locale)}
-                    </span>
-                  </div>
-                ))}
-              </div>
-              
-              {/* Total */}
-              <div className="border-t pt-3">
-                <div className="flex justify-between items-center">
-                  <span className="font-bold">Total Monthly:</span>
-                  <Badge className="font-mono">
-                    {formatCurrency(official.totalKompensasi, locale)}
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {officials.map((official) => (
+            <Card
+              key={official.id}
+              className="hover:shadow-lg transition-shadow"
+            >
+              <CardHeader>
+                <CardTitle className="text-lg">
+                  {official.position[locale as "id" | "en"]}
+                </CardTitle>
+                <CardDescription>
+                  {tCommon("total")}:{" "}
+                  {formatCurrency(official.totalKompensasi, locale)}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {/* Base Salary */}
+                <div className="flex justify-between items-center p-3 bg-muted rounded-lg">
+                  <span className="font-medium">{t("baseSalary")}</span>
+                  <Badge variant="secondary">
+                    {formatCurrency(official.gajiPokok, locale)}
                   </Badge>
                 </div>
-              </div>
-              
-              {/* Source */}
-              <div className="text-xs text-muted-foreground border-t pt-2">
-                Source: {official.source}
-              </div>
-            </CardContent>
-          </Card>
-        ))}
+
+                {/* Allowances */}
+                <div className="space-y-2">
+                  <h4 className="font-semibold text-sm">{t("allowances")}:</h4>
+                  {official.tunjangan.map((tunjangan, index) => (
+                    <div key={index} className="flex justify-between text-sm">
+                      <span className="text-muted-foreground">
+                        {tunjangan.name[locale as "id" | "en"]}
+                      </span>
+                      <span className="font-mono">
+                        {formatCurrency(tunjangan.nominal, locale)}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Total */}
+                <div className="border-t pt-3">
+                  <div className="flex justify-between items-center">
+                    <span className="font-bold">{t("totalMonthly")}:</span>
+                    <Badge className="font-mono">
+                      {formatCurrency(official.totalKompensasi, locale)}
+                    </Badge>
+                  </div>
+                </div>
+
+                {/* Source */}
+                <div className="text-xs text-muted-foreground border-t pt-2">
+                  {t("source")}: {official.source}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
-        
+
         {officials.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-muted-foreground">{tCommon('noData')}</p>
+            <p className="text-muted-foreground">{t("noData")}</p>
           </div>
         )}
       </div>
     </div>
-  )
+  );
 }

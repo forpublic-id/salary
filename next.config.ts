@@ -1,7 +1,7 @@
-import type { NextConfig } from 'next'
-import createNextIntlPlugin from 'next-intl/plugin'
+import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
 
-const withNextIntl = createNextIntlPlugin('./i18n/request.ts')
+const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 
 const nextConfig: NextConfig = {
   // Experimental features yang bisa menyebabkan masalah
@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
     // Matikan turbopack di config juga untuk memastikan
     turbo: undefined,
     // Optimasi memory
-    optimizePackageImports: ['lucide-react'],
+    optimizePackageImports: ["lucide-react"],
   },
 
   // Optimasi untuk development
@@ -27,10 +27,10 @@ const nextConfig: NextConfig = {
       config.watchOptions = {
         poll: 1000,
         aggregateTimeout: 300,
-      }
+      };
     }
-    return config
+    return config;
   },
-}
+};
 
-export default withNextIntl(nextConfig)
+export default withNextIntl(nextConfig);

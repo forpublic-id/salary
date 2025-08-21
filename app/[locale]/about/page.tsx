@@ -1,36 +1,41 @@
-import { getTranslations } from 'next-intl/server'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card'
-import { Badge } from '@/components/ui/Badge'
+import { getTranslations } from "next-intl/server";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
 
 export async function generateMetadata({
-  params
+  params,
 }: {
-  params: Promise<{ locale: string }>
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params
-  
+  const { locale } = await params;
+  const t = await getTranslations("about.meta");
+
   return {
-    title: `About - Salary ForPublic.id`,
-    description: 'Learn about our methodology and data sources for Indonesian civil service salary transparency',
-  }
+    title: t("title"),
+    description: t("description"),
+  };
 }
 
 export default async function AboutPage({
-  params
+  params,
 }: {
-  params: Promise<{ locale: string }>
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params
-  const t = await getTranslations('about')
+  const { locale } = await params;
+  const t = await getTranslations("about");
 
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="text-center mb-8">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4">
-          About Salary ForPublic.id
-        </h1>
+        <h1 className="text-3xl md:text-4xl font-bold mb-4">{t("title")}</h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Promoting transparency in Indonesian civil service and public officials compensation
+          {t("subtitle")}
         </p>
       </div>
 
@@ -38,66 +43,81 @@ export default async function AboutPage({
         {/* Mission */}
         <Card>
           <CardHeader>
-            <CardTitle>Our Mission</CardTitle>
+            <CardTitle>{t("mission.title")}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <p>
-              Salary ForPublic.id is dedicated to promoting transparency and accountability in Indonesian 
-              public sector compensation. We provide comprehensive, accurate, and accessible information 
-              about civil service salaries and public officials' compensation to foster better public 
-              understanding and oversight.
-            </p>
-            <p>
-              As part of the ForPublic.id ecosystem, we believe that transparency in public finance 
-              is essential for building trust between government and citizens, enabling informed 
-              public discourse, and supporting evidence-based policy making.
-            </p>
+            <p>{t("mission.content1")}</p>
+            <p>{t("mission.content2")}</p>
           </CardContent>
         </Card>
 
         {/* Data Sources */}
         <Card>
           <CardHeader>
-            <CardTitle>Data Sources & Methodology</CardTitle>
-            <CardDescription>
-              All data is sourced from official government regulations and public documents
-            </CardDescription>
+            <CardTitle>{t("dataSources.title")}</CardTitle>
+            <CardDescription>{t("dataSources.subtitle")}</CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-3">
-                <h4 className="font-semibold">Civil Service Salaries</h4>
+                <h4 className="font-semibold">
+                  {t("dataSources.civilService")}
+                </h4>
                 <ul className="space-y-2 text-sm">
-                  <li>• <Badge variant="outline">PP No. 15/2024</Badge> - Base salary structure</li>
-                  <li>• <Badge variant="outline">Ministry Regulations</Badge> - Performance allowances</li>
-                  <li>• <Badge variant="outline">Government Circulars</Badge> - Additional benefits</li>
+                  <li>
+                    • <Badge variant="outline">PP No. 15/2024</Badge> - Base
+                    salary structure
+                  </li>
+                  <li>
+                    • <Badge variant="outline">Ministry Regulations</Badge> -
+                    Performance allowances
+                  </li>
+                  <li>
+                    • <Badge variant="outline">Government Circulars</Badge> -
+                    Additional benefits
+                  </li>
                 </ul>
               </div>
-              
+
               <div className="space-y-3">
-                <h4 className="font-semibold">Public Officials</h4>
+                <h4 className="font-semibold">
+                  {t("dataSources.publicOfficials")}
+                </h4>
                 <ul className="space-y-2 text-sm">
-                  <li>• <Badge variant="outline">UU No. 7/2017</Badge> - State officials compensation</li>
-                  <li>• <Badge variant="outline">Regional Regulations</Badge> - Local officials salary</li>
-                  <li>• <Badge variant="outline">Official Announcements</Badge> - Current rates</li>
+                  <li>
+                    • <Badge variant="outline">UU No. 7/2017</Badge> - State
+                    officials compensation
+                  </li>
+                  <li>
+                    • <Badge variant="outline">Regional Regulations</Badge> -
+                    Local officials salary
+                  </li>
+                  <li>
+                    • <Badge variant="outline">Official Announcements</Badge> -
+                    Current rates
+                  </li>
                 </ul>
               </div>
             </div>
 
             <div className="border-t pt-4">
-              <h4 className="font-semibold mb-3">Data Quality Assurance</h4>
+              <h4 className="font-semibold mb-3">{t("dataSources.quality")}</h4>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="text-center p-4 bg-muted rounded-lg">
                   <div className="font-bold text-2xl text-primary">100%</div>
-                  <div className="text-sm">Official Sources</div>
+                  <div className="text-sm">
+                    {t("dataSources.officialSources")}
+                  </div>
                 </div>
                 <div className="text-center p-4 bg-muted rounded-lg">
                   <div className="font-bold text-2xl text-primary">Monthly</div>
-                  <div className="text-sm">Data Updates</div>
+                  <div className="text-sm">{t("dataSources.dataUpdates")}</div>
                 </div>
                 <div className="text-center p-4 bg-muted rounded-lg">
-                  <div className="font-bold text-2xl text-primary">Cross-checked</div>
-                  <div className="text-sm">Verification</div>
+                  <div className="font-bold text-2xl text-primary">
+                    Cross-checked
+                  </div>
+                  <div className="text-sm">{t("dataSources.verification")}</div>
                 </div>
               </div>
             </div>
@@ -107,7 +127,7 @@ export default async function AboutPage({
         {/* Features */}
         <Card>
           <CardHeader>
-            <CardTitle>Platform Features</CardTitle>
+            <CardTitle>{t("features.title")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -117,21 +137,25 @@ export default async function AboutPage({
                     <span className="text-primary font-bold">💰</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold">Salary Calculator</h4>
+                    <h4 className="font-semibold">
+                      {t("features.salaryCalculator.title")}
+                    </h4>
                     <p className="text-sm text-muted-foreground">
-                      Interactive calculator for civil service compensation based on grade, position, and experience
+                      {t("features.salaryCalculator.desc")}
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-3">
                   <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
                     <span className="text-primary font-bold">🔍</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold">Advanced Search</h4>
+                    <h4 className="font-semibold">
+                      {t("features.advancedSearch.title")}
+                    </h4>
                     <p className="text-sm text-muted-foreground">
-                      Comprehensive search and filtering across all salary data with export capabilities
+                      {t("features.advancedSearch.desc")}
                     </p>
                   </div>
                 </div>
@@ -141,9 +165,11 @@ export default async function AboutPage({
                     <span className="text-primary font-bold">📊</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold">Data Visualization</h4>
+                    <h4 className="font-semibold">
+                      {t("features.dataVisualization.title")}
+                    </h4>
                     <p className="text-sm text-muted-foreground">
-                      Interactive charts and analytics for salary trends and comparisons
+                      {t("features.dataVisualization.desc")}
                     </p>
                   </div>
                 </div>
@@ -155,21 +181,25 @@ export default async function AboutPage({
                     <span className="text-primary font-bold">👨‍💼</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold">Officials Directory</h4>
+                    <h4 className="font-semibold">
+                      {t("features.officialsDirectory.title")}
+                    </h4>
                     <p className="text-sm text-muted-foreground">
-                      Complete database of national and regional public officials compensation
+                      {t("features.officialsDirectory.desc")}
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-3">
                   <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
                     <span className="text-primary font-bold">🌍</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold">Bilingual Support</h4>
+                    <h4 className="font-semibold">
+                      {t("features.bilingualSupport.title")}
+                    </h4>
                     <p className="text-sm text-muted-foreground">
-                      Full Indonesian and English language support for accessibility
+                      {t("features.bilingualSupport.desc")}
                     </p>
                   </div>
                 </div>
@@ -179,9 +209,11 @@ export default async function AboutPage({
                     <span className="text-primary font-bold">🔗</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold">Open API</h4>
+                    <h4 className="font-semibold">
+                      {t("features.openApi.title")}
+                    </h4>
                     <p className="text-sm text-muted-foreground">
-                      Developer-friendly API access for research and application development
+                      {t("features.openApi.desc")}
                     </p>
                   </div>
                 </div>
@@ -193,21 +225,17 @@ export default async function AboutPage({
         {/* Legal & Compliance */}
         <Card>
           <CardHeader>
-            <CardTitle>Legal Compliance</CardTitle>
+            <CardTitle>{t("legal.title")}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <p>
-              This platform operates in full compliance with Indonesian public information 
-              transparency laws, including:
-            </p>
+            <p>{t("legal.content")}</p>
             <ul className="space-y-2 text-sm">
-              <li>• <strong>UU No. 14/2008</strong> - Public Information Openness Law</li>
-              <li>• <strong>Government Transparency Principles</strong> - Right to public information access</li>
-              <li>• <strong>Data Protection Standards</strong> - Responsible data handling and privacy protection</li>
+              <li>• {t("legal.law1")}</li>
+              <li>• {t("legal.law2")}</li>
+              <li>• {t("legal.law3")}</li>
             </ul>
             <p className="text-sm text-muted-foreground">
-              All salary information presented is already public by law and sourced from official 
-              government publications. No private or confidential information is collected or displayed.
+              {t("legal.disclaimer")}
             </p>
           </CardContent>
         </Card>
@@ -215,13 +243,10 @@ export default async function AboutPage({
         {/* Contact */}
         <Card>
           <CardHeader>
-            <CardTitle>Contact & Feedback</CardTitle>
+            <CardTitle>{t("contact.title")}</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="mb-4">
-              We welcome feedback, suggestions, and reports of data inaccuracies. Help us improve 
-              transparency in Indonesian public service.
-            </p>
+            <p className="mb-4">{t("contact.content")}</p>
             <div className="flex flex-wrap gap-4">
               <Badge variant="outline">GitHub: forpublic-id/salary</Badge>
               <Badge variant="outline">Email: contact@forpublic.id</Badge>
@@ -231,5 +256,5 @@ export default async function AboutPage({
         </Card>
       </div>
     </div>
-  )
+  );
 }

@@ -1,32 +1,36 @@
-import { getTranslations } from 'next-intl/server'
-import { generateSEOMetadata, generatePageKeywords, generateBrowseDescription } from '@/lib/seo'
-import BrowsePageClient from './BrowsePageClient'
+import { getTranslations } from "next-intl/server";
+import {
+  generateSEOMetadata,
+  generatePageKeywords,
+  generateBrowseDescription,
+} from "@/lib/seo";
+import BrowsePageClient from "./BrowsePageClient";
 
 export async function generateMetadata({
-  params
+  params,
 }: {
-  params: Promise<{ locale: string }>
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params
-  const t = await getTranslations({ locale, namespace: 'browse' })
-  
-  const keywords = generatePageKeywords('browse', locale)
-  const description = generateBrowseDescription(500, locale) // Estimate 500+ data points
-  
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "browse" });
+
+  const keywords = generatePageKeywords("browse", locale);
+  const description = generateBrowseDescription(500, locale); // Estimate 500+ data points
+
   return generateSEOMetadata({
-    title: t('title'),
+    title: t("title"),
     description,
     keywords,
-    locale
-  })
+    locale,
+  });
 }
 
 export default async function BrowsePage({
-  params
+  params,
 }: {
-  params: Promise<{ locale: string }>
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params
-  
-  return <BrowsePageClient locale={locale} />
+  const { locale } = await params;
+
+  return <BrowsePageClient locale={locale} />;
 }

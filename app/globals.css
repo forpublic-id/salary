@@ -1,5 +1,5 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import "tailwindcss";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -39,11 +39,11 @@
   --card-foreground: oklch(0.15 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.15 0 0);
-  
+
   /* Forest Green "Transparansi Hijau" - melambangkan keterbukaan dan pertumbuhan */
   --primary: oklch(0.55 0.15 160);
   --primary-foreground: oklch(0.98 0 0);
-  
+
   /* Soft secondary colors - hijau lembut untuk harmony */
   --secondary: oklch(0.96 0.02 160);
   --secondary-foreground: oklch(0.25 0.12 160);
@@ -51,7 +51,7 @@
   --muted-foreground: oklch(0.48 0.06 160);
   --accent: oklch(0.94 0.03 160);
   --accent-foreground: oklch(0.28 0.15 160);
-  
+
   /* Borders and inputs - hijau natural */
   --border: oklch(0.88 0.02 160);
   --input: oklch(0.94 0.02 160);

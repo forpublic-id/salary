@@ -2,19 +2,52 @@
   "navigation": {
     "home": "Beranda",
     "calculator": "Kalkulator Gaji",
+    "regional-wages": "Upah Regional",
     "browse": "Jelajahi",
     "analysis": "Analisis",
     "officials": "Pejabat Publik",
     "about": "Tentang"
   },
   "hero": {
-    "title": "Transparansi Gaji PNS & Pejabat Publik Indonesia",
-    "subtitle": "Platform komprehensif untuk mengakses informasi gaji, tunjangan, dan kompensasi pegawai negeri sipil serta pejabat publik Indonesia",
+    "title": "Transparansi Gaji & Upah Indonesia",
+    "subtitle": "Platform komprehensif transparansi gaji dan upah di Indonesia - sektor publik, pejabat, upah regional, dan informasi kompensasi terkini",
     "cta": "Mulai Eksplorasi",
-    "calculateSalary": "Hitung Gaji"
+    "calculateSalary": "Hitung Gaji",
+    "features": {
+      "calculator": {
+        "title": "Kalkulator Gaji",
+        "desc": "Hitung estimasi gaji dan kompensasi berdasarkan jabatan, golongan, dan masa kerja"
+      },
+      "regionalWages": {
+        "title": "Upah Regional",
+        "desc": "Bandingkan upah minimum regional di seluruh Indonesia"
+      },
+      "browse": {
+        "title": "Jelajahi Data",
+        "desc": "Telusuri dan bandingkan data gaji dari berbagai sektor dan instansi"
+      },
+      "analysis": {
+        "title": "Analisis Data",
+        "desc": "Visualisasi dan analisis mendalam tren gaji dan upah di Indonesia"
+      },
+      "officials": {
+        "title": "Pejabat Publik",
+        "desc": "Database lengkap kompensasi pejabat negara dan daerah"
+      },
+      "openSource": {
+        "title": "Open Source",
+        "desc": "Platform terbuka untuk transparansi dan akuntabilitas publik"
+      }
+    },
+    "stats": {
+      "golongan": "Golongan Gaji",
+      "ministries": "Kementerian",
+      "officials": "Pejabat Publik",
+      "updated": "Terakhir Update"
+    }
   },
   "calculator": {
-    "title": "Kalkulator Gaji PNS",
+    "title": "Kalkulator Gaji",
     "subtitle": "Hitung estimasi gaji dan tunjangan berdasarkan golongan, jabatan, dan masa kerja",
     "golongan": "Golongan",
     "selectGolongan": "Pilih Golongan",
@@ -36,7 +69,7 @@
   },
   "browse": {
     "title": "Jelajahi Data Gaji",
-    "subtitle": "Telusuri dan bandingkan gaji PNS berdasarkan berbagai kriteria",
+    "subtitle": "Telusuri dan bandingkan gaji berdasarkan berbagai kriteria dan sektor",
     "search": "Cari jabatan, golongan, atau kementerian...",
     "filters": {
       "golongan": "Filter Golongan",
@@ -71,6 +104,15 @@
       "legislative": "Legislatif"
     }
   },
+  "officials": {
+    "title": "Pejabat Publik Indonesia",
+    "subtitle": "Informasi gaji dan kompensasi pejabat negara dan daerah berdasarkan peraturan resmi",
+    "baseSalary": "Gaji Pokok",
+    "allowances": "Tunjangan",
+    "totalMonthly": "Total Bulanan",
+    "source": "Sumber",
+    "noData": "Data tidak tersedia saat ini"
+  },
   "common": {
     "loading": "Memuat...",
     "error": "Terjadi kesalahan",
@@ -89,7 +131,7 @@
     "maximum": "Maksimum"
   },
   "footer": {
-    "description": "Transparansi gaji PNS dan pejabat publik Indonesia untuk akuntabilitas yang lebih baik",
+    "description": "Transparansi gaji dan upah Indonesia untuk akuntabilitas yang lebih baik - PNS, pejabat publik, dan upah regional",
     "links": {
       "about": "Tentang",
       "methodology": "Metodologi",
@@ -107,8 +149,91 @@
     }
   },
   "metadata": {
-    "title": "Salary ForPublic.id - Transparansi Gaji PNS Indonesia",
-    "description": "Platform transparansi gaji PNS dan pejabat publik Indonesia. Akses informasi gaji, tunjangan, dan kompensasi lengkap dengan kalkulator interaktif.",
-    "keywords": "gaji PNS, tunjangan kinerja, gaji pejabat, transparansi, Indonesia"
+    "title": "Public Salary ForPublic.id - Transparansi Gaji & Upah Indonesia",
+    "description": "Platform transparansi gaji dan upah Indonesia. Akses informasi gaji PNS, pejabat publik, upah regional, dan kompensasi lengkap dengan kalkulator interaktif.",
+    "keywords": "gaji Indonesia, upah minimum, transparansi gaji, UMR, pejabat publik, kalkulator gaji"
+  },
+  "regional-wages": {
+    "meta": {
+      "title": "Upah Minimum Regional Indonesia | Kalkulator UMR UMP",
+      "description": "Kalkulator dan data lengkap upah minimum regional di seluruh Indonesia. Bandingkan UMR, UMP, dan daya beli di berbagai daerah."
+    },
+    "title": "Upah Minimum Regional",
+    "subtitle": "Kalkulator dan data lengkap upah minimum di seluruh Indonesia",
+    "calculator": {
+      "title": "Kalkulator Upah Minimum Regional",
+      "subtitle": "Hitung dan bandingkan upah minimum di berbagai daerah Indonesia",
+      "selectProvince": "Pilih Provinsi",
+      "selectCity": "Pilih Kota/Kabupaten",
+      "monthlyWage": "UMR/Bulanan",
+      "dailyWage": "Harian",
+      "hourlyWage": "Per Jam",
+      "annualWage": "Tahunan",
+      "costOfLiving": "Biaya Hidup",
+      "comparison": "Perbandingan dengan Jakarta",
+      "adjusted": "Daya Beli Disesuaikan"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "Tentang - Public Salary ForPublic.id",
+      "description": "Pelajari metodologi dan sumber data kami untuk transparansi gaji dan upah Indonesia"
+    },
+    "title": "Tentang Public Salary ForPublic.id",
+    "subtitle": "Mempromosikan transparansi dalam kompensasi sektor publik dan upah di Indonesia",
+    "mission": {
+      "title": "Misi Kami",
+      "content1": "Public Salary ForPublic.id didedikasikan untuk mempromosikan transparansi dan akuntabilitas dalam kompensasi sektor publik Indonesia. Kami menyediakan informasi yang komprehensif, akurat, dan mudah diakses tentang gaji, upah, dan kompensasi di berbagai sektor untuk mendorong pemahaman dan pengawasan publik yang lebih baik.",
+      "content2": "Sebagai bagian dari ekosistem ForPublic.id, kami percaya bahwa transparansi dalam keuangan publik sangat penting untuk membangun kepercayaan antara pemerintah dan warga negara, memungkinkan diskusi publik yang terinformasi, dan mendukung pembuatan kebijakan berbasis bukti."
+    },
+    "dataSources": {
+      "title": "Sumber Data & Metodologi",
+      "subtitle": "Semua data bersumber dari peraturan pemerintah resmi dan dokumen publik",
+      "civilService": "Gaji Sektor Publik",
+      "publicOfficials": "Pejabat Publik",
+      "quality": "Jaminan Kualitas Data",
+      "officialSources": "Sumber Resmi",
+      "dataUpdates": "Pembaruan Data",
+      "verification": "Verifikasi"
+    },
+    "features": {
+      "title": "Fitur Platform",
+      "salaryCalculator": {
+        "title": "Kalkulator Gaji",
+        "desc": "Kalkulator interaktif untuk kompensasi berdasarkan golongan, jabatan, dan pengalaman"
+      },
+      "advancedSearch": {
+        "title": "Pencarian Lanjutan",
+        "desc": "Pencarian dan filter komprehensif di semua data gaji dengan kemampuan ekspor"
+      },
+      "dataVisualization": {
+        "title": "Visualisasi Data",
+        "desc": "Grafik interaktif dan analitik untuk tren dan perbandingan gaji"
+      },
+      "officialsDirectory": {
+        "title": "Direktori Pejabat",
+        "desc": "Database lengkap kompensasi pejabat publik nasional dan regional"
+      },
+      "bilingualSupport": {
+        "title": "Dukungan Dwi-bahasa",
+        "desc": "Dukungan lengkap bahasa Indonesia dan Inggris untuk aksesibilitas"
+      },
+      "openApi": {
+        "title": "API Terbuka",
+        "desc": "Akses API yang ramah developer untuk penelitian dan pengembangan aplikasi"
+      }
+    },
+    "legal": {
+      "title": "Kepatuhan Hukum",
+      "content": "Platform ini beroperasi sepenuhnya mematuhi hukum transparansi informasi publik Indonesia, termasuk:",
+      "law1": "UU No. 14/2008 - Undang-Undang Keterbukaan Informasi Publik",
+      "law2": "Prinsip Transparansi Pemerintah - Hak akses informasi publik",
+      "law3": "Standar Perlindungan Data - Penanganan data yang bertanggung jawab dan perlindungan privasi",
+      "disclaimer": "Semua informasi gaji yang disajikan sudah menjadi publik menurut hukum dan bersumber dari publikasi pemerintah resmi. Tidak ada informasi pribadi atau rahasia yang dikumpulkan atau ditampilkan."
+    },
+    "contact": {
+      "title": "Kontak & Masukan",
+      "content": "Kami menyambut masukan, saran, dan laporan ketidakakuratan data. Bantu kami meningkatkan transparansi dalam pelayanan publik Indonesia."
+    }
   }
 }

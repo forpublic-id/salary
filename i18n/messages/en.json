@@ -2,19 +2,52 @@
   "navigation": {
     "home": "Home",
     "calculator": "Salary Calculator",
+    "regional-wages": "Regional Wages",
     "browse": "Browse",
     "analysis": "Analysis",
     "officials": "Public Officials",
     "about": "About"
   },
   "hero": {
-    "title": "Indonesian Civil Service & Public Officials Salary Transparency",
-    "subtitle": "Comprehensive platform to access salary, allowance, and compensation information for Indonesian civil servants and public officials",
+    "title": "Indonesian Salary & Wage Transparency",
+    "subtitle": "Comprehensive salary and wage transparency platform for Indonesia - public sector, officials, regional wages, and compensation data",
     "cta": "Start Exploring",
-    "calculateSalary": "Calculate Salary"
+    "calculateSalary": "Calculate Salary",
+    "features": {
+      "calculator": {
+        "title": "Salary Calculator",
+        "desc": "Calculate salary and compensation estimates by grade, position, and experience"
+      },
+      "regionalWages": {
+        "title": "Regional Wages",
+        "desc": "Compare regional minimum wages across Indonesia"
+      },
+      "browse": {
+        "title": "Browse Data",
+        "desc": "Explore and compare salary data across sectors and institutions"
+      },
+      "analysis": {
+        "title": "Data Analysis",
+        "desc": "In-depth visualization and analysis of salary and wage trends in Indonesia"
+      },
+      "officials": {
+        "title": "Public Officials",
+        "desc": "Complete database of national and regional officials compensation"
+      },
+      "openSource": {
+        "title": "Open Source",
+        "desc": "Open platform for public transparency and accountability"
+      }
+    },
+    "stats": {
+      "golongan": "Salary Grades",
+      "ministries": "Ministries",
+      "officials": "Public Officials",
+      "updated": "Last Updated"
+    }
   },
   "calculator": {
-    "title": "Civil Service Salary Calculator",
+    "title": "Salary Calculator",
     "subtitle": "Calculate estimated salary and allowances based on grade, position, and years of service",
     "golongan": "Grade",
     "selectGolongan": "Select Grade",
@@ -36,7 +69,7 @@
   },
   "browse": {
     "title": "Browse Salary Data",
-    "subtitle": "Explore and compare civil service salaries based on various criteria",
+    "subtitle": "Explore and compare salaries based on various criteria and sectors",
     "search": "Search positions, grades, or ministries...",
     "filters": {
       "golongan": "Filter by Grade",
@@ -71,6 +104,15 @@
       "legislative": "Legislative"
     }
   },
+  "officials": {
+    "title": "Indonesian Public Officials",
+    "subtitle": "Salary and compensation information for national and regional officials based on official regulations",
+    "baseSalary": "Base Salary",
+    "allowances": "Allowances",
+    "totalMonthly": "Total Monthly",
+    "source": "Source",
+    "noData": "Data not available at this time"
+  },
   "common": {
     "loading": "Loading...",
     "error": "An error occurred",
@@ -89,7 +131,7 @@
     "maximum": "Maximum"
   },
   "footer": {
-    "description": "Indonesian civil service and public officials salary transparency for better accountability",
+    "description": "Indonesian salary and wage transparency for better accountability - public sector, officials, and regional wages",
     "links": {
       "about": "About",
       "methodology": "Methodology",
@@ -107,8 +149,91 @@
     }
   },
   "metadata": {
-    "title": "Salary ForPublic.id - Indonesian Civil Service Salary Transparency",
-    "description": "Indonesian civil service and public officials salary transparency platform. Access comprehensive salary, allowance, and compensation information with interactive calculator.",
-    "keywords": "civil service salary, performance allowance, official salary, transparency, Indonesia"
+    "title": "Public Salary ForPublic.id - Indonesian Salary & Wage Transparency",
+    "description": "Indonesian salary and wage transparency platform. Access comprehensive public sector, officials, regional wage, and compensation information with interactive calculator.",
+    "keywords": "Indonesia salary, minimum wage, salary transparency, UMR, public officials, salary calculator"
+  },
+  "regional-wages": {
+    "meta": {
+      "title": "Indonesia Regional Minimum Wages | UMR UMP Calculator",
+      "description": "Complete calculator and data for minimum wages across Indonesian regions. Compare UMR, UMP, and purchasing power across different areas."
+    },
+    "title": "Regional Minimum Wages",
+    "subtitle": "Complete calculator and data for minimum wages across Indonesia",
+    "calculator": {
+      "title": "Regional Minimum Wage Calculator",
+      "subtitle": "Calculate and compare minimum wages across Indonesian regions",
+      "selectProvince": "Select Province",
+      "selectCity": "Select City/Regency",
+      "monthlyWage": "Monthly Wage",
+      "dailyWage": "Daily",
+      "hourlyWage": "Hourly",
+      "annualWage": "Annual",
+      "costOfLiving": "Cost of Living",
+      "comparison": "Comparison with Jakarta",
+      "adjusted": "Cost of Living Adjusted"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "About - Public Salary ForPublic.id",
+      "description": "Learn about our methodology and data sources for Indonesian salary and wage transparency"
+    },
+    "title": "About Public Salary ForPublic.id",
+    "subtitle": "Promoting transparency in Indonesian public sector and wage compensation",
+    "mission": {
+      "title": "Our Mission",
+      "content1": "Public Salary ForPublic.id is dedicated to promoting transparency and accountability in Indonesian public sector compensation. We provide comprehensive, accurate, and accessible information about salaries, wages, and compensation across various sectors to foster better public understanding and oversight.",
+      "content2": "As part of the ForPublic.id ecosystem, we believe that transparency in public finance is essential for building trust between government and citizens, enabling informed public discourse, and supporting evidence-based policy making."
+    },
+    "dataSources": {
+      "title": "Data Sources & Methodology",
+      "subtitle": "All data is sourced from official government regulations and public documents",
+      "civilService": "Public Sector Salaries",
+      "publicOfficials": "Public Officials",
+      "quality": "Data Quality Assurance",
+      "officialSources": "Official Sources",
+      "dataUpdates": "Data Updates",
+      "verification": "Verification"
+    },
+    "features": {
+      "title": "Platform Features",
+      "salaryCalculator": {
+        "title": "Salary Calculator",
+        "desc": "Interactive calculator for compensation based on grade, position, and experience"
+      },
+      "advancedSearch": {
+        "title": "Advanced Search",
+        "desc": "Comprehensive search and filtering across all salary data with export capabilities"
+      },
+      "dataVisualization": {
+        "title": "Data Visualization",
+        "desc": "Interactive charts and analytics for salary trends and comparisons"
+      },
+      "officialsDirectory": {
+        "title": "Officials Directory",
+        "desc": "Complete database of national and regional public officials compensation"
+      },
+      "bilingualSupport": {
+        "title": "Bilingual Support",
+        "desc": "Full Indonesian and English language support for accessibility"
+      },
+      "openApi": {
+        "title": "Open API",
+        "desc": "Developer-friendly API access for research and application development"
+      }
+    },
+    "legal": {
+      "title": "Legal Compliance",
+      "content": "This platform operates in full compliance with Indonesian public information transparency laws, including:",
+      "law1": "UU No. 14/2008 - Public Information Openness Law",
+      "law2": "Government Transparency Principles - Right to public information access",
+      "law3": "Data Protection Standards - Responsible data handling and privacy protection",
+      "disclaimer": "All salary information presented is already public by law and sourced from official government publications. No private or confidential information is collected or displayed."
+    },
+    "contact": {
+      "title": "Contact & Feedback",
+      "content": "We welcome feedback, suggestions, and reports of data inaccuracies. Help us improve transparency in Indonesian public service."
+    }
   }
 }

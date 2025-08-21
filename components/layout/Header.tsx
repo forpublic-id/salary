@@ -1,52 +1,69 @@
-"use client"
+"use client";
 
-import { useState } from 'react'
-import { useTranslations, useLocale } from 'next-intl'
-import { Menu, X, Calculator, Search, BarChart3, Users, Info } from 'lucide-react'
-import Link from 'next/link'
-import { Button } from '@/components/ui/Button'
-import { Badge } from '@/components/ui/Badge'
+import { useState } from "react";
+import { useTranslations, useLocale } from "next-intl";
+import {
+  Menu,
+  X,
+  Calculator,
+  Search,
+  BarChart3,
+  Users,
+  Info,
+  MapPin,
+} from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/Button";
+import { Badge } from "@/components/ui/Badge";
 
 const navigation = [
-  { key: 'home', href: '/', icon: null },
-  { key: 'calculator', href: '/calculator', icon: Calculator },
-  { key: 'browse', href: '/browse', icon: Search },
-  { key: 'analysis', href: '/analysis', icon: BarChart3 },
-  { key: 'officials', href: '/officials', icon: Users },
-  { key: 'about', href: '/about', icon: Info },
-]
+  { key: "home", href: "/", icon: null },
+  { key: "calculator", href: "/calculator", icon: Calculator },
+  { key: "regional-wages", href: "/regional-wages", icon: MapPin },
+  { key: "browse", href: "/browse", icon: Search },
+  { key: "analysis", href: "/analysis", icon: BarChart3 },
+  { key: "officials", href: "/officials", icon: Users },
+  { key: "about", href: "/about", icon: Info },
+];
 
 export function Header() {
-  const t = useTranslations('navigation')
-  const locale = useLocale()
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const t = useTranslations("navigation");
+  const locale = useLocale();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen)
-  }
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
 
-  const LanguageSwitcher = () => (
-    <div className="flex gap-1">
-      <Link href={`/id${window.location.pathname.replace(`/${locale}`, '')}`}>
-        <Button 
-          variant={locale === 'id' ? 'default' : 'ghost'} 
-          size="sm"
-          className="h-8 px-2"
-        >
-          ID
-        </Button>
-      </Link>
-      <Link href={`/en${window.location.pathname.replace(`/${locale}`, '')}`}>
-        <Button 
-          variant={locale === 'en' ? 'default' : 'ghost'} 
-          size="sm"
-          className="h-8 px-2"
-        >
-          EN
-        </Button>
-      </Link>
-    </div>
-  )
+  const LanguageSwitcher = () => {
+    const currentPath =
+      typeof window !== "undefined"
+        ? window.location.pathname.replace(`/${locale}`, "")
+        : "";
+
+    return (
+      <div className="flex gap-1">
+        <Link href={`/id${currentPath}`}>
+          <Button
+            variant={locale === "id" ? "default" : "ghost"}
+            size="sm"
+            className="h-8 px-2"
+          >
+            ID
+          </Button>
+        </Link>
+        <Link href={`/en${currentPath}`}>
+          <Button
+            variant={locale === "en" ? "default" : "ghost"}
+            size="sm"
+            className="h-8 px-2"
+          >
+            EN
+          </Button>
+        </Link>
+      </div>
+    );
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -54,21 +71,24 @@ export function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href={`/${locale}`} className="flex items-center space-x-3">
-            <div className="flex items-center justify-center w-8 h-8 bg-primary text-primary-foreground rounded-md font-bold text-lg">
-              $
+            <div className="flex items-center justify-center w-8 h-8 bg-primary text-primary-foreground rounded-md font-bold text-sm">
+              Rp
             </div>
-            <div className="font-bold text-xl">
-              Salary <span className="text-primary">ForPublic</span>
-              <Badge variant="outline" className="ml-2 text-xs">
-                ID
-              </Badge>
+            <div className="flex flex-col min-w-0">
+              <span className="text-xl font-bold text-foreground whitespace-nowrap">
+                Public <span className="text-primary">Salary</span>
+              </span>
+              <span className="text-xs text-muted-foreground font-medium whitespace-nowrap">
+                by <span className="text-foreground">ForPublic</span>
+                <span className="text-red-600">.id</span>
+              </span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
             {navigation.map((item) => {
-              const Icon = item.icon
+              const Icon = item.icon;
               return (
                 <Link
                   key={item.key}
@@ -78,7 +98,7 @@ export function Header() {
                   {Icon && <Icon className="w-4 h-4" />}
                   <span>{t(item.key as any)}</span>
                 </Link>
-              )
+              );
             })}
           </nav>
 
@@ -107,7 +127,7 @@ export function Header() {
           <div className="md:hidden border-t py-4 px-4 md:px-6 lg:px-8">
             <nav className="space-y-4">
               {navigation.map((item) => {
-                const Icon = item.icon
+                const Icon = item.icon;
                 return (
                   <Link
                     key={item.key}
@@ -118,10 +138,10 @@ export function Header() {
                     {Icon && <Icon className="w-4 h-4" />}
                     <span>{t(item.key as any)}</span>
                   </Link>
-                )
+                );
               })}
             </nav>
-            
+
             <div className="flex items-center justify-between mt-6 pt-4 border-t">
               <span className="text-sm text-muted-foreground">Language:</span>
               <LanguageSwitcher />
@@ -130,5 +150,5 @@ export function Header() {
         )}
       </div>
     </header>
-  )
+  );
 }
