@@ -31,15 +31,16 @@ export default async function AboutPage({
   const t = await getTranslations("about");
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="text-center mb-8">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4">{t("title")}</h1>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          {t("subtitle")}
-        </p>
-      </div>
+    <div className="py-20 px-4 md:px-6 lg:px-8">
+      <div className="container mx-auto max-w-6xl">
+        <div className="text-center mb-12">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">{t("title")}</h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            {t("subtitle")}
+          </p>
+        </div>
 
-      <div className="max-w-4xl mx-auto space-y-8">
+        <div className="max-w-4xl mx-auto space-y-8">
         {/* Mission */}
         <Card>
           <CardHeader>
@@ -254,6 +255,7 @@ export default async function AboutPage({
             </div>
           </CardContent>
         </Card>
+        </div>
       </div>
     </div>
   );

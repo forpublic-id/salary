@@ -108,20 +108,21 @@ export default async function RegionalWagesPage({
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 space-y-8">
-      {/* Header */}
-      <div className="text-center space-y-4">
-        <h1 className="text-3xl font-bold">
-          {locale === "id"
-            ? "Upah Minimum Regional Indonesia"
-            : "Indonesia Regional Minimum Wages"}
-        </h1>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          {locale === "id"
-            ? `Kalkulator dan data lengkap upah minimum di seluruh Indonesia tahun ${currentYear}. Bandingkan UMR, UMP, dan daya beli di berbagai daerah.`
-            : `Complete calculator and data for minimum wages across Indonesia ${currentYear}. Compare UMR, UMP, and purchasing power across regions.`}
-        </p>
-      </div>
+    <div className="py-20 px-4 md:px-6 lg:px-8">
+      <div className="container mx-auto max-w-6xl space-y-8">
+        {/* Header */}
+        <div className="text-center space-y-4">
+          <h1 className="text-3xl md:text-4xl font-bold">
+            {locale === "id"
+              ? "Upah Minimum Regional Indonesia"
+              : "Indonesia Regional Minimum Wages"}
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            {locale === "id"
+              ? `Kalkulator dan data lengkap upah minimum di seluruh Indonesia tahun ${currentYear}. Bandingkan UMR, UMP, dan daya beli di berbagai daerah.`
+              : `Complete calculator and data for minimum wages across Indonesia ${currentYear}. Compare UMR, UMP, and purchasing power across regions.`}
+          </p>
+        </div>
 
       {/* Statistics Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -286,6 +287,7 @@ export default async function RegionalWagesPage({
           </div>
         </CardContent>
       </Card>
+      </div>
     </div>
   );
 }
