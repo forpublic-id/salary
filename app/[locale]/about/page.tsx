@@ -7,6 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
+import { PageWrapper } from "@/components/layout/PageLayout";
 
 export async function generateMetadata({
   params,
@@ -31,16 +32,12 @@ export default async function AboutPage({
   const t = await getTranslations("about");
 
   return (
-    <div className="py-20 px-4 md:px-6 lg:px-8">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">{t("title")}</h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t("subtitle")}
-          </p>
-        </div>
-
-        <div className="max-w-4xl mx-auto space-y-8">
+    <PageWrapper
+      title={t("title")}
+      subtitle={t("subtitle")}
+      maxWidth="4xl"
+    >
+      <div className="space-y-8">
         {/* Mission */}
         <Card>
           <CardHeader>
@@ -255,8 +252,7 @@ export default async function AboutPage({
             </div>
           </CardContent>
         </Card>
-        </div>
       </div>
-    </div>
+    </PageWrapper>
   );
 }

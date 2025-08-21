@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { SalaryCalculator } from "@/components/salary/SalaryCalculator";
+import { PageWrapper } from "@/components/layout/PageLayout";
 import {
   generateSEOMetadata,
   generatePageKeywords,
@@ -34,17 +35,12 @@ export default async function CalculatorPage({
   const t = await getTranslations("calculator");
 
   return (
-    <div className="py-20 px-4 md:px-6 lg:px-8">
-      <div className="container mx-auto max-w-4xl">
-        <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">{t("title")}</h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t("subtitle")}
-          </p>
-        </div>
-
-        <SalaryCalculator locale={locale} />
-      </div>
-    </div>
+    <PageWrapper
+      title={t("title")}
+      subtitle={t("subtitle")}
+      maxWidth="4xl"
+    >
+      <SalaryCalculator locale={locale} />
+    </PageWrapper>
   );
 }

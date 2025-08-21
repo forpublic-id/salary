@@ -7,6 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
+import { PageWrapper } from "@/components/layout/PageLayout";
 import { formatCurrency } from "@/lib/utils";
 import {
   generateSEOMetadata,
@@ -59,17 +60,12 @@ export default async function OfficialsPage({
   const { officials } = await getOfficialSalaryData();
 
   return (
-    <div className="py-20 px-4 md:px-6 lg:px-8">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">{t("title")}</h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t("subtitle")}
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {officials.map((official) => (
+    <PageWrapper
+      title={t("title")}
+      subtitle={t("subtitle")}
+    >
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {officials.map((official) => (
             <Card
               key={official.id}
               className="hover:shadow-lg transition-shadow"
@@ -123,15 +119,14 @@ export default async function OfficialsPage({
                 </div>
               </CardContent>
             </Card>
-          ))}
-        </div>
-
-        {officials.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-muted-foreground">{t("noData")}</p>
-          </div>
-        )}
+        ))}
       </div>
-    </div>
+
+      {officials.length === 0 && (
+        <div className="text-center py-12">
+          <p className="text-muted-foreground">{t("noData")}</p>
+        </div>
+      )}
+    </PageWrapper>
   );
 }

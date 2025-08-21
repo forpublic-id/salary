@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { SalaryCharts } from "@/components/salary/SalaryCharts";
+import { PageWrapper } from "@/components/layout/PageLayout";
 import type { SalaryGolongan, TunjanganKinerja } from "@/lib/types/salary";
 
 interface AnalysisPageClientProps {
@@ -44,28 +45,25 @@ export default function AnalysisPageClient({
 
   if (loading) {
     return (
-      <div className="container mx-auto px-4 py-8">
+      <PageWrapper title={tCommon("loading")} subtitle="">
         <div className="text-center">
           <div className="text-lg">{tCommon("loading")}</div>
         </div>
-      </div>
+      </PageWrapper>
     );
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="text-center mb-8">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4">{t("title")}</h1>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          {t("subtitle")}
-        </p>
-      </div>
+    <PageWrapper
+      title={t("title")}
+      subtitle={t("subtitle")}
+    >
 
       <SalaryCharts
         golonganData={golonganData}
         tunjanganData={tunjanganData}
         locale={locale}
       />
-    </div>
+    </PageWrapper>
   );
 }

@@ -10,6 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
+import { PageLayout } from "@/components/layout/PageLayout";
 import { TrendingUp, MapPin, Users, Calculator } from "lucide-react";
 
 interface RegionalWagesPageProps {
@@ -107,22 +108,25 @@ export default async function RegionalWagesPage({
     }).format(amount);
   };
 
+  const title = locale === "id" 
+    ? "Upah Minimum Regional Indonesia" 
+    : "Indonesia Regional Minimum Wages";
+    
+  const subtitle = locale === "id"
+    ? `Kalkulator dan data lengkap upah minimum di seluruh Indonesia tahun ${currentYear}. Bandingkan UMR, UMP, dan daya beli di berbagai daerah.`
+    : `Complete calculator and data for minimum wages across Indonesia ${currentYear}. Compare UMR, UMP, and purchasing power across regions.`;
+
   return (
-    <div className="py-20 px-4 md:px-6 lg:px-8">
-      <div className="container mx-auto max-w-6xl space-y-8">
-        {/* Header */}
-        <div className="text-center space-y-4">
-          <h1 className="text-3xl md:text-4xl font-bold">
-            {locale === "id"
-              ? "Upah Minimum Regional Indonesia"
-              : "Indonesia Regional Minimum Wages"}
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {locale === "id"
-              ? `Kalkulator dan data lengkap upah minimum di seluruh Indonesia tahun ${currentYear}. Bandingkan UMR, UMP, dan daya beli di berbagai daerah.`
-              : `Complete calculator and data for minimum wages across Indonesia ${currentYear}. Compare UMR, UMP, and purchasing power across regions.`}
-          </p>
-        </div>
+    <PageLayout className="space-y-8">
+      {/* Header */}
+      <div className="text-center space-y-4">
+        <h1 className="text-3xl md:text-4xl font-bold">
+          {title}
+        </h1>
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          {subtitle}
+        </p>
+      </div>
 
       {/* Statistics Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -287,7 +291,6 @@ export default async function RegionalWagesPage({
           </div>
         </CardContent>
       </Card>
-      </div>
-    </div>
+    </PageLayout>
   );
 }
