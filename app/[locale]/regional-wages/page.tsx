@@ -23,16 +23,11 @@ async function getRegionalWageData(
   year: number,
 ): Promise<RegionalWageData | null> {
   try {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/data/salary/regional-wages/${year}.json`,
-      {
-        cache: "no-store",
-      },
-    );
-    if (!response.ok) return null;
-    return response.json();
+    // Use dynamic import for static file during build time (works in production)
+    const data = await import(`@/public/data/salary/regional-wages/${year}.json`);
+    return data.default || data;
   } catch (error) {
-    console.error("Error fetching regional wage data:", error);
+    console.error("Error loading regional wage data:", error);
     return null;
   }
 }

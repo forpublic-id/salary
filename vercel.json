@@ -18,6 +18,9 @@
     },
     "app/[locale]/officials/page.tsx": {
       "maxDuration": 10
+    },
+    "app/[locale]/regional-wages/page.tsx": {
+      "maxDuration": 10
     }
   },
   "headers": [
