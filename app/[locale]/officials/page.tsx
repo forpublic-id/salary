@@ -48,15 +48,16 @@ export default async function OfficialsPage({
   const { officials } = await getOfficialSalaryData()
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="text-center mb-8">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4">
-          {t('title')}
-        </h1>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          {t('subtitle')}
-        </p>
-      </div>
+    <div className="py-20 px-4 md:px-6 lg:px-8">
+      <div className="container mx-auto max-w-6xl">
+        <div className="text-center mb-12">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">
+            {t('title')}
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            {t('subtitle')}
+          </p>
+        </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {officials.map((official) => (
@@ -110,13 +111,14 @@ export default async function OfficialsPage({
             </CardContent>
           </Card>
         ))}
-      </div>
-      
-      {officials.length === 0 && (
-        <div className="text-center py-12">
-          <p className="text-muted-foreground">{tCommon('noData')}</p>
         </div>
-      )}
+        
+        {officials.length === 0 && (
+          <div className="text-center py-12">
+            <p className="text-muted-foreground">{tCommon('noData')}</p>
+          </div>
+        )}
+      </div>
     </div>
   )
 }

@@ -79,38 +79,40 @@ export default async function HomePage({
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-16 text-center">
-        <div className="space-y-8">
-          <div className="space-y-4">
-            <Badge variant="outline" className="mx-auto">
-              {locale === 'id' ? 'Transparansi Publik' : 'Public Transparency'}
-            </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground max-w-4xl mx-auto leading-tight">
-              {t('title')}
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-              {t('subtitle')}
-            </p>
-          </div>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href={`/${locale}/browse`}>
-              <Button size="lg" className="px-8">
-                {t('cta')}
-              </Button>
-            </Link>
-            <Link href={`/${locale}/calculator`}>
-              <Button variant="outline" size="lg" className="px-8">
-                {t('calculateSalary')}
-              </Button>
-            </Link>
+      <section className="py-20 px-4 md:px-6 lg:px-8 bg-gradient-to-br from-primary/5 to-background">
+        <div className="container mx-auto text-center max-w-4xl">
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <Badge variant="outline" className="mx-auto">
+                {locale === 'id' ? 'Transparansi Publik' : 'Public Transparency'}
+              </Badge>
+              <h1 className="text-4xl md:text-6xl font-bold text-foreground leading-tight">
+                {t('title')}
+              </h1>
+              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+                {t('subtitle')}
+              </p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href={`/${locale}/browse`}>
+                <Button size="lg" className="px-8">
+                  {t('cta')}
+                </Button>
+              </Link>
+              <Link href={`/${locale}/calculator`}>
+                <Button variant="outline" size="lg" className="px-8">
+                  {t('calculateSalary')}
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="bg-muted/30 py-16">
-        <div className="container mx-auto px-4">
+      <section className="py-20 px-4 md:px-6 lg:px-8 bg-muted/30">
+        <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
               {locale === 'id' ? 'Fitur Platform' : 'Platform Features'}
