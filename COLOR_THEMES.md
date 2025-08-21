@@ -10,19 +10,20 @@ Platform saat ini menggunakan **Government Blue Theme** yang lebih cerah dan pro
 
 ---
 
-## ✅ Current Theme: Indonesian Government Blue
+## ✅ Current Theme: Forest Green "Transparansi Hijau"
 
-**Karakteristik:**
-- ✅ Background sangat cerah (putih bersih)
-- ✅ Primary color: Biru pemerintah Indonesia yang cerah `oklch(0.65 0.18 240)`
-- ✅ Tombol dan elemen utama mudah terlihat (tidak hitam lagi!)
-- ✅ Professional, trustworthy, accessible
-- ✅ Kontras optimal untuk readability
+**Filosofi & Karakteristik:**
+- 🌱 **Transparansi**: Hijau melambangkan keterbukaan dan kejernihan
+- 🌿 **Pertumbuhan**: Growth demokrasi dan akuntabilitas pemerintahan
+- 🍃 **Harmony**: Balance antara pemerintah dan rakyat Indonesia
+- ✅ **Natural**: Genuine transparency, tidak artifisial
+- ✅ **Non-partisan**: Netral secara politik, fokus pada transparansi
 
 **Warna Utama:**
-- **Primary**: `oklch(0.65 0.18 240)` - Biru cerah profesional
+- **Primary**: `oklch(0.55 0.15 160)` - Forest Green profesional
 - **Background**: `oklch(0.99 0 0)` - Hampir putih bersih
 - **Foreground**: `oklch(0.15 0 0)` - Text gelap yang mudah dibaca
+- **Philosophy**: Green = Transparansi seperti kaca hijau yang bening
 
 ---
 
