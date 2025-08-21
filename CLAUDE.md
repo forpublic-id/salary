@@ -151,16 +151,20 @@ interface TunjanganKinerja {
 
 ```bash
 # Development
-bun run dev          # Start development server (localhost:3000)
-bun run dev:turbo    # Development with Turbopack
-bun run build        # Production build
-bun run start        # Start production server
+npm run dev          # Start development server (localhost:3000)
+npm run dev:turbo    # Development with Turbopack
+npm run dev:bun      # Development with Bun runtime (local only)
+npm run build        # Production build (Vercel compatible)
+npm run start        # Start production server
 
 # Code Quality
-bun run lint         # ESLint checks
-bun run typecheck    # TypeScript validation
-bun run format       # Format with Prettier
-bun run format:check # Check formatting
+npm run lint         # ESLint checks
+npm run typecheck    # TypeScript validation
+npm run format       # Format with Prettier
+npm run format:check # Check formatting
+
+# Alternative with Bun (local development)
+bun run dev:bun      # Use Bun runtime for faster development
 ```
 
 ## Data Management
