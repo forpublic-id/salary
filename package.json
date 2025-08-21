@@ -3,16 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "bun --bun next dev",
-    "dev:turbo": "bun --bun next dev --turbopack",
-    "build": "bun --bun next build",
-    "start": "bun --bun next start",
-    "lint": "bun --bun next lint",
+    "dev": "next dev",
+    "dev:turbo": "next dev --turbopack", 
+    "dev:bun": "bun --bun next dev",
+    "build": "next build",
+    "start": "next start", 
+    "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "clean": "rm -rf .next && rm -rf node_modules/.cache",
-    "dev:clean": "bun run clean && bun run dev"
+    "clean": "rm -rf .next && rm -rf node_modules/.cache"
   },
   "dependencies": {
     "@next/third-parties": "^15.5.0",
