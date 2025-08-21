@@ -1,0 +1,197 @@
+{
+  "metadata": {
+    "lastUpdated": "2025-08-21",
+    "source": "PP No. 15/2024 tentang Gaji Pokok PNS",
+    "currency": "IDR",
+    "version": "2024.1"
+  },
+  "golongan": [
+    {
+      "id": "i-a",
+      "golongan": "I/a",
+      "pangkat": "Juru Muda",
+      "gajiPokok": 1901026,
+      "description": {
+        "id": "Golongan I/a - Juru Muda",
+        "en": "Grade I/a - Junior Assistant"
+      },
+      "masaKerja": { "min": 0, "max": 2 }
+    },
+    {
+      "id": "i-b",
+      "golongan": "I/b",
+      "pangkat": "Juru Muda Tingkat I",
+      "gajiPokok": 1953088,
+      "description": {
+        "id": "Golongan I/b - Juru Muda Tingkat I",
+        "en": "Grade I/b - Junior Assistant Level I"
+      },
+      "masaKerja": { "min": 2, "max": 4 }
+    },
+    {
+      "id": "i-c",
+      "golongan": "I/c",
+      "pangkat": "Juru",
+      "gajiPokok": 2007150,
+      "description": {
+        "id": "Golongan I/c - Juru",
+        "en": "Grade I/c - Assistant"
+      },
+      "masaKerja": { "min": 4, "max": 6 }
+    },
+    {
+      "id": "i-d",
+      "golongan": "I/d",
+      "pangkat": "Juru Tingkat I",
+      "gajiPokok": 2063212,
+      "description": {
+        "id": "Golongan I/d - Juru Tingkat I",
+        "en": "Grade I/d - Assistant Level I"
+      },
+      "masaKerja": { "min": 6, "max": 32 }
+    },
+    {
+      "id": "ii-a",
+      "golongan": "II/a",
+      "pangkat": "Pengatur Muda",
+      "gajiPokok": 2121274,
+      "description": {
+        "id": "Golongan II/a - Pengatur Muda",
+        "en": "Grade II/a - Junior Administrator"
+      },
+      "masaKerja": { "min": 0, "max": 3 }
+    },
+    {
+      "id": "ii-b",
+      "golongan": "II/b",
+      "pangkat": "Pengatur Muda Tingkat I",
+      "gajiPokok": 2181336,
+      "description": {
+        "id": "Golongan II/b - Pengatur Muda Tingkat I",
+        "en": "Grade II/b - Junior Administrator Level I"
+      },
+      "masaKerja": { "min": 3, "max": 6 }
+    },
+    {
+      "id": "ii-c",
+      "golongan": "II/c",
+      "pangkat": "Pengatur",
+      "gajiPokok": 2243398,
+      "description": {
+        "id": "Golongan II/c - Pengatur",
+        "en": "Grade II/c - Administrator"
+      },
+      "masaKerja": { "min": 6, "max": 9 }
+    },
+    {
+      "id": "ii-d",
+      "golongan": "II/d",
+      "pangkat": "Pengatur Tingkat I",
+      "gajiPokok": 2307460,
+      "description": {
+        "id": "Golongan II/d - Pengatur Tingkat I",
+        "en": "Grade II/d - Administrator Level I"
+      },
+      "masaKerja": { "min": 9, "max": 32 }
+    },
+    {
+      "id": "iii-a",
+      "golongan": "III/a",
+      "pangkat": "Penata Muda",
+      "gajiPokok": 2373522,
+      "description": {
+        "id": "Golongan III/a - Penata Muda",
+        "en": "Grade III/a - Junior Executive"
+      },
+      "masaKerja": { "min": 0, "max": 4 }
+    },
+    {
+      "id": "iii-b",
+      "golongan": "III/b",
+      "pangkat": "Penata Muda Tingkat I",
+      "gajiPokok": 2441584,
+      "description": {
+        "id": "Golongan III/b - Penata Muda Tingkat I",
+        "en": "Grade III/b - Junior Executive Level I"
+      },
+      "masaKerja": { "min": 4, "max": 8 }
+    },
+    {
+      "id": "iii-c",
+      "golongan": "III/c",
+      "pangkat": "Penata",
+      "gajiPokok": 2511646,
+      "description": {
+        "id": "Golongan III/c - Penata",
+        "en": "Grade III/c - Executive"
+      },
+      "masaKerja": { "min": 8, "max": 12 }
+    },
+    {
+      "id": "iii-d",
+      "golongan": "III/d",
+      "pangkat": "Penata Tingkat I",
+      "gajiPokok": 2583708,
+      "description": {
+        "id": "Golongan III/d - Penata Tingkat I",
+        "en": "Grade III/d - Executive Level I"
+      },
+      "masaKerja": { "min": 12, "max": 32 }
+    },
+    {
+      "id": "iv-a",
+      "golongan": "IV/a",
+      "pangkat": "Pembina",
+      "gajiPokok": 2657770,
+      "description": {
+        "id": "Golongan IV/a - Pembina",
+        "en": "Grade IV/a - Senior Executive"
+      },
+      "masaKerja": { "min": 0, "max": 4 }
+    },
+    {
+      "id": "iv-b",
+      "golongan": "IV/b",
+      "pangkat": "Pembina Tingkat I",
+      "gajiPokok": 2733832,
+      "description": {
+        "id": "Golongan IV/b - Pembina Tingkat I",
+        "en": "Grade IV/b - Senior Executive Level I"
+      },
+      "masaKerja": { "min": 4, "max": 8 }
+    },
+    {
+      "id": "iv-c",
+      "golongan": "IV/c",
+      "pangkat": "Pembina Utama Muda",
+      "gajiPokok": 2811894,
+      "description": {
+        "id": "Golongan IV/c - Pembina Utama Muda",
+        "en": "Grade IV/c - Principal Executive"
+      },
+      "masaKerja": { "min": 8, "max": 12 }
+    },
+    {
+      "id": "iv-d",
+      "golongan": "IV/d",
+      "pangkat": "Pembina Utama Madya",
+      "gajiPokok": 2891956,
+      "description": {
+        "id": "Golongan IV/d - Pembina Utama Madya",
+        "en": "Grade IV/d - Principal Executive Level I"
+      },
+      "masaKerja": { "min": 12, "max": 16 }
+    },
+    {
+      "id": "iv-e",
+      "golongan": "IV/e",
+      "pangkat": "Pembina Utama",
+      "gajiPokok": 2974018,
+      "description": {
+        "id": "Golongan IV/e - Pembina Utama",
+        "en": "Grade IV/e - Principal Executive Level II"
+      },
+      "masaKerja": { "min": 16, "max": 32 }
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "metadata": {
+    "lastUpdated": "2025-08-21",
+    "source": "PMK dan Peraturan Kementerian Terkait Tunjangan Kinerja 2024",
+    "currency": "IDR",
+    "version": "2024.1"
+  },
+  "tunjanganKinerja": [
+    {
+      "id": "kemenkeu-eselon-i",
+      "kementerian": {
+        "id": "Kementerian Keuangan",
+        "en": "Ministry of Finance"
+      },
+      "kode": "KEMENKEU",
+      "jabatan": {
+        "id": "Eselon I",
+        "en": "Echelon I"
+      },
+      "golongan": ["IV/d", "IV/e"],
+      "nominal": 15420000,
+      "kategori": "struktural"
+    },
+    {
+      "id": "kemenkeu-eselon-ii",
+      "kementerian": {
+        "id": "Kementerian Keuangan",
+        "en": "Ministry of Finance"
+      },
+      "kode": "KEMENKEU",
+      "jabatan": {
+        "id": "Eselon II",
+        "en": "Echelon II"
+      },
+      "golongan": ["IV/c", "IV/d"],
+      "nominal": 12840000,
+      "kategori": "struktural"
+    },
+    {
+      "id": "kemenkeu-eselon-iii",
+      "kementerian": {
+        "id": "Kementerian Keuangan",
+        "en": "Ministry of Finance"
+      },
+      "kode": "KEMENKEU",
+      "jabatan": {
+        "id": "Eselon III",
+        "en": "Echelon III"
+      },
+      "golongan": ["IV/a", "IV/b", "IV/c"],
+      "nominal": 9720000,
+      "kategori": "struktural"
+    },
+    {
+      "id": "kemenkeu-eselon-iv",
+      "kementerian": {
+        "id": "Kementerian Keuangan",
+        "en": "Ministry of Finance"
+      },
+      "kode": "KEMENKEU",
+      "jabatan": {
+        "id": "Eselon IV",
+        "en": "Echelon IV"
+      },
+      "golongan": ["III/c", "III/d", "IV/a"],
+      "nominal": 6840000,
+      "kategori": "struktural"
+    },
+    {
+      "id": "kemenkeu-fungsional-ahli-utama",
+      "kementerian": {
+        "id": "Kementerian Keuangan",
+        "en": "Ministry of Finance"
+      },
+      "kode": "KEMENKEU",
+      "jabatan": {
+        "id": "Fungsional Ahli Utama",
+        "en": "Senior Functional Expert"
+      },
+      "golongan": ["IV/d", "IV/e"],
+      "nominal": 13680000,
+      "kategori": "fungsional"
+    },
+    {
+      "id": "kemendikbud-eselon-i",
+      "kementerian": {
+        "id": "Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi",
+        "en": "Ministry of Education, Culture, Research, and Technology"
+      },
+      "kode": "KEMENDIKBUDRISTEK",
+      "jabatan": {
+        "id": "Eselon I",
+        "en": "Echelon I"
+      },
+      "golongan": ["IV/d", "IV/e"],
+      "nominal": 12960000,
+      "kategori": "struktural"
+    },
+    {
+      "id": "kemendikbud-eselon-ii",
+      "kementerian": {
+        "id": "Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi",
+        "en": "Ministry of Education, Culture, Research, and Technology"
+      },
+      "kode": "KEMENDIKBUDRISTEK",
+      "jabatan": {
+        "id": "Eselon II",
+        "en": "Echelon II"
+      },
+      "golongan": ["IV/c", "IV/d"],
+      "nominal": 10800000,
+      "kategori": "struktural"
+    },
+    {
+      "id": "kemenkes-eselon-i",
+      "kementerian": {
+        "id": "Kementerian Kesehatan",
+        "en": "Ministry of Health"
+      },
+      "kode": "KEMENKES",
+      "jabatan": {
+        "id": "Eselon I",
+        "en": "Echelon I"
+      },
+      "golongan": ["IV/d", "IV/e"],
+      "nominal": 11880000,
+      "kategori": "struktural"
+    },
+    {
+      "id": "kominfo-eselon-i",
+      "kementerian": {
+        "id": "Kementerian Komunikasi dan Informatika",
+        "en": "Ministry of Communication and Informatics"
+      },
+      "kode": "KOMINFO",
+      "jabatan": {
+        "id": "Eselon I",
+        "en": "Echelon I"
+      },
+      "golongan": ["IV/d", "IV/e"],
+      "nominal": 13320000,
+      "kategori": "struktural"
+    },
+    {
+      "id": "kemendagri-pelaksana",
+      "kementerian": {
+        "id": "Kementerian Dalam Negeri",
+        "en": "Ministry of Home Affairs"
+      },
+      "kode": "KEMENDAGRI",
+      "jabatan": {
+        "id": "Pelaksana",
+        "en": "Implementing Staff"
+      },
+      "golongan": ["II/a", "II/b", "II/c", "II/d", "III/a", "III/b"],
+      "nominal": 2880000,
+      "kategori": "pelaksana"
+    }
+  ]
+}

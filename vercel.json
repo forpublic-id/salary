@@ -1,0 +1,61 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "bun run build",
+  "installCommand": "bun install",
+  "regions": ["sin1"],
+  "functions": {
+    "app/[locale]/page.tsx": {
+      "maxDuration": 10
+    },
+    "app/[locale]/calculator/page.tsx": {
+      "maxDuration": 10
+    },
+    "app/[locale]/browse/page.tsx": {
+      "maxDuration": 10
+    },
+    "app/[locale]/analysis/page.tsx": {
+      "maxDuration": 10
+    },
+    "app/[locale]/officials/page.tsx": {
+      "maxDuration": 10
+    }
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    },
+    {
+      "source": "/data/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, stale-while-revalidate=86400"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/id"
+    }
+  ]
+}

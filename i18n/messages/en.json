@@ -1,0 +1,114 @@
+{
+  "navigation": {
+    "home": "Home",
+    "calculator": "Salary Calculator",
+    "browse": "Browse",
+    "analysis": "Analysis",
+    "officials": "Public Officials",
+    "about": "About"
+  },
+  "hero": {
+    "title": "Indonesian Civil Service & Public Officials Salary Transparency",
+    "subtitle": "Comprehensive platform to access salary, allowance, and compensation information for Indonesian civil servants and public officials",
+    "cta": "Start Exploring",
+    "calculateSalary": "Calculate Salary"
+  },
+  "calculator": {
+    "title": "Civil Service Salary Calculator",
+    "subtitle": "Calculate estimated salary and allowances based on grade, position, and years of service",
+    "golongan": "Grade",
+    "selectGolongan": "Select Grade",
+    "masaKerja": "Years of Service",
+    "jabatan": "Position",
+    "selectJabatan": "Select Position",
+    "kementerian": "Ministry/Agency",
+    "selectKementerian": "Select Ministry",
+    "calculate": "Calculate Salary",
+    "results": {
+      "title": "Salary Calculation Results",
+      "gajiPokok": "Base Salary",
+      "tunjanganKinerja": "Performance Allowance",
+      "tunjanganLain": "Other Allowances",
+      "totalBruto": "Gross Total",
+      "potongan": "Deductions",
+      "totalNetto": "Net Total (Take Home Pay)"
+    }
+  },
+  "browse": {
+    "title": "Browse Salary Data",
+    "subtitle": "Explore and compare civil service salaries based on various criteria",
+    "search": "Search positions, grades, or ministries...",
+    "filters": {
+      "golongan": "Filter by Grade",
+      "kementerian": "Filter by Ministry",
+      "salaryRange": "Salary Range"
+    },
+    "sortBy": "Sort by",
+    "sortOptions": {
+      "salaryHigh": "Highest Salary",
+      "salaryLow": "Lowest Salary",
+      "golongan": "Grade",
+      "alphabetical": "Alphabetical"
+    }
+  },
+  "analysis": {
+    "title": "Salary Analysis",
+    "subtitle": "Data visualization and comparison for deeper salary insights",
+    "charts": {
+      "salaryDistribution": "Salary Distribution",
+      "salaryByGrade": "Salary by Grade",
+      "salaryTrends": "Historical Salary Trends",
+      "ministryComparison": "Ministry Comparison"
+    }
+  },
+  "officials": {
+    "title": "Public Officials Salary",
+    "subtitle": "Salary and allowance information for national and regional officials",
+    "levels": {
+      "nasional": "National Officials",
+      "provinsi": "Provincial Governors",
+      "kabupaten": "Mayors/Regents",
+      "legislative": "Legislative"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "noData": "No data available",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "export": "Export Data",
+    "share": "Share",
+    "currency": "IDR",
+    "month": "month",
+    "year": "year",
+    "total": "Total",
+    "average": "Average",
+    "minimum": "Minimum",
+    "maximum": "Maximum"
+  },
+  "footer": {
+    "description": "Indonesian civil service and public officials salary transparency for better accountability",
+    "links": {
+      "about": "About",
+      "methodology": "Methodology",
+      "sources": "Data Sources",
+      "api": "API",
+      "contact": "Contact"
+    },
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    },
+    "social": {
+      "twitter": "Twitter",
+      "github": "GitHub"
+    }
+  },
+  "metadata": {
+    "title": "Salary ForPublic.id - Indonesian Civil Service Salary Transparency",
+    "description": "Indonesian civil service and public officials salary transparency platform. Access comprehensive salary, allowance, and compensation information with interactive calculator.",
+    "keywords": "civil service salary, performance allowance, official salary, transparency, Indonesia"
+  }
+}

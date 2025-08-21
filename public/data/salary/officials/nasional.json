@@ -1,0 +1,178 @@
+{
+  "metadata": {
+    "lastUpdated": "2025-08-21",
+    "source": "UU No. 7/2017 tentang Pejabat Negara dan PP Terkait",
+    "currency": "IDR",
+    "version": "2024.1"
+  },
+  "officials": [
+    {
+      "id": "presiden",
+      "position": {
+        "id": "Presiden Republik Indonesia",
+        "en": "President of the Republic of Indonesia"
+      },
+      "level": "nasional",
+      "gajiPokok": 62000000,
+      "tunjangan": [
+        {
+          "name": {
+            "id": "Tunjangan Jabatan",
+            "en": "Position Allowance"
+          },
+          "nominal": 32500000
+        },
+        {
+          "name": {
+            "id": "Tunjangan Beras",
+            "en": "Rice Allowance"
+          },
+          "nominal": 3500000
+        }
+      ],
+      "totalKompensasi": 98000000,
+      "lastUpdated": "2024-01-01",
+      "source": "UU No. 7/2017"
+    },
+    {
+      "id": "wakil-presiden",
+      "position": {
+        "id": "Wakil Presiden Republik Indonesia",
+        "en": "Vice President of the Republic of Indonesia"
+      },
+      "level": "nasional",
+      "gajiPokok": 44200000,
+      "tunjangan": [
+        {
+          "name": {
+            "id": "Tunjangan Jabatan",
+            "en": "Position Allowance"
+          },
+          "nominal": 22100000
+        },
+        {
+          "name": {
+            "id": "Tunjangan Beras",
+            "en": "Rice Allowance"
+          },
+          "nominal": 2500000
+        }
+      ],
+      "totalKompensasi": 68800000,
+      "lastUpdated": "2024-01-01",
+      "source": "UU No. 7/2017"
+    },
+    {
+      "id": "menteri",
+      "position": {
+        "id": "Menteri",
+        "en": "Minister"
+      },
+      "level": "nasional",
+      "gajiPokok": 36200000,
+      "tunjangan": [
+        {
+          "name": {
+            "id": "Tunjangan Jabatan",
+            "en": "Position Allowance"
+          },
+          "nominal": 18100000
+        },
+        {
+          "name": {
+            "id": "Tunjangan Beras",
+            "en": "Rice Allowance"
+          },
+          "nominal": 2000000
+        }
+      ],
+      "totalKompensasi": 56300000,
+      "lastUpdated": "2024-01-01",
+      "source": "UU No. 7/2017"
+    },
+    {
+      "id": "wakil-menteri",
+      "position": {
+        "id": "Wakil Menteri",
+        "en": "Deputy Minister"
+      },
+      "level": "nasional",
+      "gajiPokok": 31900000,
+      "tunjangan": [
+        {
+          "name": {
+            "id": "Tunjangan Jabatan",
+            "en": "Position Allowance"
+          },
+          "nominal": 15950000
+        },
+        {
+          "name": {
+            "id": "Tunjangan Beras",
+            "en": "Rice Allowance"
+          },
+          "nominal": 1800000
+        }
+      ],
+      "totalKompensasi": 49650000,
+      "lastUpdated": "2024-01-01",
+      "source": "UU No. 7/2017"
+    },
+    {
+      "id": "sekretaris-kabinet",
+      "position": {
+        "id": "Sekretaris Kabinet",
+        "en": "Cabinet Secretary"
+      },
+      "level": "nasional",
+      "gajiPokok": 31900000,
+      "tunjangan": [
+        {
+          "name": {
+            "id": "Tunjangan Jabatan",
+            "en": "Position Allowance"
+          },
+          "nominal": 15950000
+        },
+        {
+          "name": {
+            "id": "Tunjangan Beras",
+            "en": "Rice Allowance"
+          },
+          "nominal": 1800000
+        }
+      ],
+      "totalKompensasi": 49650000,
+      "lastUpdated": "2024-01-01",
+      "source": "UU No. 7/2017"
+    },
+    {
+      "id": "jaksa-agung",
+      "position": {
+        "id": "Jaksa Agung",
+        "en": "Attorney General"
+      },
+      "level": "nasional",
+      "gajiPokok": 36200000,
+      "tunjangan": [
+        {
+          "name": {
+            "id": "Tunjangan Jabatan",
+            "en": "Position Allowance"
+          },
+          "nominal": 18100000
+        },
+        {
+          "name": {
+            "id": "Tunjangan Beras",
+            "en": "Rice Allowance"
+          },
+          "nominal": 2000000
+        }
+      ],
+      "totalKompensasi": 56300000,
+      "lastUpdated": "2024-01-01",
+      "source": "UU No. 7/2017"
+    }
+  ]
+}

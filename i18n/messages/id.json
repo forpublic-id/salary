@@ -1,0 +1,114 @@
+{
+  "navigation": {
+    "home": "Beranda",
+    "calculator": "Kalkulator Gaji",
+    "browse": "Jelajahi",
+    "analysis": "Analisis",
+    "officials": "Pejabat Publik",
+    "about": "Tentang"
+  },
+  "hero": {
+    "title": "Transparansi Gaji PNS & Pejabat Publik Indonesia",
+    "subtitle": "Platform komprehensif untuk mengakses informasi gaji, tunjangan, dan kompensasi pegawai negeri sipil serta pejabat publik Indonesia",
+    "cta": "Mulai Eksplorasi",
+    "calculateSalary": "Hitung Gaji"
+  },
+  "calculator": {
+    "title": "Kalkulator Gaji PNS",
+    "subtitle": "Hitung estimasi gaji dan tunjangan berdasarkan golongan, jabatan, dan masa kerja",
+    "golongan": "Golongan",
+    "selectGolongan": "Pilih Golongan",
+    "masaKerja": "Masa Kerja (Tahun)",
+    "jabatan": "Jabatan",
+    "selectJabatan": "Pilih Jabatan",
+    "kementerian": "Kementerian/Lembaga",
+    "selectKementerian": "Pilih Kementerian",
+    "calculate": "Hitung Gaji",
+    "results": {
+      "title": "Hasil Perhitungan Gaji",
+      "gajiPokok": "Gaji Pokok",
+      "tunjanganKinerja": "Tunjangan Kinerja",
+      "tunjanganLain": "Tunjangan Lainnya",
+      "totalBruto": "Total Bruto",
+      "potongan": "Potongan",
+      "totalNetto": "Total Netto (Take Home Pay)"
+    }
+  },
+  "browse": {
+    "title": "Jelajahi Data Gaji",
+    "subtitle": "Telusuri dan bandingkan gaji PNS berdasarkan berbagai kriteria",
+    "search": "Cari jabatan, golongan, atau kementerian...",
+    "filters": {
+      "golongan": "Filter Golongan",
+      "kementerian": "Filter Kementerian",
+      "salaryRange": "Rentang Gaji"
+    },
+    "sortBy": "Urutkan",
+    "sortOptions": {
+      "salaryHigh": "Gaji Tertinggi",
+      "salaryLow": "Gaji Terendah",
+      "golongan": "Golongan",
+      "alphabetical": "Alfabetis"
+    }
+  },
+  "analysis": {
+    "title": "Analisis Gaji",
+    "subtitle": "Visualisasi dan perbandingan data gaji untuk insights yang lebih mendalam",
+    "charts": {
+      "salaryDistribution": "Distribusi Gaji",
+      "salaryByGrade": "Gaji Berdasarkan Golongan",
+      "salaryTrends": "Tren Gaji Historis",
+      "ministryComparison": "Perbandingan Antar Kementerian"
+    }
+  },
+  "officials": {
+    "title": "Gaji Pejabat Publik",
+    "subtitle": "Informasi gaji dan tunjangan pejabat negara serta daerah",
+    "levels": {
+      "nasional": "Pejabat Nasional",
+      "provinsi": "Gubernur",
+      "kabupaten": "Walikota/Bupati",
+      "legislative": "Legislatif"
+    }
+  },
+  "common": {
+    "loading": "Memuat...",
+    "error": "Terjadi kesalahan",
+    "noData": "Data tidak tersedia",
+    "search": "Cari",
+    "filter": "Filter",
+    "sort": "Urutkan",
+    "export": "Ekspor Data",
+    "share": "Bagikan",
+    "currency": "Rp",
+    "month": "bulan",
+    "year": "tahun",
+    "total": "Total",
+    "average": "Rata-rata",
+    "minimum": "Minimum",
+    "maximum": "Maksimum"
+  },
+  "footer": {
+    "description": "Transparansi gaji PNS dan pejabat publik Indonesia untuk akuntabilitas yang lebih baik",
+    "links": {
+      "about": "Tentang",
+      "methodology": "Metodologi",
+      "sources": "Sumber Data",
+      "api": "API",
+      "contact": "Kontak"
+    },
+    "legal": {
+      "privacy": "Kebijakan Privasi",
+      "terms": "Syarat Layanan"
+    },
+    "social": {
+      "twitter": "Twitter",
+      "github": "GitHub"
+    }
+  },
+  "metadata": {
+    "title": "Salary ForPublic.id - Transparansi Gaji PNS Indonesia",
+    "description": "Platform transparansi gaji PNS dan pejabat publik Indonesia. Akses informasi gaji, tunjangan, dan kompensasi lengkap dengan kalkulator interaktif.",
+    "keywords": "gaji PNS, tunjangan kinerja, gaji pejabat, transparansi, Indonesia"
+  }
+}

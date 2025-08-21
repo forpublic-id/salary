@@ -1,0 +1,112 @@
+{
+  "metadata": {
+    "lastUpdated": "2025-08-21",
+    "version": "1.0.0",
+    "description": "Sumber data dan regulasi untuk transparansi gaji PNS dan pejabat publik"
+  },
+  "sources": [
+    {
+      "id": "pp-15-2024",
+      "title": {
+        "id": "PP No. 15 Tahun 2024 tentang Gaji Pokok PNS",
+        "en": "Government Regulation No. 15 of 2024 on Civil Servant Base Salary"
+      },
+      "type": "regulation",
+      "category": "pns_salary",
+      "url": "https://peraturan.bpk.go.id/Details/238756/pp-no-15-tahun-2024",
+      "effectiveDate": "2024-04-01",
+      "description": {
+        "id": "Peraturan terbaru tentang besaran gaji pokok PNS berdasarkan golongan dan pangkat",
+        "en": "Latest regulation on civil servant base salary amounts by grade and rank"
+      }
+    },
+    {
+      "id": "uu-7-2017",
+      "title": {
+        "id": "UU No. 7 Tahun 2017 tentang Pejabat Negara",
+        "en": "Law No. 7 of 2017 on State Officials"
+      },
+      "type": "law",
+      "category": "officials_salary",
+      "url": "https://peraturan.bpk.go.id/Details/98418/uu-no-7-tahun-2017",
+      "effectiveDate": "2017-08-16",
+      "description": {
+        "id": "Undang-undang yang mengatur gaji dan tunjangan pejabat negara",
+        "en": "Law governing salary and allowances for state officials"
+      }
+    },
+    {
+      "id": "pmk-tunjangan-kinerja",
+      "title": {
+        "id": "PMK tentang Tunjangan Kinerja Kementerian/Lembaga",
+        "en": "Ministry of Finance Regulation on Performance Allowances"
+      },
+      "type": "ministerial_regulation",
+      "category": "performance_allowance",
+      "effectiveDate": "2024-01-01",
+      "description": {
+        "id": "Regulasi tunjangan kinerja untuk berbagai kementerian dan lembaga",
+        "en": "Performance allowance regulations for various ministries and agencies"
+      }
+    },
+    {
+      "id": "pp-tunjangan-umum",
+      "title": {
+        "id": "PP tentang Tunjangan Umum PNS",
+        "en": "Government Regulation on General Allowances for Civil Servants"
+      },
+      "type": "regulation",
+      "category": "general_allowances",
+      "description": {
+        "id": "Peraturan tentang berbagai tunjangan umum yang diterima PNS",
+        "en": "Regulation on various general allowances received by civil servants"
+      }
+    }
+  ],
+  "categories": [
+    {
+      "id": "pns_salary",
+      "name": {
+        "id": "Gaji Pokok PNS",
+        "en": "Civil Servant Base Salary"
+      },
+      "description": {
+        "id": "Regulasi tentang gaji pokok PNS berdasarkan golongan dan pangkat",
+        "en": "Regulations on civil servant base salary by grade and rank"
+      }
+    },
+    {
+      "id": "officials_salary",
+      "name": {
+        "id": "Gaji Pejabat Publik",
+        "en": "Public Officials Salary"
+      },
+      "description": {
+        "id": "Regulasi tentang gaji dan tunjangan pejabat negara dan daerah",
+        "en": "Regulations on salary and allowances for national and regional officials"
+      }
+    },
+    {
+      "id": "performance_allowance",
+      "name": {
+        "id": "Tunjangan Kinerja",
+        "en": "Performance Allowance"
+      },
+      "description": {
+        "id": "Regulasi tunjangan kinerja berdasarkan jabatan dan kementerian",
+        "en": "Performance allowance regulations by position and ministry"
+      }
+    },
+    {
+      "id": "general_allowances",
+      "name": {
+        "id": "Tunjangan Umum",
+        "en": "General Allowances"
+      },
+      "description": {
+        "id": "Berbagai tunjangan umum seperti tunjangan keluarga, transportasi, dll",
+        "en": "Various general allowances such as family allowance, transportation, etc."
+      }
+    }
+  ]
+}
