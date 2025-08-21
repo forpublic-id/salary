@@ -38,12 +38,15 @@ export function Header() {
   const LanguageSwitcher = () => {
     const currentPath =
       typeof window !== "undefined"
-        ? window.location.pathname.replace(`/${locale}`, "")
-        : "";
+        ? window.location.pathname.replace(`/${locale}`, "") || "/"
+        : "/";
+
+    // Ensure currentPath starts with / and doesn't double up
+    const normalizedPath = currentPath.startsWith("/") ? currentPath : `/${currentPath}`;
 
     return (
       <div className="flex gap-1">
-        <Link href={`/id${currentPath}`}>
+        <Link href={`/id${normalizedPath === "/" ? "" : normalizedPath}`}>
           <Button
             variant={locale === "id" ? "default" : "ghost"}
             size="sm"
@@ -52,7 +55,7 @@ export function Header() {
             ID
           </Button>
         </Link>
-        <Link href={`/en${currentPath}`}>
+        <Link href={`/en${normalizedPath === "/" ? "" : normalizedPath}`}>
           <Button
             variant={locale === "en" ? "default" : "ghost"}
             size="sm"
