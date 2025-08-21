@@ -32,24 +32,31 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  /* Light backgrounds - lebih cerah */
+  --background: oklch(0.99 0 0);
+  --foreground: oklch(0.15 0 0);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  --card-foreground: oklch(0.15 0 0);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --popover-foreground: oklch(0.15 0 0);
+  
+  /* Government Blue primary - profesional dan trustworthy */
+  --primary: oklch(0.45 0.15 250);
+  --primary-foreground: oklch(0.98 0 0);
+  
+  /* Soft secondary colors - biru lembut */
+  --secondary: oklch(0.96 0.02 240);
+  --secondary-foreground: oklch(0.25 0.1 250);
+  --muted: oklch(0.97 0.01 240);
+  --muted-foreground: oklch(0.5 0.05 240);
+  --accent: oklch(0.94 0.03 240);
+  --accent-foreground: oklch(0.3 0.12 250);
+  
+  /* Borders and inputs - lebih lembut */
+  --border: oklch(0.88 0.02 240);
+  --input: oklch(0.94 0.02 240);
+  --ring: oklch(0.5 0.15 250);
+  --destructive: oklch(0.55 0.25 15);
 }
 
 .dark {

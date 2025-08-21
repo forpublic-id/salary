@@ -1,0 +1,159 @@
+/* 
+=== ALTERNATIF TEMA WARNA UNTUK SALARY.FORPUBLIC.ID ===
+
+Berikut beberapa pilihan tema yang lebih cerah dan sesuai untuk platform transparansi pemerintahan.
+Ganti bagian :root di globals.css dengan salah satu tema di bawah:
+*/
+
+/* 
+=== TEMA 1: GOVERNMENT BLUE (Recommended) ===
+Warna biru pemerintah yang profesional dan trustworthy
+*/
+:root {
+  --radius: 0.625rem;
+  /* Light backgrounds */
+  --background: oklch(0.99 0 0);
+  --foreground: oklch(0.15 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0 0);
+  
+  /* Government Blue primary */
+  --primary: oklch(0.45 0.15 250);           /* Professional blue */
+  --primary-foreground: oklch(0.98 0 0);
+  
+  /* Soft secondary colors */
+  --secondary: oklch(0.96 0.02 240);         /* Very light blue */
+  --secondary-foreground: oklch(0.25 0.1 250);
+  --muted: oklch(0.97 0.01 240);
+  --muted-foreground: oklch(0.5 0.05 240);
+  --accent: oklch(0.94 0.03 240);
+  --accent-foreground: oklch(0.3 0.12 250);
+  
+  /* Borders and inputs */
+  --border: oklch(0.88 0.02 240);
+  --input: oklch(0.94 0.02 240);
+  --ring: oklch(0.5 0.15 250);
+  --destructive: oklch(0.55 0.25 15);        /* Warm red for errors */
+}
+
+/* 
+=== TEMA 2: CLEAN MODERN ===
+Warna yang sangat bersih dan modern, cocok untuk data visualization
+*/
+/*
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.995 0 0);
+  --foreground: oklch(0.1 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.1 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.1 0 0);
+  
+  --primary: oklch(0.35 0.18 280);           /* Deep purple */
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.95 0.02 280);
+  --secondary-foreground: oklch(0.2 0.1 280);
+  --muted: oklch(0.97 0.01 280);
+  --muted-foreground: oklch(0.45 0.05 280);
+  --accent: oklch(0.92 0.04 280);
+  --accent-foreground: oklch(0.25 0.15 280);
+  
+  --border: oklch(0.9 0.02 280);
+  --input: oklch(0.95 0.02 280);
+  --ring: oklch(0.4 0.18 280);
+  --destructive: oklch(0.55 0.25 15);
+}
+*/
+
+/* 
+=== TEMA 3: FOREST GREEN ===
+Warna hijau yang menenangkan dan natural, cocok untuk transparansi
+*/
+/*
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.995 0 0);
+  --foreground: oklch(0.12 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.12 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.12 0 0);
+  
+  --primary: oklch(0.4 0.15 160);            /* Forest green */
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.96 0.02 160);
+  --secondary-foreground: oklch(0.25 0.12 160);
+  --muted: oklch(0.97 0.01 160);
+  --muted-foreground: oklch(0.48 0.06 160);
+  --accent: oklch(0.94 0.03 160);
+  --accent-foreground: oklch(0.28 0.15 160);
+  
+  --border: oklch(0.88 0.02 160);
+  --input: oklch(0.94 0.02 160);
+  --ring: oklch(0.45 0.15 160);
+  --destructive: oklch(0.55 0.25 15);
+}
+*/
+
+/* 
+=== TEMA 4: WARM ORANGE ===
+Warna oranye hangat yang energetic, cocok untuk engagement
+*/
+/*
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.995 0 0);
+  --foreground: oklch(0.12 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.12 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.12 0 0);
+  
+  --primary: oklch(0.55 0.2 45);             /* Warm orange */
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.96 0.03 45);
+  --secondary-foreground: oklch(0.3 0.15 45);
+  --muted: oklch(0.97 0.02 45);
+  --muted-foreground: oklch(0.5 0.08 45);
+  --accent: oklch(0.94 0.04 45);
+  --accent-foreground: oklch(0.32 0.18 45);
+  
+  --border: oklch(0.88 0.03 45);
+  --input: oklch(0.94 0.03 45);
+  --ring: oklch(0.6 0.2 45);
+  --destructive: oklch(0.55 0.25 15);
+}
+*/
+
+/* 
+=== TEMA 5: INDONESIAN FLAG ===
+Warna merah putih yang patriotic, sesuai untuk platform Indonesia
+*/
+/*
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.995 0 0);
+  --foreground: oklch(0.12 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.12 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.12 0 0);
+  
+  --primary: oklch(0.45 0.22 15);            /* Indonesian red */
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.96 0.03 15);
+  --secondary-foreground: oklch(0.28 0.18 15);
+  --muted: oklch(0.97 0.02 15);
+  --muted-foreground: oklch(0.5 0.08 15);
+  --accent: oklch(0.94 0.04 15);
+  --accent-foreground: oklch(0.3 0.2 15);
+  
+  --border: oklch(0.88 0.03 15);
+  --input: oklch(0.94 0.03 15);
+  --ring: oklch(0.5 0.22 15);
+  --destructive: oklch(0.55 0.25 15);
+}
+*/
