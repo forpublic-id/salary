@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
+import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { Badge } from "@/components/ui/Badge";
 
 const navigation = [
@@ -35,38 +36,6 @@ export function Header() {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  const LanguageSwitcher = () => {
-    const currentPath =
-      typeof window !== "undefined"
-        ? window.location.pathname.replace(`/${locale}`, "") || "/"
-        : "/";
-
-    // Ensure currentPath starts with / and doesn't double up
-    const normalizedPath = currentPath.startsWith("/") ? currentPath : `/${currentPath}`;
-
-    return (
-      <div className="flex gap-1">
-        <Link href={`/id${normalizedPath === "/" ? "" : normalizedPath}`}>
-          <Button
-            variant={locale === "id" ? "default" : "ghost"}
-            size="sm"
-            className="h-8 px-2"
-          >
-            ID
-          </Button>
-        </Link>
-        <Link href={`/en${normalizedPath === "/" ? "" : normalizedPath}`}>
-          <Button
-            variant={locale === "en" ? "default" : "ghost"}
-            size="sm"
-            className="h-8 px-2"
-          >
-            EN
-          </Button>
-        </Link>
-      </div>
-    );
-  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -107,7 +76,7 @@ export function Header() {
 
           {/* Desktop Language Switcher */}
           <div className="hidden md:flex items-center space-x-4">
-            <LanguageSwitcher />
+            <LanguageSwitcher locale={locale} />
           </div>
 
           {/* Mobile Menu Button */}
@@ -147,7 +116,7 @@ export function Header() {
 
             <div className="flex items-center justify-between mt-6 pt-4 border-t">
               <span className="text-sm text-muted-foreground">Language:</span>
-              <LanguageSwitcher />
+              <LanguageSwitcher locale={locale} />
             </div>
           </div>
         )}

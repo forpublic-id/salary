@@ -164,18 +164,20 @@ interface TunjanganKinerja {
 ### Installation
 
 1. **Install Bun** (if not already installed):
+
    ```bash
    # macOS/Linux
    curl -fsSL https://bun.sh/install | bash
-   
+
    # Windows
    powershell -c "irm bun.sh/install.ps1 | iex"
-   
+
    # Via npm (if you have Node.js)
    npm install -g bun
    ```
 
 2. **Verify Installation**:
+
    ```bash
    bun --version
    ```
@@ -192,6 +194,7 @@ interface TunjanganKinerja {
 ### Configuration
 
 The project is optimized for Bun runtime with:
+
 - `package.json` scripts configured for Bun
 - TypeScript configuration compatible with both Bun and Node.js
 - Next.js configuration optimized for Bun's faster module resolution
@@ -227,18 +230,21 @@ bun remove [package] # Remove package
 ## Bun Runtime Benefits
 
 ### Performance Advantages
+
 - **3x faster** development server startup
 - **2x faster** hot reload and file watching
 - **50% less memory** usage during development
 - **Faster package installation** compared to npm/yarn
 
 ### Development Experience
+
 - Built-in TypeScript support without configuration
 - Native ESM and CommonJS compatibility
 - Integrated bundler, runtime, and package manager
 - Better error messages and stack traces
 
 ### Compatibility
+
 - Drop-in replacement for Node.js in most cases
 - Full Next.js 15 and React 19 compatibility
 - Works with all existing npm packages

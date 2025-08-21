@@ -30,6 +30,7 @@ Public Salary ForPublic.id adalah platform transparansi komprehensif yang menyed
 ## 🏃‍♂️ Getting Started
 
 ### Prerequisites
+
 - Install [Bun](https://bun.sh) - Fast JavaScript runtime & package manager
 
 ```bash
@@ -56,6 +57,7 @@ bun run format       # Prettier
 ```
 
 ### Why Bun?
+
 - ⚡ **Faster development** - Bun runtime is significantly faster than Node.js
 - 📦 **Integrated tooling** - Package manager, bundler, and runtime in one
 - 🔄 **Drop-in replacement** - Compatible with Node.js ecosystem

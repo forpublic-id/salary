@@ -37,18 +37,14 @@ export async function generateMetadata({
 async function getOfficialSalaryData(): Promise<{
   officials: OfficialSalary[];
 }> {
-  const response = await fetch(
-    "http://localhost:3000/data/salary/officials/nasional.json",
-    {
-      cache: "force-cache",
-    },
-  );
-
-  if (!response.ok) {
+  try {
+    // Use dynamic import for static file during build time
+    const data = await import("@/public/data/salary/officials/nasional.json");
+    return { officials: (data.officials || []) as OfficialSalary[] };
+  } catch (error) {
+    console.error("Error loading officials data:", error);
     return { officials: [] };
   }
-
-  return response.json();
 }
 
 export default async function OfficialsPage({
