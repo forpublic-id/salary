@@ -29,9 +29,6 @@
     },
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
-    "types": [
-      "bun-types"
-    ],
     "target": "ES2017"
   },
   "include": [
