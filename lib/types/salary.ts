@@ -91,6 +91,7 @@ export interface SalaryFilter {
   golongan?: string[];
   kementerian?: string[];
   jabatan?: string[];
+  kategori?: string[];
   salaryRange?: {
     min: number;
     max: number;

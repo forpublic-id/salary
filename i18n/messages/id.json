@@ -74,6 +74,7 @@
     "filters": {
       "golongan": "Filter Golongan",
       "kementerian": "Filter Kementerian",
+      "kategori": "Filter Kategori",
       "salaryRange": "Rentang Gaji"
     },
     "sortBy": "Urutkan",
@@ -82,6 +83,37 @@
       "salaryLow": "Gaji Terendah",
       "golongan": "Golongan",
       "alphabetical": "Alfabetis"
+    },
+    "viewMode": {
+      "table": "Tampilan Tabel",
+      "ministry": "Tampilan Kementerian",
+      "comparison": "Perbandingan"
+    },
+    "ministryView": {
+      "positions": "jabatan",
+      "averageAllowance": "Rata-rata Tunjangan",
+      "minAllowance": "Minimum",
+      "maxAllowance": "Maksimum",
+      "range": "Rentang",
+      "eligibleGrades": "Golongan",
+      "monthlyAllowance": "per bulan"
+    },
+    "comparison": {
+      "title": "Perbandingan Jabatan",
+      "empty": "Pilih jabatan untuk membandingkan tunjangan kinerja",
+      "addPosition": "Tambah Jabatan",
+      "add": "Tambah",
+      "clear": "Hapus Semua",
+      "selectPosition": "Pilih jabatan untuk dibandingkan",
+      "choosePlaceholder": "Pilih jabatan...",
+      "statistics": "Statistik Perbandingan",
+      "highest": "Tertinggi",
+      "lowest": "Terendah",
+      "average": "Rata-rata",
+      "range": "Selisih",
+      "eligibleGrades": "Golongan",
+      "highestBadge": "Tertinggi",
+      "lowestBadge": "Terendah"
     }
   },
   "analysis": {

@@ -22,6 +22,7 @@ interface SearchInterfaceProps {
   onSort: (sortBy: string) => void;
   availableGolongan: string[];
   availableKementerian: string[];
+  availableKategori: string[];
 }
 
 export function SearchInterface({
@@ -30,6 +31,7 @@ export function SearchInterface({
   onSort,
   availableGolongan,
   availableKementerian,
+  availableKategori,
 }: SearchInterfaceProps) {
   const t = useTranslations("browse");
   const tCommon = useTranslations("common");
@@ -39,6 +41,7 @@ export function SearchInterface({
   const [activeFilters, setActiveFilters] = useState<SalaryFilter>({});
   const [selectedGolongan, setSelectedGolongan] = useState<string[]>([]);
   const [selectedKementerian, setSelectedKementerian] = useState<string[]>([]);
+  const [selectedKategori, setSelectedKategori] = useState<string[]>([]);
   const [salaryMin, setSalaryMin] = useState("");
   const [salaryMax, setSalaryMax] = useState("");
 
@@ -53,6 +56,7 @@ export function SearchInterface({
       ...(selectedKementerian.length > 0 && {
         kementerian: selectedKementerian,
       }),
+      ...(selectedKategori.length > 0 && { kategori: selectedKategori }),
       ...((salaryMin || salaryMax) && {
         salaryRange: {
           min: salaryMin ? parseInt(salaryMin) : 0,
@@ -68,6 +72,7 @@ export function SearchInterface({
   const clearFilters = () => {
     setSelectedGolongan([]);
     setSelectedKementerian([]);
+    setSelectedKategori([]);
     setSalaryMin("");
     setSalaryMax("");
     setActiveFilters({});
@@ -81,6 +86,9 @@ export function SearchInterface({
     } else if (type === "kementerian" && value) {
       const newKementerian = selectedKementerian.filter((k) => k !== value);
       setSelectedKementerian(newKementerian);
+    } else if (type === "kategori" && value) {
+      const newKategori = selectedKategori.filter((k) => k !== value);
+      setSelectedKategori(newKategori);
     } else if (type === "salaryRange") {
       setSalaryMin("");
       setSalaryMax("");
@@ -93,6 +101,7 @@ export function SearchInterface({
   const hasActiveFilters =
     selectedGolongan.length > 0 ||
     selectedKementerian.length > 0 ||
+    selectedKategori.length > 0 ||
     salaryMin ||
     salaryMax;
 
@@ -147,6 +156,19 @@ export function SearchInterface({
               />
             </Badge>
           ))}
+          {selectedKategori.map((kategori) => (
+            <Badge
+              key={kategori}
+              variant="secondary"
+              className="flex items-center gap-1"
+            >
+              {kategori}
+              <X
+                className="w-3 h-3 cursor-pointer"
+                onClick={() => removeFilter("kategori", kategori)}
+              />
+            </Badge>
+          ))}
           {(salaryMin || salaryMax) && (
             <Badge variant="secondary" className="flex items-center gap-1">
               {salaryMin && `Min: ${parseInt(salaryMin).toLocaleString()}`}
@@ -167,7 +189,7 @@ export function SearchInterface({
       {/* Filter Panel */}
       {showFilters && (
         <div className="p-4 border rounded-lg bg-muted/50 space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {/* Golongan Filter */}
             <div className="space-y-2">
               <Label>{t("filters.golongan")}</Label>
@@ -212,6 +234,31 @@ export function SearchInterface({
                     .map((kementerian) => (
                       <SelectItem key={kementerian} value={kementerian}>
                         {kementerian}
+                      </SelectItem>
+                    ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Kategori Filter */}
+            <div className="space-y-2">
+              <Label>{t("filters.kategori")}</Label>
+              <Select
+                onValueChange={(value) => {
+                  if (!selectedKategori.includes(value)) {
+                    setSelectedKategori([...selectedKategori, value]);
+                  }
+                }}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Select Category..." />
+                </SelectTrigger>
+                <SelectContent>
+                  {availableKategori
+                    .filter((k) => !selectedKategori.includes(k))
+                    .map((kategori) => (
+                      <SelectItem key={kategori} value={kategori}>
+                        {kategori}
                       </SelectItem>
                     ))}
                 </SelectContent>

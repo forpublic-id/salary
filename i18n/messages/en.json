@@ -74,6 +74,7 @@
     "filters": {
       "golongan": "Filter by Grade",
       "kementerian": "Filter by Ministry",
+      "kategori": "Filter by Category",
       "salaryRange": "Salary Range"
     },
     "sortBy": "Sort by",
@@ -82,6 +83,37 @@
       "salaryLow": "Lowest Salary",
       "golongan": "Grade",
       "alphabetical": "Alphabetical"
+    },
+    "viewMode": {
+      "table": "Table View",
+      "ministry": "Ministry View",
+      "comparison": "Comparison"
+    },
+    "ministryView": {
+      "positions": "positions",
+      "averageAllowance": "Average Allowance",
+      "minAllowance": "Minimum",
+      "maxAllowance": "Maximum",
+      "range": "Range",
+      "eligibleGrades": "Eligible Grades",
+      "monthlyAllowance": "per month"
+    },
+    "comparison": {
+      "title": "Position Comparison",
+      "empty": "Select positions to compare performance allowances",
+      "addPosition": "Add Position",
+      "add": "Add",
+      "clear": "Clear All",
+      "selectPosition": "Select position to compare",
+      "choosePlaceholder": "Choose position...",
+      "statistics": "Comparison Statistics",
+      "highest": "Highest",
+      "lowest": "Lowest",
+      "average": "Average",
+      "range": "Range",
+      "eligibleGrades": "Eligible Grades",
+      "highestBadge": "Highest",
+      "lowestBadge": "Lowest"
     }
   },
   "analysis": {

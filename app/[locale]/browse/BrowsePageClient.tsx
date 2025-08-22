@@ -4,7 +4,11 @@ import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { SearchInterface } from "@/components/salary/SearchInterface";
 import { DataTable } from "@/components/salary/DataTable";
+import { MinistryView } from "@/components/salary/MinistryView";
+import { ComparisonTool } from "@/components/salary/ComparisonTool";
 import { PageWrapper } from "@/components/layout/PageLayout";
+import { Button } from "@/components/ui/Button";
+import { Table, Building2, ArrowUpDown } from "lucide-react";
 import type {
   SalaryGolongan,
   TunjanganKinerja,
@@ -35,6 +39,7 @@ export default function BrowsePageClient({ locale }: BrowsePageClientProps) {
   const [combinedData, setCombinedData] = useState<CombinedSalaryData[]>([]);
   const [filteredData, setFilteredData] = useState<CombinedSalaryData[]>([]);
   const [loading, setLoading] = useState(true);
+  const [viewMode, setViewMode] = useState<"table" | "ministry" | "comparison">("table");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -136,6 +141,12 @@ export default function BrowsePageClient({ locale }: BrowsePageClientProps) {
       );
     }
 
+    if (filters.kategori && filters.kategori.length > 0) {
+      filtered = filtered.filter((item) =>
+        filters.kategori!.includes(item.kategori),
+      );
+    }
+
     if (filters.salaryRange) {
       filtered = filtered.filter(
         (item) =>
@@ -178,6 +189,14 @@ export default function BrowsePageClient({ locale }: BrowsePageClientProps) {
     ),
   ).sort();
 
+  const availableKategori = Array.from(
+    new Set(
+      combinedData
+        .filter((item) => item.kategori !== "base")
+        .map((item) => item.kategori),
+    ),
+  ).sort();
+
   return (
     <PageWrapper
       title={t("title")}
@@ -190,9 +209,47 @@ export default function BrowsePageClient({ locale }: BrowsePageClientProps) {
           onSort={handleSort}
           availableGolongan={availableGolongan}
           availableKementerian={availableKementerian}
+          availableKategori={availableKategori}
         />
 
-        <DataTable data={filteredData} locale={locale} loading={loading} />
+        {/* View Mode Toggle */}
+        <div className="flex gap-2">
+          <Button
+            variant={viewMode === "table" ? "default" : "outline"}
+            onClick={() => setViewMode("table")}
+            className="flex items-center gap-2"
+          >
+            <Table className="w-4 h-4" />
+            {t("viewMode.table")}
+          </Button>
+          <Button
+            variant={viewMode === "ministry" ? "default" : "outline"}
+            onClick={() => setViewMode("ministry")}
+            className="flex items-center gap-2"
+          >
+            <Building2 className="w-4 h-4" />
+            {t("viewMode.ministry")}
+          </Button>
+          <Button
+            variant={viewMode === "comparison" ? "default" : "outline"}
+            onClick={() => setViewMode("comparison")}
+            className="flex items-center gap-2"
+          >
+            <ArrowUpDown className="w-4 h-4" />
+            {t("viewMode.comparison")}
+          </Button>
+        </div>
+
+        {/* Conditional Rendering based on view mode */}
+        {viewMode === "table" && (
+          <DataTable data={filteredData} locale={locale} loading={loading} />
+        )}
+        {viewMode === "ministry" && (
+          <MinistryView data={tunjanganData} locale={locale} />
+        )}
+        {viewMode === "comparison" && (
+          <ComparisonTool data={tunjanganData} locale={locale} />
+        )}
       </div>
     </PageWrapper>
   );
