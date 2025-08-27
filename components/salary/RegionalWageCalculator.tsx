@@ -24,23 +24,27 @@ import { RegionalWage, WageCalculation } from "@/lib/types/salary";
 interface RegionalWageCalculatorProps {
   data: RegionalWage[];
   year: number;
+  preSelectedRegion?: RegionalWage | null;
 }
 
 export function RegionalWageCalculator({
   data,
   year,
+  preSelectedRegion,
 }: RegionalWageCalculatorProps) {
   const t = useTranslations();
   const locale = useLocale();
   const [selectedRegion, setSelectedRegion] = useState<RegionalWage | null>(
-    null,
+    preSelectedRegion || null,
   );
   const [calculation, setCalculation] = useState<WageCalculation | null>(null);
 
   const provinces = Array.from(
     new Set(data.map((item) => item.province.id)),
   ).sort();
-  const [selectedProvince, setSelectedProvince] = useState<string>("");
+  const [selectedProvince, setSelectedProvince] = useState<string>(
+    preSelectedRegion?.province.id || ""
+  );
 
   const availableCities = selectedProvince
     ? data
@@ -85,6 +89,15 @@ export function RegionalWageCalculator({
       comparisonWithJakarta,
     };
   };
+
+  // Handle pre-selected region from map
+  useEffect(() => {
+    if (preSelectedRegion) {
+      setSelectedRegion(preSelectedRegion);
+      setSelectedProvince(preSelectedRegion.province.id);
+      setCalculation(calculateWage(preSelectedRegion));
+    }
+  }, [preSelectedRegion]);
 
   const handleRegionChange = (regionId: string) => {
     const region = data.find((item) => item.id === regionId);

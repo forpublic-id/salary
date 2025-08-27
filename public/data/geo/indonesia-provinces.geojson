@@ -1,0 +1,113 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dki-jakarta",
+        "name": "DKI Jakarta",
+        "province": "DKI Jakarta"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [106.648, -6.09],
+          [107.079, -6.09],
+          [107.079, -5.983],
+          [106.648, -5.983],
+          [106.648, -6.09]
+        ]]
+      }
+    },
+    {
+      "type": "Feature", 
+      "properties": {
+        "id": "jawa-barat",
+        "name": "Jawa Barat",
+        "province": "Jawa Barat"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [105.25, -5.5],
+          [108.95, -5.5],
+          [108.95, -8.5],
+          [105.25, -8.5],
+          [105.25, -5.5]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "jawa-tengah", 
+        "name": "Jawa Tengah",
+        "province": "Jawa Tengah"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [108.7, -5.8],
+          [111.8, -5.8],
+          [111.8, -8.7],
+          [108.7, -8.7],
+          [108.7, -5.8]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "jawa-timur",
+        "name": "Jawa Timur", 
+        "province": "Jawa Timur"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [111.0, -6.2],
+          [114.6, -6.2],
+          [114.6, -8.8],
+          [111.0, -8.8],
+          [111.0, -6.2]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "bali",
+        "name": "Bali",
+        "province": "Bali"
+      },
+      "geometry": {
+        "type": "Polygon", 
+        "coordinates": [[
+          [114.42, -8.05],
+          [115.7, -8.05],
+          [115.7, -8.85],
+          [114.42, -8.85],
+          [114.42, -8.05]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "sumatra-utara",
+        "name": "Sumatera Utara",
+        "province": "Sumatera Utara"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [96.0, 0.5],
+          [100.5, 0.5],
+          [100.5, 4.3],
+          [96.0, 4.3],
+          [96.0, 0.5]
+        ]]
+      }
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { RegionalWageCalculator } from "@/components/salary/RegionalWageCalculator";
+import { RegionalWagesView } from "@/components/salary/RegionalWagesView";
 import { RegionalWageData } from "@/lib/types/salary";
 import {
   Card,
@@ -201,8 +201,8 @@ export default async function RegionalWagesPage({
         </Card>
       </div>
 
-      {/* Calculator */}
-      <RegionalWageCalculator data={regionalWages} year={currentYear} />
+      {/* Calculator & Map View */}
+      <RegionalWagesView data={regionalWages} year={currentYear} />
 
       {/* Quick Info */}
       <Card>
