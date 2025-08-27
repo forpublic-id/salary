@@ -37,9 +37,13 @@ export function LanguageSwitcher({ locale }: LanguageSwitcherProps) {
   return (
     <div className="flex gap-1">
       <Button
-        variant={locale === "id" ? "default" : "ghost"}
+        variant="ghost"
         size="sm"
-        className="h-8 px-3 flex items-center gap-1.5"
+        className={`h-8 px-3 flex items-center gap-1.5 ${
+          locale === "id" 
+            ? "bg-black text-white hover:bg-black/90" 
+            : "hover:bg-gray-100 text-muted-foreground"
+        }`}
         disabled={isPending}
         onClick={() => handleLanguageSwitch("id")}
       >
@@ -47,9 +51,13 @@ export function LanguageSwitcher({ locale }: LanguageSwitcherProps) {
         <span className="font-medium">ID</span>
       </Button>
       <Button
-        variant={locale === "en" ? "default" : "ghost"}
+        variant="ghost"
         size="sm"
-        className="h-8 px-3 flex items-center gap-1.5"
+        className={`h-8 px-3 flex items-center gap-1.5 ${
+          locale === "en" 
+            ? "bg-black text-white hover:bg-black/90" 
+            : "hover:bg-gray-100 text-muted-foreground"
+        }`}
         disabled={isPending}
         onClick={() => handleLanguageSwitch("en")}
       >
