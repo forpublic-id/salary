@@ -19,7 +19,13 @@
       },
       "golongan": ["IV/d", "IV/e"],
       "nominal": 15420000,
-      "kategori": "struktural"
+      "kategori": "struktural",
+      "regulations": [
+        {
+          "title": "PMK No. 117/PMK.01/2024",
+          "url": "/docs/regulations/pmk-117-2024.pdf"
+        }
+      ]
     },
     {
       "id": "kemenkeu-eselon-ii",

@@ -24,7 +24,9 @@ async function getRegionalWageData(
 ): Promise<RegionalWageData | null> {
   try {
     // Use dynamic import for static file during build time (works in production)
-    const data = await import(`@/public/data/salary/regional-wages/${year}.json`);
+    const data = await import(
+      `@/public/data/salary/regional-wages/${year}.json`
+    );
     return data.default || data;
   } catch (error) {
     console.error("Error loading regional wage data:", error);
@@ -103,21 +105,21 @@ export default async function RegionalWagesPage({
     }).format(amount);
   };
 
-  const title = locale === "id" 
-    ? "Upah Minimum Regional Indonesia" 
-    : "Indonesia Regional Minimum Wages";
-    
-  const subtitle = locale === "id"
-    ? `Kalkulator dan data lengkap upah minimum di seluruh Indonesia tahun ${currentYear}. Bandingkan UMR, UMP, dan daya beli di berbagai daerah.`
-    : `Complete calculator and data for minimum wages across Indonesia ${currentYear}. Compare UMR, UMP, and purchasing power across regions.`;
+  const title =
+    locale === "id"
+      ? "Upah Minimum Regional Indonesia"
+      : "Indonesia Regional Minimum Wages";
+
+  const subtitle =
+    locale === "id"
+      ? `Kalkulator dan data lengkap upah minimum di seluruh Indonesia tahun ${currentYear}. Bandingkan UMR, UMP, dan daya beli di berbagai daerah.`
+      : `Complete calculator and data for minimum wages across Indonesia ${currentYear}. Compare UMR, UMP, and purchasing power across regions.`;
 
   return (
     <PageLayout className="space-y-8">
       {/* Header */}
       <div className="text-center space-y-4">
-        <h1 className="text-3xl md:text-4xl font-bold">
-          {title}
-        </h1>
+        <h1 className="text-3xl md:text-4xl font-bold">{title}</h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
           {subtitle}
         </p>

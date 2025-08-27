@@ -20,7 +20,9 @@ export function RegionalWagesView({ data, year }: RegionalWagesViewProps) {
   const t = useTranslations();
   const locale = useLocale();
   const [viewMode, setViewMode] = useState<ViewMode>("calculator");
-  const [selectedRegion, setSelectedRegion] = useState<RegionalWage | null>(null);
+  const [selectedRegion, setSelectedRegion] = useState<RegionalWage | null>(
+    null,
+  );
 
   const handleRegionSelect = (region: RegionalWage) => {
     setSelectedRegion(region);
@@ -34,9 +36,7 @@ export function RegionalWagesView({ data, year }: RegionalWagesViewProps) {
       <Card>
         <CardHeader>
           <CardTitle>
-            {locale === "id" 
-              ? "Pilih Tampilan" 
-              : "Choose View"}
+            {locale === "id" ? "Pilih Tampilan" : "Choose View"}
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -59,30 +59,29 @@ export function RegionalWagesView({ data, year }: RegionalWagesViewProps) {
             </Button>
           </div>
           <div className="mt-3 text-sm text-muted-foreground">
-            {viewMode === "calculator" 
-              ? (locale === "id" 
+            {viewMode === "calculator"
+              ? locale === "id"
                 ? "Hitung dan bandingkan upah minimum regional dengan kalkulator interaktif"
-                : "Calculate and compare regional minimum wages with interactive calculator")
-              : (locale === "id" 
+                : "Calculate and compare regional minimum wages with interactive calculator"
+              : locale === "id"
                 ? "Jelajahi peta sebaran upah minimum di seluruh Indonesia"
-                : "Explore minimum wage distribution map across Indonesia")
-            }
+                : "Explore minimum wage distribution map across Indonesia"}
           </div>
         </CardContent>
       </Card>
 
       {/* Content based on selected view */}
       {viewMode === "calculator" && (
-        <RegionalWageCalculator 
-          data={data} 
+        <RegionalWageCalculator
+          data={data}
           year={year}
           preSelectedRegion={selectedRegion}
         />
       )}
 
       {viewMode === "map" && (
-        <RegionalWagesMap 
-          data={data} 
+        <RegionalWagesMap
+          data={data}
           year={year}
           onRegionSelect={handleRegionSelect}
         />
@@ -108,7 +107,7 @@ export function RegionalWagesView({ data, year }: RegionalWagesViewProps) {
             </div>
             <div className="text-center p-3 bg-green-50 rounded-lg">
               <div className="text-lg font-bold text-green-700">
-                {data.filter(d => d.increasePercent > 0).length}
+                {data.filter((d) => d.increasePercent > 0).length}
               </div>
               <div className="text-sm text-muted-foreground">
                 {locale === "id" ? "Mengalami Kenaikan" : "Increased"}
@@ -116,7 +115,12 @@ export function RegionalWagesView({ data, year }: RegionalWagesViewProps) {
             </div>
             <div className="text-center p-3 bg-blue-50 rounded-lg">
               <div className="text-lg font-bold text-blue-700">
-                {Math.round(data.reduce((sum, d) => sum + d.increasePercent, 0) / data.length * 100) / 100}%
+                {Math.round(
+                  (data.reduce((sum, d) => sum + d.increasePercent, 0) /
+                    data.length) *
+                    100,
+                ) / 100}
+                %
               </div>
               <div className="text-sm text-muted-foreground">
                 {locale === "id" ? "Rata-rata Kenaikan" : "Average Increase"}
@@ -124,9 +128,14 @@ export function RegionalWagesView({ data, year }: RegionalWagesViewProps) {
             </div>
             <div className="text-center p-3 bg-purple-50 rounded-lg">
               <div className="text-lg font-bold text-purple-700">
-                {new Intl.NumberFormat(locale === "id" ? "id-ID" : "en-ID").format(
-                  Math.round(data.reduce((sum, d) => sum + d.population, 0) / 1000000)
-                )}M
+                {new Intl.NumberFormat(
+                  locale === "id" ? "id-ID" : "en-ID",
+                ).format(
+                  Math.round(
+                    data.reduce((sum, d) => sum + d.population, 0) / 1000000,
+                  ),
+                )}
+                M
               </div>
               <div className="text-sm text-muted-foreground">
                 {locale === "id" ? "Total Populasi" : "Total Population"}

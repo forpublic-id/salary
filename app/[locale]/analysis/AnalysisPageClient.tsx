@@ -54,11 +54,7 @@ export default function AnalysisPageClient({
   }
 
   return (
-    <PageWrapper
-      title={t("title")}
-      subtitle={t("subtitle")}
-    >
-
+    <PageWrapper title={t("title")} subtitle={t("subtitle")}>
       <SalaryCharts
         golonganData={golonganData}
         tunjanganData={tunjanganData}

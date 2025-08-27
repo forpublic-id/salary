@@ -6,6 +6,7 @@
     "browse": "Jelajahi",
     "analysis": "Analisis",
     "officials": "Pejabat Publik",
+    "tunjangan-kinerja": "Tunjangan Kinerja",
     "about": "Tentang"
   },
   "hero": {
@@ -266,6 +267,92 @@
     "contact": {
       "title": "Kontak & Masukan",
       "content": "Kami menyambut masukan, saran, dan laporan ketidakakuratan data. Bantu kami meningkatkan transparansi dalam pelayanan publik Indonesia."
+    }
+  },
+  "errors": {
+    "404": {
+      "title": "Halaman Tidak Ditemukan",
+      "description": "Maaf, halaman yang Anda cari tidak dapat ditemukan. Mungkin halaman telah dipindahkan atau URL salah.",
+      "whatCanYouDo": "Apa yang bisa Anda lakukan?",
+      "goHome": "Kembali ke Beranda",
+      "goHomeDesc": "Jelajahi fitur-fitur transparansi gaji dan upah",
+      "browseData": "Jelajahi Data",
+      "browseDataDesc": "Cari data gaji dan tunjangan kinerja",
+      "popularPages": "Atau kunjungi halaman populer:",
+      "backToPrevious": "Kembali ke Halaman Sebelumnya",
+      "platformDesc": "Platform transparansi gaji dan upah Indonesia"
+    },
+    "500": {
+      "title": "Terjadi Kesalahan Server",
+      "description": "Maaf, terjadi kesalahan pada server. Tim kami sedang bekerja untuk memperbaikinya.",
+      "tryAgain": "Coba Lagi",
+      "reportIssue": "Laporkan Masalah"
+    }
+  },
+  "tunjanganKinerja": {
+    "title": "Tunjangan Kinerja PNS",
+    "description": "Jelajahi data tunjangan kinerja PNS Indonesia terlengkap. Bandingkan gaji dan tunjangan antar kementerian dengan statistik detail dan visualisasi interaktif.",
+    "stats": {
+      "totalMinistries": "Total Kementerian",
+      "totalPositions": "Total Jabatan",
+      "highestAllowance": "Tunjangan Tertinggi",
+      "averageAllowance": "Rata-rata Tunjangan",
+      "medianAllowance": "Median Tunjangan",
+      "overallMedian": "Median Keseluruhan",
+      "ministries": "Kementerian"
+    },
+    "tabs": {
+      "institutions": "Daftar Instansi",
+      "comparison": "Diagram Perbandingan"
+    },
+    "table": {
+      "ministry": "Kementerian/Instansi",
+      "median": "Median",
+      "lowest": "Terendah",
+      "highest": "Tertinggi",
+      "average": "Rata-rata",
+      "regulations": "Regulasi",
+      "positions": "jabatan"
+    },
+    "chart": {
+      "median": "Median",
+      "average": "Rata-rata",
+      "highest": "Tertinggi",
+      "lowest": "Terendah",
+      "range": "Rentang",
+      "positions": "Jabatan"
+    },
+    "chartTypes": {
+      "comparison": "Perbandingan",
+      "distribution": "Distribusi",
+      "range": "Rentang Gaji"
+    },
+    "charts": {
+      "comparisonTitle": "Perbandingan Tunjangan Kinerja Antar Kementerian",
+      "distributionTitle": "Distribusi Tunjangan Kinerja (Median)",
+      "rangeTitle": "Rentang Tunjangan Kinerja"
+    },
+    "detail": {
+      "notFound": "Kementerian tidak ditemukan",
+      "backToList": "Kembali ke Daftar",
+      "positions": "jabatan",
+      "totalPositions": "Total Jabatan",
+      "range": "Rentang",
+      "regulations": "Regulasi Terkait",
+      "tableView": "Tampilan Tabel",
+      "chartView": "Tampilan Grafik",
+      "positionBreakdown": "Breakdown Jabatan",
+      "rank": "Peringkat",
+      "position": "Jabatan",
+      "category": "Kategori",
+      "eligibleGrades": "Golongan yang Memenuhi Syarat",
+      "allowanceAmount": "Jumlah Tunjangan",
+      "monthly": "per bulan",
+      "averageAllowance": "Rata-rata Tunjangan",
+      "allowanceRange": "Rentang Tunjangan",
+      "allowanceComparison": "Perbandingan Tunjangan",
+      "categoryBreakdown": "Breakdown Kategori",
+      "categoryStats": "Statistik Kategori"
     }
   }
 }

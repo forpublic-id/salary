@@ -43,7 +43,7 @@ export function RegionalWageCalculator({
     new Set(data.map((item) => item.province.id)),
   ).sort();
   const [selectedProvince, setSelectedProvince] = useState<string>(
-    preSelectedRegion?.province.id || ""
+    preSelectedRegion?.province.id || "",
   );
 
   const availableCities = selectedProvince

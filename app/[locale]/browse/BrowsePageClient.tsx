@@ -39,7 +39,9 @@ export default function BrowsePageClient({ locale }: BrowsePageClientProps) {
   const [combinedData, setCombinedData] = useState<CombinedSalaryData[]>([]);
   const [filteredData, setFilteredData] = useState<CombinedSalaryData[]>([]);
   const [loading, setLoading] = useState(true);
-  const [viewMode, setViewMode] = useState<"table" | "ministry" | "comparison">("table");
+  const [viewMode, setViewMode] = useState<"table" | "ministry" | "comparison">(
+    "table",
+  );
 
   useEffect(() => {
     const fetchData = async () => {
@@ -198,10 +200,7 @@ export default function BrowsePageClient({ locale }: BrowsePageClientProps) {
   ).sort();
 
   return (
-    <PageWrapper
-      title={t("title")}
-      subtitle={t("subtitle")}
-    >
+    <PageWrapper title={t("title")} subtitle={t("subtitle")}>
       <div className="space-y-6">
         <SearchInterface
           onSearch={handleSearch}

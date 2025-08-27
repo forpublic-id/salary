@@ -14,6 +14,7 @@ const navigation = [
   { key: "calculator", href: "/calculator" },
   { key: "regional-wages", href: "/regional-wages" },
   { key: "browse", href: "/browse" },
+  { key: "tunjangan-kinerja", href: "/tunjangan-kinerja" },
   { key: "analysis", href: "/analysis" },
   { key: "officials", href: "/officials" },
   { key: "about", href: "/about" },
@@ -33,9 +34,11 @@ export function Header() {
     if (href === "/") {
       return pathname === `/${locale}` || pathname === `/${locale}/`;
     }
-    return pathname === `/${locale}${href}` || pathname.startsWith(`/${locale}${href}/`);
+    return (
+      pathname === `/${locale}${href}` ||
+      pathname.startsWith(`/${locale}${href}/`)
+    );
   };
-
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">

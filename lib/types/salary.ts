@@ -27,6 +27,10 @@ export interface TunjanganKinerja {
   golongan: string[];
   nominal: number;
   kategori: "struktural" | "fungsional" | "pelaksana";
+  regulations?: Array<{
+    title: string;
+    url: string;
+  }>;
 }
 
 export interface Benefits {

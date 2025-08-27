@@ -1,6 +1,36 @@
 import type { MetadataRoute } from "next";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+async function getTunjanganKinerjaPages() {
+  try {
+    // Fetch tunjangan kinerja data to generate ministry detail pages
+    const response = await fetch(`${process.env.NEXT_PUBLIC_URL || 'https://salary.forpublic.id'}/data/salary/pns/tunjangan-kinerja.json`);
+    if (!response.ok) {
+      console.warn('Failed to fetch tunjangan kinerja data for sitemap');
+      return [];
+    }
+    
+    const data = await response.json();
+    const uniqueMinistries = Array.from(
+      new Set(
+        data.tunjanganKinerja.map((item: any) => ({
+          slug: item.kode.toLowerCase().replace(/[^a-z0-9]/g, '-'),
+          kode: item.kode
+        }))
+      )
+    ) as Array<{ slug: string; kode: string }>;
+
+    return uniqueMinistries.map(ministry => ({
+      path: `/tunjangan-kinerja/${ministry.slug}`,
+      priority: 0.7,
+      changeFrequency: "monthly" as const,
+    }));
+  } catch (error) {
+    console.warn('Error generating tunjangan kinerja pages for sitemap:', error);
+    return [];
+  }
+}
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://salary.forpublic.id";
   const locales = ["id", "en"];
   const currentDate = new Date();
@@ -24,6 +54,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       path: "/regional-wages",
       priority: 0.9,
       changeFrequency: "monthly" as const,
+      lastModified: currentDate,
+    },
+    {
+      path: "/tunjangan-kinerja",
+      priority: 0.9,
+      changeFrequency: "weekly" as const,
       lastModified: currentDate,
     },
     {
@@ -52,6 +88,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  // Get tunjangan kinerja ministry detail pages
+  const tunjanganKinerjaPages = await getTunjanganKinerjaPages();
+
   const urls: MetadataRoute.Sitemap = [];
 
   // Add root redirect (highest priority)
@@ -62,12 +101,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 1,
   });
 
-  // Add all page combinations for each locale
+  // Add all core page combinations for each locale
   locales.forEach((locale) => {
     pages.forEach((page) => {
       urls.push({
         url: `${baseUrl}/${locale}${page.path}`,
         lastModified: page.lastModified,
+        changeFrequency: page.changeFrequency,
+        priority: page.priority,
+      });
+    });
+
+    // Add tunjangan kinerja ministry detail pages for each locale
+    tunjanganKinerjaPages.forEach((page) => {
+      urls.push({
+        url: `${baseUrl}/${locale}${page.path}`,
+        lastModified: currentDate,
         changeFrequency: page.changeFrequency,
         priority: page.priority,
       });

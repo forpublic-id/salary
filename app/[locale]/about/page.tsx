@@ -32,11 +32,7 @@ export default async function AboutPage({
   const t = await getTranslations("about");
 
   return (
-    <PageWrapper
-      title={t("title")}
-      subtitle={t("subtitle")}
-      maxWidth="4xl"
-    >
+    <PageWrapper title={t("title")} subtitle={t("subtitle")} maxWidth="4xl">
       <div className="space-y-8">
         {/* Mission */}
         <Card>

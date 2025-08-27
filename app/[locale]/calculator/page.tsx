@@ -35,11 +35,7 @@ export default async function CalculatorPage({
   const t = await getTranslations("calculator");
 
   return (
-    <PageWrapper
-      title={t("title")}
-      subtitle={t("subtitle")}
-      maxWidth="4xl"
-    >
+    <PageWrapper title={t("title")} subtitle={t("subtitle")} maxWidth="4xl">
       <SalaryCalculator locale={locale} />
     </PageWrapper>
   );

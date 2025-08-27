@@ -6,6 +6,7 @@
     "browse": "Browse",
     "analysis": "Analysis",
     "officials": "Public Officials",
+    "tunjangan-kinerja": "Performance Allowance",
     "about": "About"
   },
   "hero": {
@@ -266,6 +267,92 @@
     "contact": {
       "title": "Contact & Feedback",
       "content": "We welcome feedback, suggestions, and reports of data inaccuracies. Help us improve transparency in Indonesian public service."
+    }
+  },
+  "errors": {
+    "404": {
+      "title": "Page Not Found",
+      "description": "Sorry, the page you are looking for could not be found. The page might have been moved or the URL is incorrect.",
+      "whatCanYouDo": "What can you do?",
+      "goHome": "Go to Homepage",
+      "goHomeDesc": "Explore salary and wage transparency features",
+      "browseData": "Browse Data",
+      "browseDataDesc": "Search salary and performance allowance data",
+      "popularPages": "Or visit popular pages:",
+      "backToPrevious": "Go Back to Previous Page",
+      "platformDesc": "Indonesian salary and wage transparency platform"
+    },
+    "500": {
+      "title": "Server Error Occurred",
+      "description": "Sorry, a server error occurred. Our team is working to fix it.",
+      "tryAgain": "Try Again",
+      "reportIssue": "Report Issue"
+    }
+  },
+  "tunjanganKinerja": {
+    "title": "Civil Servant Performance Allowance",
+    "description": "Explore comprehensive Indonesian civil servant performance allowance data. Compare salaries and allowances across ministries with detailed statistics and interactive visualizations.",
+    "stats": {
+      "totalMinistries": "Total Ministries",
+      "totalPositions": "Total Positions",
+      "highestAllowance": "Highest Allowance",
+      "averageAllowance": "Average Allowance",
+      "medianAllowance": "Median Allowance",
+      "overallMedian": "Overall Median",
+      "ministries": "Ministries"
+    },
+    "tabs": {
+      "institutions": "Institution List",
+      "comparison": "Comparison Diagram"
+    },
+    "table": {
+      "ministry": "Ministry/Institution",
+      "median": "Median",
+      "lowest": "Lowest",
+      "highest": "Highest",
+      "average": "Average",
+      "regulations": "Regulations",
+      "positions": "positions"
+    },
+    "chart": {
+      "median": "Median",
+      "average": "Average",
+      "highest": "Highest",
+      "lowest": "Lowest",
+      "range": "Range",
+      "positions": "Positions"
+    },
+    "chartTypes": {
+      "comparison": "Comparison",
+      "distribution": "Distribution",
+      "range": "Salary Range"
+    },
+    "charts": {
+      "comparisonTitle": "Performance Allowance Comparison Across Ministries",
+      "distributionTitle": "Performance Allowance Distribution (Median)",
+      "rangeTitle": "Performance Allowance Range"
+    },
+    "detail": {
+      "notFound": "Ministry not found",
+      "backToList": "Back to List",
+      "positions": "positions",
+      "totalPositions": "Total Positions",
+      "range": "Range",
+      "regulations": "Related Regulations",
+      "tableView": "Table View",
+      "chartView": "Chart View",
+      "positionBreakdown": "Position Breakdown",
+      "rank": "Rank",
+      "position": "Position",
+      "category": "Category",
+      "eligibleGrades": "Eligible Grades",
+      "allowanceAmount": "Allowance Amount",
+      "monthly": "monthly",
+      "averageAllowance": "Average Allowance",
+      "allowanceRange": "Allowance Range",
+      "allowanceComparison": "Allowance Comparison",
+      "categoryBreakdown": "Category Breakdown",
+      "categoryStats": "Category Statistics"
     }
   }
 }

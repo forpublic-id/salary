@@ -42,7 +42,8 @@ export function MinistryView({ data, locale }: MinistryViewProps) {
       kementerian,
       positions,
       totalPositions: positions.length,
-      averageAllowance: allowances.reduce((sum, val) => sum + val, 0) / allowances.length,
+      averageAllowance:
+        allowances.reduce((sum, val) => sum + val, 0) / allowances.length,
       minAllowance: Math.min(...allowances),
       maxAllowance: Math.max(...allowances),
     };
@@ -78,7 +79,9 @@ export function MinistryView({ data, locale }: MinistryViewProps) {
             <CardHeader className="pb-4">
               <div className="flex justify-between items-start">
                 <div>
-                  <CardTitle className="text-lg">{ministry.kementerian}</CardTitle>
+                  <CardTitle className="text-lg">
+                    {ministry.kementerian}
+                  </CardTitle>
                   <p className="text-sm text-muted-foreground mt-1">
                     {ministry.totalPositions} {t("ministryView.positions")}
                   </p>
@@ -100,20 +103,26 @@ export function MinistryView({ data, locale }: MinistryViewProps) {
                   <div className="text-sm text-muted-foreground">
                     {t("ministryView.minAllowance")}
                   </div>
-                  <div className="font-semibold">{formatCurrency(ministry.minAllowance)}</div>
+                  <div className="font-semibold">
+                    {formatCurrency(ministry.minAllowance)}
+                  </div>
                 </div>
                 <div className="text-center">
                   <div className="text-sm text-muted-foreground">
                     {t("ministryView.maxAllowance")}
                   </div>
-                  <div className="font-semibold">{formatCurrency(ministry.maxAllowance)}</div>
+                  <div className="font-semibold">
+                    {formatCurrency(ministry.maxAllowance)}
+                  </div>
                 </div>
                 <div className="text-center col-span-2 md:col-span-1">
                   <div className="text-sm text-muted-foreground">
                     {t("ministryView.range")}
                   </div>
                   <div className="font-semibold">
-                    {formatCurrency(ministry.maxAllowance - ministry.minAllowance)}
+                    {formatCurrency(
+                      ministry.maxAllowance - ministry.minAllowance,
+                    )}
                   </div>
                 </div>
               </div>
@@ -139,7 +148,8 @@ export function MinistryView({ data, locale }: MinistryViewProps) {
                           </Badge>
                         </div>
                         <div className="text-sm text-muted-foreground">
-                          {t("ministryView.eligibleGrades")}: {position.golongan.join(", ")}
+                          {t("ministryView.eligibleGrades")}:{" "}
+                          {position.golongan.join(", ")}
                         </div>
                       </div>
                       <div className="text-right">

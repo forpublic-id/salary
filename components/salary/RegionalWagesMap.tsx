@@ -9,10 +9,21 @@ import { Badge } from "@/components/ui/Badge";
 import { MapPin, TrendingUp } from "lucide-react";
 
 // Dynamically import map components to avoid SSR issues
-const MapContainer = dynamic(() => import("react-leaflet").then(mod => mod.MapContainer), { ssr: false });
-const TileLayer = dynamic(() => import("react-leaflet").then(mod => mod.TileLayer), { ssr: false });
-const GeoJSON = dynamic(() => import("react-leaflet").then(mod => mod.GeoJSON), { ssr: false });
-const Popup = dynamic(() => import("react-leaflet").then(mod => mod.Popup), { ssr: false });
+const MapContainer = dynamic(
+  () => import("react-leaflet").then((mod) => mod.MapContainer),
+  { ssr: false },
+);
+const TileLayer = dynamic(
+  () => import("react-leaflet").then((mod) => mod.TileLayer),
+  { ssr: false },
+);
+const GeoJSON = dynamic(
+  () => import("react-leaflet").then((mod) => mod.GeoJSON),
+  { ssr: false },
+);
+const Popup = dynamic(() => import("react-leaflet").then((mod) => mod.Popup), {
+  ssr: false,
+});
 
 interface RegionalWagesMapProps {
   data: RegionalWage[];
@@ -30,22 +41,28 @@ interface MapFeature {
   geometry: any;
 }
 
-export function RegionalWagesMap({ data, year, onRegionSelect }: RegionalWagesMapProps) {
+export function RegionalWagesMap({
+  data,
+  year,
+  onRegionSelect,
+}: RegionalWagesMapProps) {
   const locale = useLocale();
   const [geoData, setGeoData] = useState<any>(null);
-  const [selectedRegion, setSelectedRegion] = useState<RegionalWage | null>(null);
+  const [selectedRegion, setSelectedRegion] = useState<RegionalWage | null>(
+    null,
+  );
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // Load GeoJSON data
     const loadGeoData = async () => {
       try {
-        const response = await fetch('/data/geo/indonesia-provinces.geojson');
+        const response = await fetch("/data/geo/indonesia-provinces.geojson");
         const data = await response.json();
         setGeoData(data);
         setIsLoading(false);
       } catch (error) {
-        console.error('Error loading GeoJSON data:', error);
+        console.error("Error loading GeoJSON data:", error);
         setIsLoading(false);
       }
     };
@@ -65,7 +82,7 @@ export function RegionalWagesMap({ data, year, onRegionSelect }: RegionalWagesMa
   const getWageColor = (umr: number) => {
     // Color scale based on UMR values
     if (umr >= 5000000) return "#dc2626"; // Red - Very High
-    if (umr >= 4000000) return "#ea580c"; // Orange-Red - High  
+    if (umr >= 4000000) return "#ea580c"; // Orange-Red - High
     if (umr >= 3000000) return "#f59e0b"; // Orange - Medium-High
     if (umr >= 2500000) return "#eab308"; // Yellow - Medium
     if (umr >= 2000000) return "#84cc16"; // Light Green - Low
@@ -75,45 +92,49 @@ export function RegionalWagesMap({ data, year, onRegionSelect }: RegionalWagesMa
   const getFeatureStyle = (feature: any) => {
     if (!feature || !feature.properties) {
       return {
-        fillColor: '#22c55e',
+        fillColor: "#22c55e",
         weight: 2,
         opacity: 1,
-        color: '#ffffff',
-        dashArray: '',
-        fillOpacity: 0.7
+        color: "#ffffff",
+        dashArray: "",
+        fillOpacity: 0.7,
       };
     }
 
-    const regionData = data.find(d => 
-      d.province.id.toLowerCase().replace(/\s+/g, '-') === feature.properties.id
+    const regionData = data.find(
+      (d) =>
+        d.province.id.toLowerCase().replace(/\s+/g, "-") ===
+        feature.properties.id,
     );
-    
+
     const umr = regionData?.umr || 0;
-    
+
     return {
       fillColor: getFeatureColor(umr),
       weight: 2,
       opacity: 1,
-      color: '#ffffff',
-      dashArray: '',
-      fillOpacity: 0.7
+      color: "#ffffff",
+      dashArray: "",
+      fillOpacity: 0.7,
     };
   };
 
   const getFeatureColor = (umr: number) => {
-    if (umr >= 5000000) return '#dc2626';
-    if (umr >= 4000000) return '#ea580c';
-    if (umr >= 3000000) return '#f59e0b';
-    if (umr >= 2500000) return '#eab308';
-    if (umr >= 2000000) return '#84cc16';
-    return '#22c55e';
+    if (umr >= 5000000) return "#dc2626";
+    if (umr >= 4000000) return "#ea580c";
+    if (umr >= 3000000) return "#f59e0b";
+    if (umr >= 2500000) return "#eab308";
+    if (umr >= 2000000) return "#84cc16";
+    return "#22c55e";
   };
 
   const onEachFeature = (feature: any, layer: any) => {
     if (!feature || !feature.properties) return;
 
-    const regionData = data.find(d => 
-      d.province.id.toLowerCase().replace(/\s+/g, '-') === feature.properties.id
+    const regionData = data.find(
+      (d) =>
+        d.province.id.toLowerCase().replace(/\s+/g, "-") ===
+        feature.properties.id,
     );
 
     if (regionData) {
@@ -122,8 +143,8 @@ export function RegionalWagesMap({ data, year, onRegionSelect }: RegionalWagesMa
           <h3 class="font-semibold text-sm mb-1">${feature.properties.name}</h3>
           <div class="text-xs space-y-1">
             <div><strong>UMR:</strong> ${formatCurrency(regionData.umr)}</div>
-            <div><strong>${locale === 'id' ? 'Kenaikan' : 'Increase'}:</strong> ${regionData.increasePercent}%</div>
-            <div><strong>${locale === 'id' ? 'Populasi' : 'Population'}:</strong> ${regionData.population.toLocaleString()}</div>
+            <div><strong>${locale === "id" ? "Kenaikan" : "Increase"}:</strong> ${regionData.increasePercent}%</div>
+            <div><strong>${locale === "id" ? "Populasi" : "Population"}:</strong> ${regionData.population.toLocaleString()}</div>
           </div>
         </div>
       `);
@@ -134,7 +155,7 @@ export function RegionalWagesMap({ data, year, onRegionSelect }: RegionalWagesMa
           layer.setStyle({
             weight: 3,
             opacity: 1,
-            fillOpacity: 0.9
+            fillOpacity: 0.9,
           });
         },
         mouseout: (e: any) => {
@@ -146,7 +167,7 @@ export function RegionalWagesMap({ data, year, onRegionSelect }: RegionalWagesMa
           if (onRegionSelect) {
             onRegionSelect(regionData);
           }
-        }
+        },
       });
     }
   };
@@ -173,18 +194,18 @@ export function RegionalWagesMap({ data, year, onRegionSelect }: RegionalWagesMa
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <MapPin className="w-5 h-5" />
-            {locale === "id" 
-              ? "Peta Sebaran Upah Minimum Regional" 
+            {locale === "id"
+              ? "Peta Sebaran Upah Minimum Regional"
               : "Regional Minimum Wage Distribution Map"}
           </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="h-[500px] w-full rounded-lg overflow-hidden border">
-            {typeof window !== 'undefined' && geoData && (
+            {typeof window !== "undefined" && geoData && (
               <MapContainer
                 center={[-2.5, 118]}
                 zoom={5}
-                style={{ height: '100%', width: '100%' }}
+                style={{ height: "100%", width: "100%" }}
                 scrollWheelZoom={true}
               >
                 <TileLayer
@@ -212,28 +233,60 @@ export function RegionalWagesMap({ data, year, onRegionSelect }: RegionalWagesMa
         <CardContent>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
             <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded" style={{ backgroundColor: '#22c55e' }}></div>
-              <span className="text-xs">{'< '}{formatCurrency(2000000)}</span>
+              <div
+                className="w-4 h-4 rounded"
+                style={{ backgroundColor: "#22c55e" }}
+              ></div>
+              <span className="text-xs">
+                {"< "}
+                {formatCurrency(2000000)}
+              </span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded" style={{ backgroundColor: '#84cc16' }}></div>
-              <span className="text-xs">{formatCurrency(2000000)} - {formatCurrency(2500000)}</span>
+              <div
+                className="w-4 h-4 rounded"
+                style={{ backgroundColor: "#84cc16" }}
+              ></div>
+              <span className="text-xs">
+                {formatCurrency(2000000)} - {formatCurrency(2500000)}
+              </span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded" style={{ backgroundColor: '#eab308' }}></div>
-              <span className="text-xs">{formatCurrency(2500000)} - {formatCurrency(3000000)}</span>
+              <div
+                className="w-4 h-4 rounded"
+                style={{ backgroundColor: "#eab308" }}
+              ></div>
+              <span className="text-xs">
+                {formatCurrency(2500000)} - {formatCurrency(3000000)}
+              </span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded" style={{ backgroundColor: '#f59e0b' }}></div>
-              <span className="text-xs">{formatCurrency(3000000)} - {formatCurrency(4000000)}</span>
+              <div
+                className="w-4 h-4 rounded"
+                style={{ backgroundColor: "#f59e0b" }}
+              ></div>
+              <span className="text-xs">
+                {formatCurrency(3000000)} - {formatCurrency(4000000)}
+              </span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded" style={{ backgroundColor: '#ea580c' }}></div>
-              <span className="text-xs">{formatCurrency(4000000)} - {formatCurrency(5000000)}</span>
+              <div
+                className="w-4 h-4 rounded"
+                style={{ backgroundColor: "#ea580c" }}
+              ></div>
+              <span className="text-xs">
+                {formatCurrency(4000000)} - {formatCurrency(5000000)}
+              </span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded" style={{ backgroundColor: '#dc2626' }}></div>
-              <span className="text-xs">{'> '}{formatCurrency(5000000)}</span>
+              <div
+                className="w-4 h-4 rounded"
+                style={{ backgroundColor: "#dc2626" }}
+              ></div>
+              <span className="text-xs">
+                {"> "}
+                {formatCurrency(5000000)}
+              </span>
             </div>
           </div>
         </CardContent>
@@ -280,7 +333,7 @@ export function RegionalWagesMap({ data, year, onRegionSelect }: RegionalWagesMa
                   {locale === "id" ? "Biaya Hidup" : "Cost of Living"}
                 </div>
                 <Badge className="text-xs">
-                  {selectedRegion.costOfLiving.replace('_', ' ')}
+                  {selectedRegion.costOfLiving.replace("_", " ")}
                 </Badge>
               </div>
             </div>
