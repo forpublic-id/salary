@@ -20,13 +20,16 @@ interface MinistryDetailTableProps {
   locale: string;
 }
 
-type SortField = 'jabatan' | 'nominal' | 'kategori';
-type SortDirection = 'asc' | 'desc';
+type SortField = "jabatan" | "nominal" | "kategori";
+type SortDirection = "asc" | "desc";
 
-export function MinistryDetailTable({ data, locale }: MinistryDetailTableProps) {
+export function MinistryDetailTable({
+  data,
+  locale,
+}: MinistryDetailTableProps) {
   const t = useTranslations("tunjanganKinerja");
-  const [sortField, setSortField] = useState<SortField>('nominal');
-  const [sortDirection, setSortDirection] = useState<SortDirection>('desc');
+  const [sortField, setSortField] = useState<SortField>("nominal");
+  const [sortDirection, setSortDirection] = useState<SortDirection>("desc");
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat(locale === "id" ? "id-ID" : "en-US", {
@@ -39,10 +42,10 @@ export function MinistryDetailTable({ data, locale }: MinistryDetailTableProps) 
 
   const handleSort = (field: SortField) => {
     if (sortField === field) {
-      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+      setSortDirection(sortDirection === "asc" ? "desc" : "asc");
     } else {
       setSortField(field);
-      setSortDirection(field === 'nominal' ? 'desc' : 'asc');
+      setSortDirection(field === "nominal" ? "desc" : "asc");
     }
   };
 
@@ -50,10 +53,10 @@ export function MinistryDetailTable({ data, locale }: MinistryDetailTableProps) 
     let aValue: string | number;
     let bValue: string | number;
 
-    if (sortField === 'jabatan') {
+    if (sortField === "jabatan") {
       aValue = a.jabatan[locale as "id" | "en"];
       bValue = b.jabatan[locale as "id" | "en"];
-    } else if (sortField === 'nominal') {
+    } else if (sortField === "nominal") {
       aValue = a.nominal;
       bValue = b.nominal;
     } else {
@@ -61,17 +64,23 @@ export function MinistryDetailTable({ data, locale }: MinistryDetailTableProps) 
       bValue = b.kategori;
     }
 
-    if (typeof aValue === 'string') {
+    if (typeof aValue === "string") {
       const comparison = aValue.localeCompare(bValue as string);
-      return sortDirection === 'asc' ? comparison : -comparison;
+      return sortDirection === "asc" ? comparison : -comparison;
     } else {
       const comparison = aValue - (bValue as number);
-      return sortDirection === 'asc' ? comparison : -comparison;
+      return sortDirection === "asc" ? comparison : -comparison;
     }
   });
 
-  const SortableHeader = ({ field, children }: { field: SortField; children: React.ReactNode }) => (
-    <TableHead 
+  const SortableHeader = ({
+    field,
+    children,
+  }: {
+    field: SortField;
+    children: React.ReactNode;
+  }) => (
+    <TableHead
       className="cursor-pointer hover:bg-gray-50 select-none"
       onClick={() => handleSort(field)}
     >
@@ -84,34 +93,39 @@ export function MinistryDetailTable({ data, locale }: MinistryDetailTableProps) 
 
   const getCategoryColor = (kategori: string) => {
     switch (kategori) {
-      case 'struktural':
-        return 'bg-blue-100 text-blue-800';
-      case 'fungsional':
-        return 'bg-green-100 text-green-800';
-      case 'pelaksana':
-        return 'bg-orange-100 text-orange-800';
+      case "struktural":
+        return "bg-blue-100 text-blue-800";
+      case "fungsional":
+        return "bg-green-100 text-green-800";
+      case "pelaksana":
+        return "bg-orange-100 text-orange-800";
       default:
-        return 'bg-gray-100 text-gray-800';
+        return "bg-gray-100 text-gray-800";
     }
   };
 
   const getCategoryIcon = (kategori: string) => {
     switch (kategori) {
-      case 'struktural':
-        return '🏢';
-      case 'fungsional':
-        return '🔬';
-      case 'pelaksana':
-        return '⚙️';
+      case "struktural":
+        return "🏢";
+      case "fungsional":
+        return "🔬";
+      case "pelaksana":
+        return "⚙️";
       default:
-        return '📋';
+        return "📋";
     }
   };
 
   // Add ranking based on sorted nominal (highest first)
   const rankedData = sortedData.map((item, index) => ({
     ...item,
-    rank: data.length > 1 ? (sortField === 'nominal' && sortDirection === 'desc' ? index + 1 : null) : null
+    rank:
+      data.length > 1
+        ? sortField === "nominal" && sortDirection === "desc"
+          ? index + 1
+          : null
+        : null,
   }));
 
   return (
@@ -127,7 +141,9 @@ export function MinistryDetailTable({ data, locale }: MinistryDetailTableProps) 
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead className="w-16 text-center">{t("detail.rank")}</TableHead>
+                <TableHead className="w-16 text-center">
+                  {t("detail.rank")}
+                </TableHead>
                 <SortableHeader field="jabatan">
                   {t("detail.position")}
                 </SortableHeader>
@@ -148,14 +164,20 @@ export function MinistryDetailTable({ data, locale }: MinistryDetailTableProps) 
                       <div className="flex items-center justify-center">
                         {position.rank <= 3 && (
                           <span className="mr-1">
-                            {position.rank === 1 ? '🥇' : position.rank === 2 ? '🥈' : '🥉'}
+                            {position.rank === 1
+                              ? "🥇"
+                              : position.rank === 2
+                                ? "🥈"
+                                : "🥉"}
                           </span>
                         )}
-                        <span className={
-                          position.rank <= 3 
-                            ? 'font-bold text-yellow-600' 
-                            : 'text-gray-600'
-                        }>
+                        <span
+                          className={
+                            position.rank <= 3
+                              ? "font-bold text-yellow-600"
+                              : "text-gray-600"
+                          }
+                        >
                           {position.rank}
                         </span>
                       </div>
@@ -163,7 +185,7 @@ export function MinistryDetailTable({ data, locale }: MinistryDetailTableProps) 
                       <span className="text-gray-400">-</span>
                     )}
                   </TableCell>
-                  
+
                   <TableCell className="font-medium">
                     <div className="space-y-1">
                       <div className="font-semibold text-gray-900">
@@ -176,22 +198,34 @@ export function MinistryDetailTable({ data, locale }: MinistryDetailTableProps) 
                   </TableCell>
 
                   <TableCell>
-                    <Badge className={`${getCategoryColor(position.kategori)} border-0`}>
-                      <span className="mr-1">{getCategoryIcon(position.kategori)}</span>
-                      {locale === "id" ? (
-                        position.kategori === "struktural" ? "Struktural" :
-                        position.kategori === "fungsional" ? "Fungsional" : "Pelaksana"
-                      ) : (
-                        position.kategori === "struktural" ? "Structural" :
-                        position.kategori === "fungsional" ? "Functional" : "Implementing"
-                      )}
+                    <Badge
+                      className={`${getCategoryColor(position.kategori)} border-0`}
+                    >
+                      <span className="mr-1">
+                        {getCategoryIcon(position.kategori)}
+                      </span>
+                      {locale === "id"
+                        ? position.kategori === "struktural"
+                          ? "Struktural"
+                          : position.kategori === "fungsional"
+                            ? "Fungsional"
+                            : "Pelaksana"
+                        : position.kategori === "struktural"
+                          ? "Structural"
+                          : position.kategori === "fungsional"
+                            ? "Functional"
+                            : "Implementing"}
                     </Badge>
                   </TableCell>
 
                   <TableCell>
                     <div className="flex flex-wrap gap-1">
                       {position.golongan.map((grade) => (
-                        <Badge key={grade} variant="outline" className="text-xs">
+                        <Badge
+                          key={grade}
+                          variant="outline"
+                          className="text-xs"
+                        >
                           {grade}
                         </Badge>
                       ))}
@@ -213,31 +247,40 @@ export function MinistryDetailTable({ data, locale }: MinistryDetailTableProps) 
             </TableBody>
           </Table>
         </div>
-        
+
         {/* Summary footer */}
         <div className="border-t bg-gray-50 p-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
             <div className="text-center">
-              <div className="font-semibold text-gray-600">{t("detail.totalPositions")}</div>
+              <div className="font-semibold text-gray-600">
+                {t("detail.totalPositions")}
+              </div>
               <div className="text-lg font-bold">{data.length}</div>
             </div>
             <div className="text-center">
-              <div className="font-semibold text-gray-600">{t("detail.averageAllowance")}</div>
+              <div className="font-semibold text-gray-600">
+                {t("detail.averageAllowance")}
+              </div>
               <div className="text-lg font-bold text-green-600">
                 {formatCurrency(
-                  Math.round(data.reduce((sum, pos) => sum + pos.nominal, 0) / data.length)
+                  Math.round(
+                    data.reduce((sum, pos) => sum + pos.nominal, 0) /
+                      data.length,
+                  ),
                 )}
               </div>
             </div>
             <div className="text-center">
-              <div className="font-semibold text-gray-600">{t("detail.allowanceRange")}</div>
+              <div className="font-semibold text-gray-600">
+                {t("detail.allowanceRange")}
+              </div>
               <div className="text-sm">
                 <div className="text-green-600 font-medium">
-                  {formatCurrency(Math.min(...data.map(pos => pos.nominal)))}
+                  {formatCurrency(Math.min(...data.map((pos) => pos.nominal)))}
                 </div>
                 <div className="text-xs text-gray-500">to</div>
                 <div className="text-blue-600 font-medium">
-                  {formatCurrency(Math.max(...data.map(pos => pos.nominal)))}
+                  {formatCurrency(Math.max(...data.map((pos) => pos.nominal)))}
                 </div>
               </div>
             </div>

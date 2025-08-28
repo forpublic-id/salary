@@ -1,0 +1,465 @@
+{
+  "metadata": {
+    "lastUpdated": "2025-08-28",
+    "source": "PP No. 5/2024 tentang Gaji Pokok PNS",
+    "currency": "IDR",
+    "version": "2024.2",
+    "description": "Tabel gaji PNS akurat berdasarkan MKG (Masa Kerja dalam tahun)"
+  },
+  "golongan": [
+    {
+      "id": "i-a",
+      "golongan": "I/a",
+      "pangkat": "Juru Muda",
+      "description": {
+        "id": "Golongan I/a - Juru Muda",
+        "en": "Grade I/a - Junior Assistant"
+      },
+      "gajiPokok": [
+        { "masaKerja": 0, "gaji": 1685700 },
+        { "masaKerja": 2, "gaji": 1738800 },
+        { "masaKerja": 4, "gaji": 1793500 },
+        { "masaKerja": 6, "gaji": 1950000 },
+        { "masaKerja": 8, "gaji": 1906300 },
+        { "masaKerja": 10, "gaji": 1968400 },
+        { "masaKerja": 12, "gaji": 2030400 },
+        { "masaKerja": 14, "gaji": 2094300 },
+        { "masaKerja": 16, "gaji": 2160300 },
+        { "masaKerja": 18, "gaji": 2228300 },
+        { "masaKerja": 20, "gaji": 2298500 },
+        { "masaKerja": 22, "gaji": 2370900 },
+        { "masaKerja": 24, "gaji": 2445500 },
+        { "masaKerja": 26, "gaji": 2522600 },
+        { "masaKerja": 27, "gaji": 2552600 }
+      ]
+    },
+    {
+      "id": "i-b",
+      "golongan": "I/b",
+      "pangkat": "Juru Muda Tingkat I",
+      "description": {
+        "id": "Golongan I/b - Juru Muda Tingkat I",
+        "en": "Grade I/b - Junior Assistant Level I"
+      },
+      "gajiPokok": [
+        { "masaKerja": 3, "gaji": 1840800 },
+        { "masaKerja": 5, "gaji": 1898800 },
+        { "masaKerja": 7, "gaji": 1958600 },
+        { "masaKerja": 9, "gaji": 2020300 },
+        { "masaKerja": 11, "gaji": 2083900 },
+        { "masaKerja": 13, "gaji": 2149600 },
+        { "masaKerja": 15, "gaji": 2217300 },
+        { "masaKerja": 17, "gaji": 2287100 },
+        { "masaKerja": 19, "gaji": 2359100 },
+        { "masaKerja": 21, "gaji": 2433400 },
+        { "masaKerja": 23, "gaji": 2510100 },
+        { "masaKerja": 25, "gaji": 2589100 },
+        { "masaKerja": 27, "gaji": 2670700 }
+      ]
+    },
+    {
+      "id": "i-c",
+      "golongan": "I/c",
+      "pangkat": "Juru",
+      "description": {
+        "id": "Golongan I/c - Juru",
+        "en": "Grade I/c - Assistant"
+      },
+      "gajiPokok": [
+        { "masaKerja": 5, "gaji": 1979100 },
+        { "masaKerja": 7, "gaji": 2041500 },
+        { "masaKerja": 9, "gaji": 2105800 },
+        { "masaKerja": 11, "gaji": 2172100 },
+        { "masaKerja": 13, "gaji": 2240500 },
+        { "masaKerja": 15, "gaji": 2311100 },
+        { "masaKerja": 17, "gaji": 2383900 },
+        { "masaKerja": 19, "gaji": 2459000 },
+        { "masaKerja": 21, "gaji": 2536400 },
+        { "masaKerja": 23, "gaji": 2616300 },
+        { "masaKerja": 25, "gaji": 2698700 },
+        { "masaKerja": 27, "gaji": 2783700 }
+      ]
+    },
+    {
+      "id": "i-d",
+      "golongan": "I/d",
+      "pangkat": "Juru Tingkat I",
+      "description": {
+        "id": "Golongan I/d - Juru Tingkat I",
+        "en": "Grade I/d - Assistant Level I"
+      },
+      "gajiPokok": [
+        { "masaKerja": 7, "gaji": 2127800 }
+      ]
+    },
+    {
+      "id": "ii-a",
+      "golongan": "II/a",
+      "pangkat": "Pengatur Muda",
+      "description": {
+        "id": "Golongan II/a - Pengatur Muda",
+        "en": "Grade II/a - Junior Administrator"
+      },
+      "gajiPokok": [
+        { "masaKerja": 0, "gaji": 2184000 },
+        { "masaKerja": 1, "gaji": 2218400 },
+        { "masaKerja": 3, "gaji": 2268200 },
+        { "masaKerja": 4, "gaji": 2360300 },
+        { "masaKerja": 6, "gaji": 2434600 },
+        { "masaKerja": 8, "gaji": 2511300 },
+        { "masaKerja": 10, "gaji": 2590400 },
+        { "masaKerja": 12, "gaji": 2672000 },
+        { "masaKerja": 14, "gaji": 2756200 },
+        { "masaKerja": 16, "gaji": 2843000 },
+        { "masaKerja": 18, "gaji": 2932500 }
+      ]
+    },
+    {
+      "id": "ii-b",
+      "golongan": "II/b",
+      "pangkat": "Pengatur Muda Tingkat I",
+      "description": {
+        "id": "Golongan II/b - Pengatur Muda Tingkat I",
+        "en": "Grade II/b - Junior Administrator Level I"
+      },
+      "gajiPokok": [
+        { "masaKerja": 3, "gaji": 2335000 },
+        { "masaKerja": 4, "gaji": 2460100 },
+        { "masaKerja": 6, "gaji": 2537600 },
+        { "masaKerja": 8, "gaji": 2617500 },
+        { "masaKerja": 10, "gaji": 2700000 },
+        { "masaKerja": 12, "gaji": 2785000 },
+        { "masaKerja": 14, "gaji": 2872700 },
+        { "masaKerja": 16, "gaji": 2963200 },
+        { "masaKerja": 18, "gaji": 3056500 }
+      ]
+    },
+    {
+      "id": "ii-c",
+      "golongan": "II/c",
+      "pangkat": "Pengatur",
+      "description": {
+        "id": "Golongan II/c - Pengatur",
+        "en": "Grade II/c - Administrator"
+      },
+      "gajiPokok": [
+        { "masaKerja": 3, "gaji": 2485900 },
+        { "masaKerja": 4, "gaji": 2554200 },
+        { "masaKerja": 6, "gaji": 2645000 },
+        { "masaKerja": 8, "gaji": 2728300 },
+        { "masaKerja": 10, "gaji": 2814200 },
+        { "masaKerja": 12, "gaji": 2902800 },
+        { "masaKerja": 14, "gaji": 2994300 },
+        { "masaKerja": 16, "gaji": 3088600 },
+        { "masaKerja": 18, "gaji": 3185800 }
+      ]
+    },
+    {
+      "id": "ii-d",
+      "golongan": "II/d",
+      "pangkat": "Pengatur Tingkat I",
+      "description": {
+        "id": "Golongan II/d - Pengatur Tingkat I",
+        "en": "Grade II/d - Administrator Level I"
+      },
+      "gajiPokok": [
+        { "masaKerja": 5, "gaji": 2591100 },
+        { "masaKerja": 6, "gaji": 2672700 },
+        { "masaKerja": 8, "gaji": 2756800 },
+        { "masaKerja": 10, "gaji": 2843700 },
+        { "masaKerja": 12, "gaji": 2933200 },
+        { "masaKerja": 14, "gaji": 3025600 },
+        { "masaKerja": 16, "gaji": 3120900 },
+        { "masaKerja": 18, "gaji": 3219200 },
+        { "masaKerja": 19, "gaji": 3320600 },
+        { "masaKerja": 20, "gaji": 3425200 },
+        { "masaKerja": 21, "gaji": 3533100 },
+        { "masaKerja": 22, "gaji": 3644300 },
+        { "masaKerja": 23, "gaji": 3758900 },
+        { "masaKerja": 24, "gaji": 3877500 },
+        { "masaKerja": 25, "gaji": 3999600 },
+        { "masaKerja": 26, "gaji": 4125600 },
+        { "masaKerja": 27, "gaji": 4255200 },
+        { "masaKerja": 28, "gaji": 4388700 },
+        { "masaKerja": 29, "gaji": 4526200 },
+        { "masaKerja": 30, "gaji": 4667800 },
+        { "masaKerja": 31, "gaji": 4813700 },
+        { "masaKerja": 32, "gaji": 4964000 },
+        { "masaKerja": 33, "gaji": 5118900 }
+      ]
+    },
+    {
+      "id": "iii-a",
+      "golongan": "III/a",
+      "pangkat": "Penata Muda",
+      "description": {
+        "id": "Golongan III/a - Penata Muda",
+        "en": "Grade III/a - Junior Manager"
+      },
+      "gajiPokok": [
+        { "masaKerja": 0, "gaji": 2785700 },
+        { "masaKerja": 1, "gaji": 2873500 },
+        { "masaKerja": 2, "gaji": 2964000 },
+        { "masaKerja": 4, "gaji": 3057300 },
+        { "masaKerja": 5, "gaji": 3153600 },
+        { "masaKerja": 6, "gaji": 3252900 },
+        { "masaKerja": 7, "gaji": 3355400 },
+        { "masaKerja": 8, "gaji": 3461100 },
+        { "masaKerja": 9, "gaji": 3570100 },
+        { "masaKerja": 10, "gaji": 3682500 },
+        { "masaKerja": 11, "gaji": 3798500 },
+        { "masaKerja": 12, "gaji": 3918100 },
+        { "masaKerja": 13, "gaji": 4041500 },
+        { "masaKerja": 14, "gaji": 4168800 },
+        { "masaKerja": 15, "gaji": 4300100 },
+        { "masaKerja": 16, "gaji": 4435500 }
+      ]
+    },
+    {
+      "id": "iii-b",
+      "golongan": "III/b",
+      "pangkat": "Penata Muda Tingkat I",
+      "description": {
+        "id": "Golongan III/b - Penata Muda Tingkat I",
+        "en": "Grade III/b - Junior Manager Level I"
+      },
+      "gajiPokok": [
+        { "masaKerja": 3, "gaji": 2903600 },
+        { "masaKerja": 4, "gaji": 2995000 },
+        { "masaKerja": 5, "gaji": 3089300 },
+        { "masaKerja": 6, "gaji": 3186600 },
+        { "masaKerja": 7, "gaji": 3287000 },
+        { "masaKerja": 8, "gaji": 3390500 },
+        { "masaKerja": 9, "gaji": 3497300 },
+        { "masaKerja": 10, "gaji": 3607500 },
+        { "masaKerja": 11, "gaji": 3721100 },
+        { "masaKerja": 12, "gaji": 3838300 },
+        { "masaKerja": 13, "gaji": 3959200 },
+        { "masaKerja": 14, "gaji": 4083900 },
+        { "masaKerja": 15, "gaji": 4212500 },
+        { "masaKerja": 16, "gaji": 4345100 },
+        { "masaKerja": 17, "gaji": 4482000 },
+        { "masaKerja": 18, "gaji": 4623200 },
+        { "masaKerja": 19, "gaji": 4768800 },
+        { "masaKerja": 20, "gaji": 4919000 }
+      ]
+    },
+    {
+      "id": "iii-c",
+      "golongan": "III/c",
+      "pangkat": "Penata",
+      "description": {
+        "id": "Golongan III/c - Penata",
+        "en": "Grade III/c - Manager"
+      },
+      "gajiPokok": [
+        { "masaKerja": 5, "gaji": 3026400 },
+        { "masaKerja": 6, "gaji": 3121700 },
+        { "masaKerja": 7, "gaji": 3220000 },
+        { "masaKerja": 8, "gaji": 3321400 },
+        { "masaKerja": 9, "gaji": 3426000 },
+        { "masaKerja": 10, "gaji": 3533900 },
+        { "masaKerja": 11, "gaji": 3645200 },
+        { "masaKerja": 12, "gaji": 3760100 },
+        { "masaKerja": 13, "gaji": 3878500 },
+        { "masaKerja": 14, "gaji": 4000600 },
+        { "masaKerja": 15, "gaji": 4126600 },
+        { "masaKerja": 16, "gaji": 4256600 },
+        { "masaKerja": 17, "gaji": 4390700 },
+        { "masaKerja": 18, "gaji": 4529000 },
+        { "masaKerja": 19, "gaji": 4671600 },
+        { "masaKerja": 20, "gaji": 4818700 },
+        { "masaKerja": 21, "gaji": 4970500 },
+        { "masaKerja": 22, "gaji": 5127200 },
+        { "masaKerja": 23, "gaji": 5289000 },
+        { "masaKerja": 24, "gaji": 5456000 },
+        { "masaKerja": 25, "gaji": 5628300 },
+        { "masaKerja": 26, "gaji": 5806100 }
+      ]
+    },
+    {
+      "id": "iii-d",
+      "golongan": "III/d",
+      "pangkat": "Penata Tingkat I",
+      "description": {
+        "id": "Golongan III/d - Penata Tingkat I",
+        "en": "Grade III/d - Manager Level I"
+      },
+      "gajiPokok": [
+        { "masaKerja": 7, "gaji": 3154400 },
+        { "masaKerja": 8, "gaji": 3253700 },
+        { "masaKerja": 9, "gaji": 3356200 },
+        { "masaKerja": 10, "gaji": 3462000 },
+        { "masaKerja": 11, "gaji": 3571000 },
+        { "masaKerja": 12, "gaji": 3683400 },
+        { "masaKerja": 13, "gaji": 3799400 },
+        { "masaKerja": 14, "gaji": 3919100 },
+        { "masaKerja": 15, "gaji": 4042500 },
+        { "masaKerja": 16, "gaji": 4169900 },
+        { "masaKerja": 17, "gaji": 4301200 },
+        { "masaKerja": 18, "gaji": 4436700 },
+        { "masaKerja": 19, "gaji": 4576400 },
+        { "masaKerja": 20, "gaji": 4720500 },
+        { "masaKerja": 21, "gaji": 4869200 },
+        { "masaKerja": 22, "gaji": 5022500 },
+        { "masaKerja": 23, "gaji": 5180700 },
+        { "masaKerja": 24, "gaji": 5344000 },
+        { "masaKerja": 25, "gaji": 5512700 },
+        { "masaKerja": 26, "gaji": 5686900 },
+        { "masaKerja": 27, "gaji": 5866800 },
+        { "masaKerja": 28, "gaji": 6052600 }
+      ]
+    },
+    {
+      "id": "iv-a",
+      "golongan": "IV/a",
+      "pangkat": "Pembina",
+      "description": {
+        "id": "Golongan IV/a - Pembina",
+        "en": "Grade IV/a - Senior Manager"
+      },
+      "gajiPokok": [
+        { "masaKerja": 0, "gaji": 3287800 },
+        { "masaKerja": 1, "gaji": 3391400 },
+        { "masaKerja": 2, "gaji": 3498200 },
+        { "masaKerja": 3, "gaji": 3608400 },
+        { "masaKerja": 4, "gaji": 3722000 },
+        { "masaKerja": 5, "gaji": 3839200 },
+        { "masaKerja": 6, "gaji": 3960200 },
+        { "masaKerja": 7, "gaji": 4085000 },
+        { "masaKerja": 8, "gaji": 4213500 },
+        { "masaKerja": 9, "gaji": 4346200 },
+        { "masaKerja": 10, "gaji": 4483100 },
+        { "masaKerja": 11, "gaji": 4624300 },
+        { "masaKerja": 12, "gaji": 4770000 },
+        { "masaKerja": 13, "gaji": 4920200 }
+      ]
+    },
+    {
+      "id": "iv-b",
+      "golongan": "IV/b",
+      "pangkat": "Pembina Tingkat I",
+      "description": {
+        "id": "Golongan IV/b - Pembina Tingkat I",
+        "en": "Grade IV/b - Senior Manager Level I"
+      },
+      "gajiPokok": [
+        { "masaKerja": 3, "gaji": 3426500 },
+        { "masaKerja": 4, "gaji": 3534800 },
+        { "masaKerja": 5, "gaji": 3646200 },
+        { "masaKerja": 6, "gaji": 3761000 },
+        { "masaKerja": 7, "gaji": 3879500 },
+        { "masaKerja": 8, "gaji": 4001600 },
+        { "masaKerja": 9, "gaji": 4127700 },
+        { "masaKerja": 10, "gaji": 4257700 },
+        { "masaKerja": 11, "gaji": 4391800 },
+        { "masaKerja": 12, "gaji": 4530100 },
+        { "masaKerja": 13, "gaji": 4672800 },
+        { "masaKerja": 14, "gaji": 4820000 },
+        { "masaKerja": 15, "gaji": 4971700 },
+        { "masaKerja": 16, "gaji": 5128300 },
+        { "masaKerja": 17, "gaji": 5290000 },
+        { "masaKerja": 18, "gaji": 5456900 }
+      ]
+    },
+    {
+      "id": "iv-c",
+      "golongan": "IV/c",
+      "pangkat": "Pembina Utama Muda",
+      "description": {
+        "id": "Golongan IV/c - Pembina Utama Muda",
+        "en": "Grade IV/c - Junior Principal Manager"
+      },
+      "gajiPokok": [
+        { "masaKerja": 5, "gaji": 3571900 },
+        { "masaKerja": 6, "gaji": 3684400 },
+        { "masaKerja": 7, "gaji": 3800400 },
+        { "masaKerja": 8, "gaji": 3920100 },
+        { "masaKerja": 9, "gaji": 4043600 },
+        { "masaKerja": 10, "gaji": 4170900 },
+        { "masaKerja": 11, "gaji": 4302300 },
+        { "masaKerja": 12, "gaji": 4437800 },
+        { "masaKerja": 13, "gaji": 4577500 },
+        { "masaKerja": 14, "gaji": 4721700 },
+        { "masaKerja": 15, "gaji": 4870400 },
+        { "masaKerja": 16, "gaji": 5023800 },
+        { "masaKerja": 17, "gaji": 5182000 },
+        { "masaKerja": 18, "gaji": 5345200 },
+        { "masaKerja": 19, "gaji": 5513600 },
+        { "masaKerja": 20, "gaji": 5687200 },
+        { "masaKerja": 21, "gaji": 5866400 },
+        { "masaKerja": 22, "gaji": 6051500 },
+        { "masaKerja": 23, "gaji": 6242600 },
+        { "masaKerja": 24, "gaji": 6440000 },
+        { "masaKerja": 25, "gaji": 6643900 },
+        { "masaKerja": 26, "gaji": 6854500 },
+        { "masaKerja": 27, "gaji": 7072000 },
+        { "masaKerja": 28, "gaji": 7296700 }
+      ]
+    },
+    {
+      "id": "iv-d",
+      "golongan": "IV/d",
+      "pangkat": "Pembina Utama Madya",
+      "description": {
+        "id": "Golongan IV/d - Pembina Utama Madya",
+        "en": "Grade IV/d - Middle Principal Manager"
+      },
+      "gajiPokok": [
+        { "masaKerja": 7, "gaji": 3723000 },
+        { "masaKerja": 8, "gaji": 3840200 },
+        { "masaKerja": 9, "gaji": 3961200 },
+        { "masaKerja": 10, "gaji": 4086000 },
+        { "masaKerja": 11, "gaji": 4214600 },
+        { "masaKerja": 12, "gaji": 4347300 },
+        { "masaKerja": 13, "gaji": 4484300 },
+        { "masaKerja": 14, "gaji": 4625500 },
+        { "masaKerja": 15, "gaji": 4771200 },
+        { "masaKerja": 16, "gaji": 4921400 },
+        { "masaKerja": 17, "gaji": 5076400 },
+        { "masaKerja": 18, "gaji": 5236300 },
+        { "masaKerja": 19, "gaji": 5401200 },
+        { "masaKerja": 20, "gaji": 5571400 },
+        { "masaKerja": 21, "gaji": 5747000 },
+        { "masaKerja": 22, "gaji": 5928200 },
+        { "masaKerja": 23, "gaji": 6115300 },
+        { "masaKerja": 24, "gaji": 6308500 },
+        { "masaKerja": 25, "gaji": 6508100 },
+        { "masaKerja": 26, "gaji": 6714400 },
+        { "masaKerja": 27, "gaji": 6927700 },
+        { "masaKerja": 28, "gaji": 7148300 }
+      ]
+    },
+    {
+      "id": "iv-e",
+      "golongan": "IV/e",
+      "pangkat": "Pembina Utama",
+      "description": {
+        "id": "Golongan IV/e - Pembina Utama",
+        "en": "Grade IV/e - Principal Manager"
+      },
+      "gajiPokok": [
+        { "masaKerja": 9, "gaji": 3880400 },
+        { "masaKerja": 10, "gaji": 4002700 },
+        { "masaKerja": 11, "gaji": 4128700 },
+        { "masaKerja": 12, "gaji": 4258700 },
+        { "masaKerja": 13, "gaji": 4392900 },
+        { "masaKerja": 14, "gaji": 4531200 },
+        { "masaKerja": 15, "gaji": 4673900 },
+        { "masaKerja": 16, "gaji": 4821100 },
+        { "masaKerja": 17, "gaji": 4973000 },
+        { "masaKerja": 18, "gaji": 5129600 },
+        { "masaKerja": 19, "gaji": 5291200 },
+        { "masaKerja": 20, "gaji": 5458000 },
+        { "masaKerja": 21, "gaji": 5630200 },
+        { "masaKerja": 22, "gaji": 5808100 },
+        { "masaKerja": 23, "gaji": 5991900 },
+        { "masaKerja": 24, "gaji": 6181900 },
+        { "masaKerja": 25, "gaji": 6378400 },
+        { "masaKerja": 26, "gaji": 6581700 },
+        { "masaKerja": 27, "gaji": 6792200 },
+        { "masaKerja": 28, "gaji": 7010200 }
+      ]
+    }
+  ]
+}

@@ -14,6 +14,7 @@ const navigation = [
   { key: "calculator", href: "/calculator" },
   { key: "regional-wages", href: "/regional-wages" },
   { key: "browse", href: "/browse" },
+  { key: "aparatur-sipil-negara", href: "/aparatur-sipil-negara" },
   { key: "tunjangan-kinerja", href: "/tunjangan-kinerja" },
   { key: "analysis", href: "/analysis" },
   { key: "officials", href: "/officials" },

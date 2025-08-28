@@ -1,68 +1,103 @@
-# Public Salary ForPublic.id
+# Public Salary Indonesia
 
-Indonesian Salary & Wage Transparency Platform
+<div align="center">
+<img src="public/logo.svg" alt="Public Salary Indonesia" width="80" height="80">
+<br><br>
+<strong>by</strong> <span style="color: #ffffff; background: #000000; padding: 2px 4px; border-radius: 4px;">ForPublic</span><span style="color: #dc2626; background: #000000; padding: 2px 4px; border-radius: 4px;">.id</span>
+</div>
 
-## 🎯 Overview
+A comprehensive Indonesian salary & wage transparency platform providing access to civil service, public officials, and regional wage information.
 
-Public Salary ForPublic.id adalah platform transparansi komprehensif yang menyediakan akses ke informasi gaji dan upah di Indonesia. Dibangun sebagai bagian dari ekosistem ForPublic.id yang berfokus pada transparansi dan akuntabilitas publik, meliputi sektor publik, pejabat, dan upah regional.
+**Live Demo**: [salary.forpublic.id](https://salary.forpublic.id)
 
-## 🚀 Features
+## Features
 
-- **💰 Salary Calculator** - Interactive calculator untuk estimasi gaji dan kompensasi
-- **🗺️ Regional Wages** - Kalkulator dan data upah minimum regional (UMR/UMP)
-- **🔍 Advanced Search** - Pencarian dan filtering data gaji yang komprehensif
-- **📊 Data Visualization** - Grafik dan analisis untuk insights mendalam
-- **👨‍💼 Officials Directory** - Database lengkap gaji pejabat publik
-- **🌍 Bilingual Support** - Dukungan penuh bahasa Indonesia dan Inggris
-- **📱 Mobile Responsive** - Design mobile-first yang responsif
+### Salary Calculator
+- **Interactive calculation**: Real-time salary estimation with all allowances
+- **Detailed breakdown**: Base salary, performance allowances, and deductions
+- **Export functionality**: Save calculation results for reference
 
-## 🛠 Tech Stack
+### Tunjangan Kinerja (Performance Allowances)
+- **Ministry-wise data**: Complete allowance information by government institutions
+- **Position-based calculation**: Allowances based on specific job positions
+- **Grade compatibility**: Shows which salary grades are eligible
 
-- **Framework:** Next.js 15 with App Router
-- **Runtime:** Bun (development & production)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS v4 + shadcn/ui
-- **Charts:** Recharts
-- **I18n:** next-intl
-- **Package Manager:** Bun
-- **Deployment:** Vercel
+### Regional Wages
+- **Provincial minimum wages**: UMP data across all provinces
+- **District/city wages**: UMK data for local areas
+- **Historical trends**: Wage progression over time
+- **Interactive map**: Visual representation of wage distribution
 
-## 🏃‍♂️ Getting Started
+### Public Officials Directory
+- **National officials**: President, ministers, and high-ranking positions
+- **Regional officials**: Governors, mayors, and local government positions
+- **Legislative members**: DPR, DPD, and regional council salaries
+- **Comprehensive database**: Complete compensation packages
+
+### Bilingual Support
+- Complete Indonesian and English interface
+- SEO-friendly URLs for each language (`/id/tunjangan-kinerja` vs `/en/performance-allowance`)
+- Localized number formatting and currency display
+
+## Technology Stack
+
+- **Next.js 15** - React framework with App Router
+- **TypeScript** - Type safety and developer experience
+- **Tailwind CSS v4** - Modern CSS framework with design tokens
+- **shadcn/ui** - High-quality component library
+- **Recharts** - Data visualization and charts
+- **next-intl** - Internationalization support
+- **Bun** - Fast JavaScript runtime and package manager
+
+## Getting Started
 
 ### Prerequisites
+- Node.js 18+ or Bun
+- Git
 
-- Install [Bun](https://bun.sh) - Fast JavaScript runtime & package manager
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/forpublic-id/salary.git
+cd salary
+
 # Install dependencies
 bun install
 
-# Development server (using Bun runtime)
+# Run development server
 bun run dev
-
-# Alternative development commands
-bun run dev:turbo    # With Turbopack
-npm run dev          # Fallback with Node.js
 
 # Build for production
 bun run build
-
-# Start production server
-bun run start
-
-# Code quality checks
-bun run lint         # ESLint
-bun run typecheck    # TypeScript
-bun run format       # Prettier
 ```
 
-### Why Bun?
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-- ⚡ **Faster development** - Bun runtime is significantly faster than Node.js
-- 📦 **Integrated tooling** - Package manager, bundler, and runtime in one
-- 🔄 **Drop-in replacement** - Compatible with Node.js ecosystem
-- 💾 **Better memory usage** - More efficient resource utilization
+## Contributing
 
-## 📞 Contact
+We welcome contributions from the community!
 
-Part of [ForPublic.id](https://forpublic.id) ecosystem - Promoting transparency in Indonesian public service.
+### How to Contribute
+1. Fork this repository
+2. Create a new branch: `git checkout -b feature/your-feature`
+3. Make your changes and commit: `git commit -m 'Add some feature'`
+4. Push to the branch: `git push origin feature/your-feature`
+5. Create a Pull Request
+
+### Reporting Issues
+Found a bug? [Create a new issue](https://github.com/forpublic-id/salary/issues) with:
+- Clear bug description
+- Steps to reproduce
+- Screenshots if applicable
+- Browser and device information
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## About
+
+Developed with care by the **[ForPublic.id](https://forpublic.id)** team.
+
+For support and inquiries, visit our [website](https://forpublic.id) or create an issue on GitHub.

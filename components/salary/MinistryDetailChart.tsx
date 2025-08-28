@@ -25,20 +25,28 @@ interface MinistryDetailChartProps {
 }
 
 const COLORS = [
-  '#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884D8',
-  '#82CA9D', '#FFC658', '#FF7C7C', '#8DD1E1', '#D084D0'
+  "#0088FE",
+  "#00C49F",
+  "#FFBB28",
+  "#FF8042",
+  "#8884D8",
+  "#82CA9D",
+  "#FFC658",
+  "#FF7C7C",
+  "#8DD1E1",
+  "#D084D0",
 ];
 
 const CATEGORY_COLORS = {
-  struktural: '#3B82F6',
-  fungsional: '#10B981', 
-  pelaksana: '#F59E0B'
+  struktural: "#3B82F6",
+  fungsional: "#10B981",
+  pelaksana: "#F59E0B",
 };
 
-export function MinistryDetailChart({ 
-  data, 
-  ministryName, 
-  locale 
+export function MinistryDetailChart({
+  data,
+  ministryName,
+  locale,
 }: MinistryDetailChartProps) {
   const t = useTranslations("tunjanganKinerja");
 
@@ -64,28 +72,39 @@ export function MinistryDetailChart({
     .map((item) => ({
       ...item,
       jabatan: item.jabatan[locale as "id" | "en"],
-      shortJabatan: item.jabatan[locale as "id" | "en"].length > 20 
-        ? item.jabatan[locale as "id" | "en"].substring(0, 17) + "..."
-        : item.jabatan[locale as "id" | "en"],
-      fill: CATEGORY_COLORS[item.kategori as keyof typeof CATEGORY_COLORS] || '#6B7280'
+      shortJabatan:
+        item.jabatan[locale as "id" | "en"].length > 20
+          ? item.jabatan[locale as "id" | "en"].substring(0, 17) + "..."
+          : item.jabatan[locale as "id" | "en"],
+      fill:
+        CATEGORY_COLORS[item.kategori as keyof typeof CATEGORY_COLORS] ||
+        "#6B7280",
     }));
 
   // Prepare data for category breakdown pie chart
   const categoryData = Object.entries(
-    data.reduce((acc, item) => {
-      acc[item.kategori] = (acc[item.kategori] || 0) + 1;
-      return acc;
-    }, {} as Record<string, number>)
-  ).map(([kategori, count]) => ({
-    kategori: locale === "id" ? (
-      kategori === "struktural" ? "Struktural" :
-      kategori === "fungsional" ? "Fungsional" : "Pelaksana"
-    ) : (
-      kategori === "struktural" ? "Structural" :
-      kategori === "fungsional" ? "Functional" : "Implementing"
+    data.reduce(
+      (acc, item) => {
+        acc[item.kategori] = (acc[item.kategori] || 0) + 1;
+        return acc;
+      },
+      {} as Record<string, number>,
     ),
+  ).map(([kategori, count]) => ({
+    kategori:
+      locale === "id"
+        ? kategori === "struktural"
+          ? "Struktural"
+          : kategori === "fungsional"
+            ? "Fungsional"
+            : "Pelaksana"
+        : kategori === "struktural"
+          ? "Structural"
+          : kategori === "fungsional"
+            ? "Functional"
+            : "Implementing",
     count,
-    percentage: Math.round((count / data.length) * 100)
+    percentage: Math.round((count / data.length) * 100),
   }));
 
   // Custom tooltip for bar chart
@@ -97,23 +116,33 @@ export function MinistryDetailChart({
           <p className="font-semibold text-gray-900 mb-2">{data.jabatan}</p>
           <div className="space-y-1 text-sm">
             <p className="flex justify-between">
-              <span className="text-gray-600">{t("detail.allowanceAmount")}:</span>
-              <span className="font-medium text-blue-600">{formatCurrency(data.nominal)}</span>
+              <span className="text-gray-600">
+                {t("detail.allowanceAmount")}:
+              </span>
+              <span className="font-medium text-blue-600">
+                {formatCurrency(data.nominal)}
+              </span>
             </p>
             <p className="flex justify-between">
               <span className="text-gray-600">{t("detail.category")}:</span>
-              <span className="font-medium">{
-                locale === "id" ? (
-                  data.kategori === "struktural" ? "Struktural" :
-                  data.kategori === "fungsional" ? "Fungsional" : "Pelaksana"
-                ) : (
-                  data.kategori === "struktural" ? "Structural" :
-                  data.kategori === "fungsional" ? "Functional" : "Implementing"
-                )
-              }</span>
+              <span className="font-medium">
+                {locale === "id"
+                  ? data.kategori === "struktural"
+                    ? "Struktural"
+                    : data.kategori === "fungsional"
+                      ? "Fungsional"
+                      : "Pelaksana"
+                  : data.kategori === "struktural"
+                    ? "Structural"
+                    : data.kategori === "fungsional"
+                      ? "Functional"
+                      : "Implementing"}
+              </span>
             </p>
             <p className="flex justify-between">
-              <span className="text-gray-600">{t("detail.eligibleGrades")}:</span>
+              <span className="text-gray-600">
+                {t("detail.eligibleGrades")}:
+              </span>
               <span className="font-medium">{data.golongan.join(", ")}</span>
             </p>
           </div>
@@ -150,30 +179,30 @@ export function MinistryDetailChart({
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <ResponsiveContainer width="100%" height={Math.max(400, data.length * 40)}>
-            <BarChart 
-              data={chartData} 
+          <ResponsiveContainer
+            width="100%"
+            height={Math.max(400, data.length * 40)}
+          >
+            <BarChart
+              data={chartData}
               layout="horizontal"
               margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
             >
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis 
+              <XAxis
                 type="number"
                 tickFormatter={formatCurrencyShort}
                 fontSize={12}
               />
-              <YAxis 
+              <YAxis
                 type="category"
                 dataKey="shortJabatan"
                 width={150}
                 fontSize={11}
-                tick={{ textAnchor: 'end' }}
+                tick={{ textAnchor: "end" }}
               />
               <Tooltip content={<CustomTooltip />} />
-              <Bar 
-                dataKey="nominal" 
-                radius={[0, 4, 4, 0]}
-              />
+              <Bar dataKey="nominal" radius={[0, 4, 4, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </CardContent>
@@ -194,13 +223,18 @@ export function MinistryDetailChart({
                   cx="50%"
                   cy="50%"
                   labelLine={false}
-                  label={({ kategori, percentage }) => `${kategori}\n${percentage}%`}
+                  label={({ kategori, percentage }) =>
+                    `${kategori}\n${percentage}%`
+                  }
                   outerRadius={100}
                   fill="#8884d8"
                   dataKey="count"
                 >
                   {categoryData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={Object.values(CATEGORY_COLORS)[index]} />
+                    <Cell
+                      key={`cell-${index}`}
+                      fill={Object.values(CATEGORY_COLORS)[index]}
+                    />
                   ))}
                 </Pie>
                 <Tooltip content={<PieTooltip />} />
@@ -216,39 +250,55 @@ export function MinistryDetailChart({
           </CardHeader>
           <CardContent className="space-y-4">
             {Object.entries(
-              data.reduce((acc, item) => {
-                const key = item.kategori;
-                if (!acc[key]) {
-                  acc[key] = {
-                    count: 0,
-                    total: 0,
-                    min: Infinity,
-                    max: 0
-                  };
-                }
-                acc[key].count++;
-                acc[key].total += item.nominal;
-                acc[key].min = Math.min(acc[key].min, item.nominal);
-                acc[key].max = Math.max(acc[key].max, item.nominal);
-                return acc;
-              }, {} as Record<string, { count: number; total: number; min: number; max: number }>)
+              data.reduce(
+                (acc, item) => {
+                  const key = item.kategori;
+                  if (!acc[key]) {
+                    acc[key] = {
+                      count: 0,
+                      total: 0,
+                      min: Infinity,
+                      max: 0,
+                    };
+                  }
+                  acc[key].count++;
+                  acc[key].total += item.nominal;
+                  acc[key].min = Math.min(acc[key].min, item.nominal);
+                  acc[key].max = Math.max(acc[key].max, item.nominal);
+                  return acc;
+                },
+                {} as Record<
+                  string,
+                  { count: number; total: number; min: number; max: number }
+                >,
+              ),
             ).map(([kategori, stats]) => (
               <div key={kategori} className="p-3 border rounded-lg">
                 <div className="flex items-center justify-between mb-2">
-                  <Badge 
-                    className="border-0" 
-                    style={{ 
-                      backgroundColor: CATEGORY_COLORS[kategori as keyof typeof CATEGORY_COLORS] + '20',
-                      color: CATEGORY_COLORS[kategori as keyof typeof CATEGORY_COLORS]
+                  <Badge
+                    className="border-0"
+                    style={{
+                      backgroundColor:
+                        CATEGORY_COLORS[
+                          kategori as keyof typeof CATEGORY_COLORS
+                        ] + "20",
+                      color:
+                        CATEGORY_COLORS[
+                          kategori as keyof typeof CATEGORY_COLORS
+                        ],
                     }}
                   >
-                    {locale === "id" ? (
-                      kategori === "struktural" ? "Struktural" :
-                      kategori === "fungsional" ? "Fungsional" : "Pelaksana"
-                    ) : (
-                      kategori === "struktural" ? "Structural" :
-                      kategori === "fungsional" ? "Functional" : "Implementing"
-                    )}
+                    {locale === "id"
+                      ? kategori === "struktural"
+                        ? "Struktural"
+                        : kategori === "fungsional"
+                          ? "Fungsional"
+                          : "Pelaksana"
+                      : kategori === "struktural"
+                        ? "Structural"
+                        : kategori === "fungsional"
+                          ? "Functional"
+                          : "Implementing"}
                   </Badge>
                   <span className="text-sm text-gray-500">
                     {stats.count} {t("detail.positions")}
@@ -264,7 +314,8 @@ export function MinistryDetailChart({
                   <div>
                     <div className="text-gray-600">{t("detail.range")}</div>
                     <div className="font-semibold text-xs">
-                      {formatCurrencyShort(stats.min)} - {formatCurrencyShort(stats.max)}
+                      {formatCurrencyShort(stats.min)} -{" "}
+                      {formatCurrencyShort(stats.max)}
                     </div>
                   </div>
                 </div>

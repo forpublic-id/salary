@@ -7,6 +7,7 @@
     "analysis": "Analysis",
     "officials": "Public Officials",
     "tunjangan-kinerja": "Performance Allowance",
+    "aparatur-sipil-negara": "Civil State Apparatus",
     "about": "About"
   },
   "hero": {
@@ -354,5 +355,9 @@
       "categoryBreakdown": "Category Breakdown",
       "categoryStats": "Category Statistics"
     }
+  },
+  "aparatur": {
+    "title": "Civil State Apparatus",
+    "subtitle": "Complete list of ASN and P3K basic salary by grade and rank"
   }
 }

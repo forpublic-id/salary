@@ -25,7 +25,7 @@ export default function NotFound() {
               Kembali ke Beranda
             </Button>
           </Link>
-          
+
           <Link href="/id/browse">
             <Button variant="outline" className="w-full">
               Jelajahi Data

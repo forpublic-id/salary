@@ -7,6 +7,7 @@
     "analysis": "Analisis",
     "officials": "Pejabat Publik",
     "tunjangan-kinerja": "Tunjangan Kinerja",
+    "aparatur-sipil-negara": "Aparatur Sipil Negara",
     "about": "Tentang"
   },
   "hero": {
@@ -354,5 +355,9 @@
       "categoryBreakdown": "Breakdown Kategori",
       "categoryStats": "Statistik Kategori"
     }
+  },
+  "aparatur": {
+    "title": "Aparatur Sipil Negara",
+    "subtitle": "Daftar lengkap gaji pokok ASN dan P3K berdasarkan golongan dan pangkat"
   }
 }

@@ -129,8 +129,8 @@ export function TunjanganKinerjaTable({
               {sortedData.map((ministry) => (
                 <TableRow key={ministry.kode} className="hover:bg-gray-50">
                   <TableCell className="font-medium">
-                    <Link 
-                      href={`/${locale}/tunjangan-kinerja/${ministry.kode.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+                    <Link
+                      href={`/${locale}/tunjangan-kinerja/${ministry.kode.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
                       className="block space-y-1 hover:text-blue-600 transition-colors"
                     >
                       <div className="font-semibold text-gray-900 hover:text-blue-600">

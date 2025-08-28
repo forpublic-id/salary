@@ -10,14 +10,14 @@ import { Button } from "@/components/ui/Button";
 import { MinistryDetailTable } from "@/components/salary/MinistryDetailTable";
 import { MinistryDetailChart } from "@/components/salary/MinistryDetailChart";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
-import { 
-  ArrowLeft, 
-  Building2, 
-  Users, 
-  TrendingUp, 
-  FileText, 
+import {
+  ArrowLeft,
+  Building2,
+  Users,
+  TrendingUp,
+  FileText,
   BarChart3,
-  ExternalLink 
+  ExternalLink,
 } from "lucide-react";
 import type { TunjanganKinerja } from "@/lib/types/salary";
 
@@ -43,9 +43,9 @@ interface MinistryDetailPageClientProps {
   slug: string;
 }
 
-export default function MinistryDetailPageClient({ 
-  locale, 
-  slug 
+export default function MinistryDetailPageClient({
+  locale,
+  slug,
 }: MinistryDetailPageClientProps) {
   const t = useTranslations("tunjanganKinerja");
   const [ministryData, setMinistryData] = useState<MinistryData | null>(null);
@@ -57,31 +57,38 @@ export default function MinistryDetailPageClient({
       try {
         const response = await fetch("/data/salary/pns/tunjangan-kinerja.json");
         const data = await response.json();
-        
+
         // Find positions for this ministry by matching slug to kode
-        const ministryPositions = data.tunjanganKinerja.filter((item: TunjanganKinerja) => 
-          item.kode.toLowerCase().replace(/[^a-z0-9]/g, '-') === slug
+        const ministryPositions = data.tunjanganKinerja.filter(
+          (item: TunjanganKinerja) =>
+            item.kode.toLowerCase().replace(/[^a-z0-9]/g, "-") === slug,
         );
-        
+
         if (ministryPositions.length === 0) {
           setLoading(false);
           return;
         }
 
         const firstPosition = ministryPositions[0];
-        const nominals = ministryPositions.map((pos: TunjanganKinerja) => pos.nominal).sort((a: number, b: number) => a - b);
+        const nominals = ministryPositions
+          .map((pos: TunjanganKinerja) => pos.nominal)
+          .sort((a: number, b: number) => a - b);
         const sum = nominals.reduce((acc: number, val: number) => acc + val, 0);
 
         // Collect all regulations
         const allRegulations = new Set();
         ministryPositions.forEach((pos: TunjanganKinerja) => {
           if (pos.regulations) {
-            pos.regulations.forEach(reg => allRegulations.add(JSON.stringify(reg)));
+            pos.regulations.forEach((reg) =>
+              allRegulations.add(JSON.stringify(reg)),
+            );
           } else {
-            allRegulations.add(JSON.stringify({
-              title: `PMK ${pos.kode} 2024`,
-              url: `/docs/regulations/pmk-${pos.kode.toLowerCase()}-2024.pdf`
-            }));
+            allRegulations.add(
+              JSON.stringify({
+                title: `PMK ${pos.kode} 2024`,
+                url: `/docs/regulations/pmk-${pos.kode.toLowerCase()}-2024.pdf`,
+              }),
+            );
           }
         });
 
@@ -94,9 +101,11 @@ export default function MinistryDetailPageClient({
             median: nominals[Math.floor(nominals.length / 2)],
             lowest: nominals[0],
             highest: nominals[nominals.length - 1],
-            average: Math.round(sum / nominals.length)
+            average: Math.round(sum / nominals.length),
           },
-          regulations: Array.from(allRegulations).map(reg => JSON.parse(reg as string))
+          regulations: Array.from(allRegulations).map((reg) =>
+            JSON.parse(reg as string),
+          ),
         };
 
         setMinistryData(ministry);
@@ -152,14 +161,16 @@ export default function MinistryDetailPageClient({
       <div className="space-y-6">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
-          <Link 
+          <Link
             href={`/${locale}/tunjangan-kinerja`}
             className="hover:text-foreground transition-colors"
           >
             {t("title")}
           </Link>
           <span>/</span>
-          <span className="text-foreground font-medium">{ministryData.kementerian}</span>
+          <span className="text-foreground font-medium">
+            {ministryData.kementerian}
+          </span>
         </div>
 
         {/* Header */}
@@ -180,7 +191,7 @@ export default function MinistryDetailPageClient({
               </div>
             </div>
           </div>
-          
+
           <div className="flex items-center gap-2">
             <Link href={`/${locale}/tunjangan-kinerja`}>
               <Button variant="outline">
@@ -201,7 +212,9 @@ export default function MinistryDetailPageClient({
                   <p className="text-sm font-medium text-muted-foreground">
                     {t("detail.totalPositions")}
                   </p>
-                  <p className="text-2xl font-bold">{ministryData.stats.totalPositions}</p>
+                  <p className="text-2xl font-bold">
+                    {ministryData.stats.totalPositions}
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -278,7 +291,11 @@ export default function MinistryDetailPageClient({
                     className="h-8"
                     asChild
                   >
-                    <a href={regulation.url} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={regulation.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       {regulation.title}
                       <ExternalLink className="h-3 w-3 ml-1" />
                     </a>
@@ -311,12 +328,9 @@ export default function MinistryDetailPageClient({
 
         {/* Main Content */}
         {!showChart ? (
-          <MinistryDetailTable 
-            data={ministryData.positions}
-            locale={locale}
-          />
+          <MinistryDetailTable data={ministryData.positions} locale={locale} />
         ) : (
-          <MinistryDetailChart 
+          <MinistryDetailChart
             data={ministryData.positions}
             ministryName={ministryData.kementerian}
             locale={locale}

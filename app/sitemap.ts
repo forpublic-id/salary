@@ -3,29 +3,34 @@ import type { MetadataRoute } from "next";
 async function getTunjanganKinerjaPages() {
   try {
     // Fetch tunjangan kinerja data to generate ministry detail pages
-    const response = await fetch(`${process.env.NEXT_PUBLIC_URL || 'https://salary.forpublic.id'}/data/salary/pns/tunjangan-kinerja.json`);
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_URL || "https://salary.forpublic.id"}/data/salary/pns/tunjangan-kinerja.json`,
+    );
     if (!response.ok) {
-      console.warn('Failed to fetch tunjangan kinerja data for sitemap');
+      console.warn("Failed to fetch tunjangan kinerja data for sitemap");
       return [];
     }
-    
+
     const data = await response.json();
     const uniqueMinistries = Array.from(
       new Set(
         data.tunjanganKinerja.map((item: any) => ({
-          slug: item.kode.toLowerCase().replace(/[^a-z0-9]/g, '-'),
-          kode: item.kode
-        }))
-      )
+          slug: item.kode.toLowerCase().replace(/[^a-z0-9]/g, "-"),
+          kode: item.kode,
+        })),
+      ),
     ) as Array<{ slug: string; kode: string }>;
 
-    return uniqueMinistries.map(ministry => ({
+    return uniqueMinistries.map((ministry) => ({
       path: `/tunjangan-kinerja/${ministry.slug}`,
       priority: 0.7,
       changeFrequency: "monthly" as const,
     }));
   } catch (error) {
-    console.warn('Error generating tunjangan kinerja pages for sitemap:', error);
+    console.warn(
+      "Error generating tunjangan kinerja pages for sitemap:",
+      error,
+    );
     return [];
   }
 }
