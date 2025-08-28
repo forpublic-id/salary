@@ -1,23 +1,38 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { Badge } from "@/components/ui/Badge";
 
-const navigation = [
-  { key: "calculator", href: "/calculator" },
-  { key: "regional-wages", href: "/regional-wages" },
-  { key: "browse", href: "/browse" },
-  { key: "aparatur-sipil-negara", href: "/aparatur-sipil-negara" },
-  { key: "tunjangan-kinerja", href: "/tunjangan-kinerja" },
-  { key: "analysis", href: "/analysis" },
-  { key: "officials", href: "/officials" },
+const navigationGroups = [
+  {
+    key: "salary-data",
+    titleKey: "salaryData",
+    items: [
+      { key: "calculator", href: "/calculator" },
+      { key: "aparatur-sipil-negara", href: "/aparatur-sipil-negara" },
+      { key: "tunjangan-kinerja", href: "/tunjangan-kinerja" },
+      { key: "officials", href: "/officials" },
+      { key: "browse", href: "/browse" },
+    ]
+  },
+  {
+    key: "regional-data", 
+    titleKey: "regionalData",
+    items: [
+      { key: "regional-wages", href: "/regional-wages" },
+      { key: "analysis", href: "/analysis" },
+    ]
+  }
+];
+
+const staticNavigation = [
   { key: "about", href: "/about" },
 ];
 
@@ -26,10 +41,33 @@ export function Header() {
   const locale = useLocale();
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const dropdownRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
+
+  const toggleDropdown = (key: string) => {
+    setOpenDropdown(openDropdown === key ? null : key);
+  };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Node;
+      const clickedInsideDropdown = Object.values(dropdownRefs.current).some(
+        ref => ref && ref.contains(target)
+      );
+      
+      if (!clickedInsideDropdown) {
+        setOpenDropdown(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const isActiveLink = (href: string) => {
     if (href === "/") {
@@ -39,6 +77,10 @@ export function Header() {
       pathname === `/${locale}${href}` ||
       pathname.startsWith(`/${locale}${href}/`)
     );
+  };
+
+  const isGroupActive = (group: typeof navigationGroups[0]) => {
+    return group.items.some(item => isActiveLink(item.href));
   };
 
   return (
@@ -69,7 +111,64 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
-            {navigation.map((item) => {
+            {navigationGroups.map((group) => {
+              const isGroupActiveState = isGroupActive(group);
+              const isDropdownOpen = openDropdown === group.key;
+
+              return (
+                <div 
+                  key={group.key} 
+                  className="relative" 
+                  ref={el => {
+                    dropdownRefs.current[group.key] = el;
+                  }}
+                >
+                  <button
+                    onClick={() => toggleDropdown(group.key)}
+                    className={`flex items-center space-x-1 text-sm font-medium transition-colors ${
+                      isGroupActiveState
+                        ? "text-foreground border-b-2 border-primary pb-1"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    <span>{t(group.titleKey as any)}</span>
+                    <ChevronDown 
+                      className={`h-3 w-3 transition-transform ${
+                        isDropdownOpen ? "rotate-180" : ""
+                      }`} 
+                    />
+                  </button>
+
+                  {/* Dropdown Menu */}
+                  {isDropdownOpen && (
+                    <div className="absolute top-full left-0 mt-1 w-56 bg-white border border-gray-200 rounded-md shadow-lg z-50">
+                      <div className="py-2">
+                        {group.items.map((item) => {
+                          const isItemActive = isActiveLink(item.href);
+                          return (
+                            <Link
+                              key={item.key}
+                              href={`/${locale}${item.href}`}
+                              className={`block px-4 py-2 text-sm transition-colors ${
+                                isItemActive
+                                  ? "text-primary bg-primary/5 border-r-2 border-primary font-medium"
+                                  : "text-gray-700 hover:text-primary hover:bg-gray-50"
+                              }`}
+                              onClick={() => setOpenDropdown(null)}
+                            >
+                              {t(item.key as any)}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+
+            {/* Static Navigation Items */}
+            {staticNavigation.map((item) => {
               const isActive = isActiveLink(item.href);
               return (
                 <Link
@@ -111,23 +210,53 @@ export function Header() {
         {mobileMenuOpen && (
           <div className="md:hidden border-t py-4 px-4 md:px-6 lg:px-8">
             <nav className="space-y-4">
-              {navigation.map((item) => {
-                const isActive = isActiveLink(item.href);
-                return (
-                  <Link
-                    key={item.key}
-                    href={`/${locale}${item.href}`}
-                    className={`block text-sm font-medium transition-colors py-2 ${
-                      isActive
-                        ? "text-foreground bg-gray-100 px-3 rounded-md"
-                        : "text-muted-foreground hover:text-foreground"
-                    }`}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {t(item.key as any)}
-                  </Link>
-                );
-              })}
+              {navigationGroups.map((group) => (
+                <div key={group.key} className="space-y-2">
+                  <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider px-2">
+                    {t(group.titleKey as any)}
+                  </h3>
+                  <div className="space-y-1 pl-2">
+                    {group.items.map((item) => {
+                      const isActive = isActiveLink(item.href);
+                      return (
+                        <Link
+                          key={item.key}
+                          href={`/${locale}${item.href}`}
+                          className={`block text-sm font-medium transition-colors py-2 px-3 rounded-md ${
+                            isActive
+                              ? "text-foreground bg-gray-100"
+                              : "text-muted-foreground hover:text-foreground hover:bg-gray-50"
+                          }`}
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {t(item.key as any)}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
+              
+              {/* Static Navigation for Mobile */}
+              <div className="pt-2 border-t">
+                {staticNavigation.map((item) => {
+                  const isActive = isActiveLink(item.href);
+                  return (
+                    <Link
+                      key={item.key}
+                      href={`/${locale}${item.href}`}
+                      className={`block text-sm font-medium transition-colors py-2 px-3 rounded-md ${
+                        isActive
+                          ? "text-foreground bg-gray-100"
+                          : "text-muted-foreground hover:text-foreground hover:bg-gray-50"
+                      }`}
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {t(item.key as any)}
+                    </Link>
+                  );
+                })}
+              </div>
             </nav>
 
             <div className="flex items-center justify-between mt-6 pt-4 border-t">
