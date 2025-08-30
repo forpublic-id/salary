@@ -12,21 +12,21 @@ import { Badge } from "@/components/ui/Badge";
 
 const navigationGroups = [
   {
-    key: "salary-data",
-    titleKey: "salaryData",
+    key: "explore-data",
+    titleKey: "exploreData",
     items: [
-      { key: "calculator", href: "/calculator" },
-      { key: "aparatur-sipil-negara", href: "/aparatur-sipil-negara" },
-      { key: "tunjangan-kinerja", href: "/tunjangan-kinerja" },
-      { key: "officials", href: "/officials" },
       { key: "browse", href: "/browse" },
+      { key: "aparatur-sipil-negara", href: "/aparatur-sipil-negara" },
+      { key: "officials", href: "/officials" },
+      { key: "regional-wages", href: "/regional-wages" },
     ]
   },
   {
-    key: "regional-data", 
-    titleKey: "regionalData",
+    key: "tools-analysis",
+    titleKey: "toolsAnalysis",
     items: [
-      { key: "regional-wages", href: "/regional-wages" },
+      { key: "calculator", href: "/calculator" },
+      { key: "tunjangan-kinerja", href: "/tunjangan-kinerja" },
       { key: "analysis", href: "/analysis" },
     ]
   }
