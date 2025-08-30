@@ -8,6 +8,8 @@ import {
   TrendingUp,
   Code,
   MapPin,
+  FileText,
+  Building2,
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import {
@@ -37,20 +39,36 @@ export default async function HomePage({
       color: "text-blue-500",
     },
     {
+      icon: Users,
+      titleKey: "pns",
+      title: t("features.pns.title"),
+      description: t("features.pns.desc"),
+      href: "/pns",
+      color: "text-green-500",
+    },
+    {
+      icon: FileText,
+      titleKey: "p3k",
+      title: t("features.p3k.title"),
+      description: t("features.p3k.desc"),
+      href: "/p3k",
+      color: "text-orange-500",
+    },
+    {
+      icon: Building2,
+      titleKey: "tunjanganKinerja",
+      title: t("features.tunjanganKinerja.title"),
+      description: t("features.tunjanganKinerja.desc"),
+      href: "/tunjangan-kinerja",
+      color: "text-indigo-500",
+    },
+    {
       icon: Search,
       titleKey: "browse",
       title: t("features.browse.title"),
       description: t("features.browse.desc"),
       href: "/browse",
-      color: "text-green-500",
-    },
-    {
-      icon: MapPin,
-      titleKey: "regionalWages",
-      title: t("features.regionalWages.title"),
-      description: t("features.regionalWages.desc"),
-      href: "/regional-wages",
-      color: "text-indigo-500",
+      color: "text-purple-500",
     },
     {
       icon: BarChart3,
@@ -58,23 +76,7 @@ export default async function HomePage({
       title: t("features.analysis.title"),
       description: t("features.analysis.desc"),
       href: "/analysis",
-      color: "text-purple-500",
-    },
-    {
-      icon: Users,
-      titleKey: "officials",
-      title: t("features.officials.title"),
-      description: t("features.officials.desc"),
-      href: "/officials",
       color: "text-red-500",
-    },
-    {
-      icon: Code,
-      titleKey: "openSource",
-      title: t("features.openSource.title"),
-      description: t("features.openSource.desc"),
-      href: "/about",
-      color: "text-gray-500",
     },
   ];
 

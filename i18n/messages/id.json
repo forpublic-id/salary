@@ -8,9 +8,11 @@
     "officials": "Pejabat Publik",
     "tunjangan-kinerja": "Tunjangan Kinerja",
     "aparatur-sipil-negara": "Aparatur Sipil Negara",
+    "pns": "Pegawai Negeri Sipil",
+    "p3k": "Pegawai Pemerintah dengan Perjanjian Kerja",
     "about": "Tentang",
-    "exploreData": "Jelajahi Data",
-    "toolsAnalysis": "Tools & Analisis"
+    "salaryData": "Data Gaji",
+    "tools": "Tools"
   },
   "hero": {
     "title": "Transparansi Gaji & Upah Indonesia",
@@ -26,9 +28,21 @@
         "title": "Upah Regional",
         "desc": "Bandingkan upah minimum regional di seluruh Indonesia"
       },
+      "pns": {
+        "title": "Pegawai Negeri Sipil",
+        "desc": "Daftar lengkap gaji pokok PNS berdasarkan golongan dan masa kerja"
+      },
+      "p3k": {
+        "title": "Pegawai Pemerintah dengan Perjanjian Kerja",
+        "desc": "Daftar lengkap gaji pokok P3K berdasarkan golongan dan kualifikasi"
+      },
+      "tunjanganKinerja": {
+        "title": "Tunjangan Kinerja",
+        "desc": "Database tunjangan kinerja PNS dari berbagai kementerian dan instansi"
+      },
       "browse": {
-        "title": "Jelajahi Data",
-        "desc": "Telusuri dan bandingkan data gaji dari berbagai sektor dan instansi"
+        "title": "Data Discovery & Insights",
+        "desc": "Temukan wawasan menarik dan statistik interaktif dari data transparansi gaji"
       },
       "analysis": {
         "title": "Analisis Data",
@@ -37,10 +51,6 @@
       "officials": {
         "title": "Pejabat Publik",
         "desc": "Database lengkap kompensasi pejabat negara dan daerah"
-      },
-      "openSource": {
-        "title": "Open Source",
-        "desc": "Platform terbuka untuk transparansi dan akuntabilitas publik"
       }
     },
     "stats": {
@@ -72,26 +82,46 @@
     }
   },
   "browse": {
-    "title": "Jelajahi Data Gaji",
-    "subtitle": "Telusuri dan bandingkan gaji berdasarkan berbagai kriteria dan sektor",
-    "search": "Cari jabatan, golongan, atau kementerian...",
-    "filters": {
-      "golongan": "Filter Golongan",
-      "kementerian": "Filter Kementerian",
-      "kategori": "Filter Kategori",
-      "salaryRange": "Rentang Gaji"
+    "title": "Data Discovery & Insights",
+    "subtitle": "Temukan wawasan menarik dari data gaji dan upah Indonesia dengan statistik interaktif",
+    "dashboard": {
+      "title": "Overview Platform",
+      "subtitle": "Statistik komprehensif dari seluruh data transparansi gaji"
     },
-    "sortBy": "Urutkan",
-    "sortOptions": {
-      "salaryHigh": "Gaji Tertinggi",
-      "salaryLow": "Gaji Terendah",
-      "golongan": "Golongan",
-      "alphabetical": "Alfabetis"
+    "insights": {
+      "title": "Tahukah Anda?",
+      "subtitle": "Fakta menarik dari data gaji dan upah Indonesia"
     },
-    "viewMode": {
-      "table": "Tampilan Tabel",
-      "ministry": "Tampilan Kementerian",
-      "comparison": "Perbandingan"
+    "trending": {
+      "title": "Pencarian Populer",
+      "subtitle": "Data yang paling sering dicari pengguna"
+    },
+    "dataQuality": {
+      "title": "Kualitas Data",
+      "subtitle": "Informasi akurasi dan cakupan data platform"
+    },
+    "recentUpdates": {
+      "title": "Update Terbaru",
+      "subtitle": "Pembaruan data dan fitur platform terkini"
+    },
+    "quickAccess": {
+      "title": "Akses Cepat",
+      "subtitle": "Langsung ke data yang Anda butuhkan"
+    },
+    "stats": {
+      "totalGrades": "Total Golongan",
+      "totalMinistries": "Total Kementerian",
+      "totalOfficials": "Total Pejabat",
+      "totalProvinces": "Total Provinsi",
+      "highestSalary": "Gaji Tertinggi",
+      "averageSalary": "Rata-rata Gaji",
+      "lastUpdated": "Terakhir Diperbarui"
+    },
+    "facts": {
+      "fact1": "Golongan IV/e memiliki gaji pokok tertinggi mencapai Rp 8.9 juta",
+      "fact2": "Tunjangan kinerja tertinggi bisa mencapai 5x gaji pokok",
+      "fact3": "DKI Jakarta memiliki UMP tertinggi di Indonesia",
+      "fact4": "Ada 17 golongan gaji PNS dari I/a hingga IV/e"
     },
     "ministryView": {
       "positions": "jabatan",
@@ -361,5 +391,13 @@
   "aparatur": {
     "title": "Aparatur Sipil Negara",
     "subtitle": "Daftar lengkap gaji pokok ASN dan P3K berdasarkan golongan dan pangkat"
+  },
+  "pns": {
+    "title": "Pegawai Negeri Sipil (PNS)",
+    "subtitle": "Daftar lengkap gaji pokok PNS berdasarkan golongan dan pangkat dengan masa kerja yang berbeda"
+  },
+  "p3k": {
+    "title": "Pegawai Pemerintah dengan Perjanjian Kerja (P3K)",
+    "subtitle": "Daftar lengkap gaji pokok P3K berdasarkan golongan dan kualifikasi pendidikan"
   }
 }

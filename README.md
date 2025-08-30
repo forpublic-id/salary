@@ -13,28 +13,33 @@ A comprehensive Indonesian salary & wage transparency platform providing access 
 ## Features
 
 ### Salary Calculator
+
 - **Interactive calculation**: Real-time salary estimation with all allowances
 - **Detailed breakdown**: Base salary, performance allowances, and deductions
 - **Export functionality**: Save calculation results for reference
 
 ### Tunjangan Kinerja (Performance Allowances)
+
 - **Ministry-wise data**: Complete allowance information by government institutions
 - **Position-based calculation**: Allowances based on specific job positions
 - **Grade compatibility**: Shows which salary grades are eligible
 
 ### Regional Wages
+
 - **Provincial minimum wages**: UMP data across all provinces
 - **District/city wages**: UMK data for local areas
 - **Historical trends**: Wage progression over time
 - **Interactive map**: Visual representation of wage distribution
 
 ### Public Officials Directory
+
 - **National officials**: President, ministers, and high-ranking positions
 - **Regional officials**: Governors, mayors, and local government positions
 - **Legislative members**: DPR, DPD, and regional council salaries
 - **Comprehensive database**: Complete compensation packages
 
 ### Bilingual Support
+
 - Complete Indonesian and English interface
 - SEO-friendly URLs for each language (`/id/tunjangan-kinerja` vs `/en/performance-allowance`)
 - Localized number formatting and currency display
@@ -52,6 +57,7 @@ A comprehensive Indonesian salary & wage transparency platform providing access 
 ## Getting Started
 
 ### Prerequisites
+
 - Node.js 18+ or Bun
 - Git
 
@@ -79,6 +85,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 We welcome contributions from the community!
 
 ### How to Contribute
+
 1. Fork this repository
 2. Create a new branch: `git checkout -b feature/your-feature`
 3. Make your changes and commit: `git commit -m 'Add some feature'`
@@ -86,7 +93,9 @@ We welcome contributions from the community!
 5. Create a Pull Request
 
 ### Reporting Issues
+
 Found a bug? [Create a new issue](https://github.com/forpublic-id/salary/issues) with:
+
 - Clear bug description
 - Steps to reproduce
 - Screenshots if applicable

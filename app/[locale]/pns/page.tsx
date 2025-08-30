@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { PageWrapper } from "@/components/layout/PageLayout";
-import { AparaturSipilNegaraClient } from "./AparaturSipilNegaraClient";
+import { PNSClient } from "./PNSClient";
 import { generateSEOMetadata, generatePageKeywords } from "@/lib/seo";
 
 export async function generateMetadata({
@@ -9,13 +9,13 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "aparatur" });
+  const t = await getTranslations({ locale, namespace: "pns" });
 
-  const keywords = generatePageKeywords("aparatur", locale);
+  const keywords = generatePageKeywords("pns", locale);
   const description =
     locale === "id"
-      ? "Daftar lengkap gaji pokok Aparatur Sipil Negara (ASN) dan Pegawai Pemerintah dengan Perjanjian Kerja (P3K) berdasarkan golongan dan pangkat."
-      : "Complete list of Civil State Apparatus (ASN) and Government Employees with Work Contracts (P3K) basic salary by grade and rank.";
+      ? "Daftar lengkap gaji pokok Pegawai Negeri Sipil (PNS) berdasarkan golongan dan pangkat dengan masa kerja yang berbeda."
+      : "Complete list of Civil Servants (PNS) basic salary by grade and rank with different years of service.";
 
   return generateSEOMetadata({
     title: t("title"),
@@ -25,17 +25,17 @@ export async function generateMetadata({
   });
 }
 
-export default async function AparaturSipilNegaraPage({
+export default async function PNSPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const t = await getTranslations("aparatur");
+  const t = await getTranslations("pns");
 
   return (
     <PageWrapper title={t("title")} subtitle={t("subtitle")} maxWidth="6xl">
-      <AparaturSipilNegaraClient locale={locale} />
+      <PNSClient locale={locale} />
     </PageWrapper>
   );
 }

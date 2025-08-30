@@ -56,6 +56,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: currentDate,
     },
     {
+      path: "/pns",
+      priority: 0.9,
+      changeFrequency: "monthly" as const,
+      lastModified: currentDate,
+    },
+    {
+      path: "/p3k",
+      priority: 0.9,
+      changeFrequency: "monthly" as const,
+      lastModified: currentDate,
+    },
+    {
       path: "/regional-wages",
       priority: 0.9,
       changeFrequency: "monthly" as const,
@@ -82,6 +94,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {
       path: "/officials",
       priority: 0.8,
+      changeFrequency: "monthly" as const,
+      lastModified: weekAgo,
+    },
+    {
+      path: "/aparatur-sipil-negara",
+      priority: 0.7,
       changeFrequency: "monthly" as const,
       lastModified: weekAgo,
     },

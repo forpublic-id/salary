@@ -88,9 +88,7 @@
         "id": "Golongan I/d - Juru Tingkat I",
         "en": "Grade I/d - Assistant Level I"
       },
-      "gajiPokok": [
-        { "masaKerja": 7, "gaji": 2127800 }
-      ]
+      "gajiPokok": [{ "masaKerja": 7, "gaji": 2127800 }]
     },
     {
       "id": "ii-a",

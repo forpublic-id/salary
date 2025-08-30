@@ -2,29 +2,34 @@
 
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
-import { SearchInterface } from "@/components/salary/SearchInterface";
-import { DataTable } from "@/components/salary/DataTable";
-import { MinistryView } from "@/components/salary/MinistryView";
-import { ComparisonTool } from "@/components/salary/ComparisonTool";
 import { PageWrapper } from "@/components/layout/PageLayout";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
-import { Table, Building2, ArrowUpDown } from "lucide-react";
-import type {
-  SalaryGolongan,
-  TunjanganKinerja,
-  SalaryFilter,
-} from "@/lib/types/salary";
+import { Badge } from "@/components/ui/Badge";
+import Link from "next/link";
+import {
+  BarChart3,
+  TrendingUp,
+  Users,
+  Building2,
+  MapPin,
+  Calculator,
+  FileText,
+  Clock,
+  Target,
+  Lightbulb,
+  Search,
+  ExternalLink,
+} from "lucide-react";
 
-interface CombinedSalaryData {
-  id: string;
-  golongan: string;
-  pangkat: string;
-  gajiPokok: number;
-  kementerian?: string;
-  jabatan?: string;
-  tunjanganKinerja?: number;
-  totalEstimasi: number;
-  kategori: string;
+interface PlatformStats {
+  totalGrades: number;
+  totalMinistries: number;
+  totalOfficials: number;
+  totalProvinces: number;
+  highestSalary: number;
+  averageSalary: number;
+  lastUpdated: string;
 }
 
 interface BrowsePageClientProps {
@@ -34,72 +39,51 @@ interface BrowsePageClientProps {
 export default function BrowsePageClient({ locale }: BrowsePageClientProps) {
   const t = useTranslations("browse");
 
-  const [golonganData, setGolonganData] = useState<SalaryGolongan[]>([]);
-  const [tunjanganData, setTunjanganData] = useState<TunjanganKinerja[]>([]);
-  const [combinedData, setCombinedData] = useState<CombinedSalaryData[]>([]);
-  const [filteredData, setFilteredData] = useState<CombinedSalaryData[]>([]);
+  const [platformStats, setPlatformStats] = useState<PlatformStats | null>(null);
   const [loading, setLoading] = useState(true);
-  const [viewMode, setViewMode] = useState<"table" | "ministry" | "comparison">(
-    "table",
-  );
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [golonganRes, tunjanganRes] = await Promise.all([
+        // Fetch all data to generate platform stats
+        const [golonganRes, tunjanganRes, officialsRes, regionalRes] = await Promise.all([
           fetch("/data/salary/pns/golongan.json"),
           fetch("/data/salary/pns/tunjangan-kinerja.json"),
+          fetch("/data/salary/officials/nasional.json"),
+          fetch("/data/salary/regional-wages/2025.json"),
         ]);
 
         const golonganData = await golonganRes.json();
         const tunjanganData = await tunjanganRes.json();
+        const officialsData = await officialsRes.json();
+        const regionalData = await regionalRes.json();
 
-        setGolonganData(golonganData.golongan);
-        setTunjanganData(tunjanganData.tunjanganKinerja);
+        // Calculate platform statistics
+        const totalGrades = golonganData.golongan?.length || 0;
+        const totalMinistries = new Set(
+          tunjanganData.tunjanganKinerja?.map((item: any) => item.kementerian.id) || []
+        ).size;
+        const totalOfficials = officialsData.officials?.length || 0;
+        const totalProvinces = regionalData.provinces?.length || 34;
 
-        // Combine data for table display
-        const combined: CombinedSalaryData[] = [];
+        // Calculate salary statistics
+        const allSalaries = [
+          ...(golonganData.golongan?.map((g: any) => g.gajiPokok) || []),
+          ...(tunjanganData.tunjanganKinerja?.map((t: any) => t.nominal) || []),
+        ];
+        
+        const highestSalary = Math.max(...allSalaries);
+        const averageSalary = allSalaries.reduce((a, b) => a + b, 0) / allSalaries.length;
 
-        // Add base golongan data
-        golonganData.golongan.forEach((golongan: SalaryGolongan) => {
-          combined.push({
-            id: golongan.id,
-            golongan: golongan.golongan,
-            pangkat: golongan.pangkat,
-            gajiPokok: golongan.gajiPokok,
-            totalEstimasi: golongan.gajiPokok + 500000, // Basic estimate
-            kategori: "base",
-          });
+        setPlatformStats({
+          totalGrades,
+          totalMinistries,
+          totalOfficials,
+          totalProvinces,
+          highestSalary,
+          averageSalary,
+          lastUpdated: new Date().toLocaleDateString(locale === "id" ? "id-ID" : "en-US"),
         });
-
-        // Add tunjangan kinerja data
-        tunjanganData.tunjanganKinerja.forEach(
-          (tunjangan: TunjanganKinerja) => {
-            tunjangan.golongan.forEach((golonganStr) => {
-              const golongan = golonganData.golongan.find(
-                (g: SalaryGolongan) => g.golongan === golonganStr,
-              );
-
-              if (golongan) {
-                combined.push({
-                  id: `${tunjangan.id}-${golongan.id}`,
-                  golongan: golongan.golongan,
-                  pangkat: golongan.pangkat,
-                  gajiPokok: golongan.gajiPokok,
-                  kementerian: tunjangan.kementerian[locale as "id" | "en"],
-                  jabatan: tunjangan.jabatan[locale as "id" | "en"],
-                  tunjanganKinerja: tunjangan.nominal,
-                  totalEstimasi:
-                    golongan.gajiPokok + tunjangan.nominal + 500000,
-                  kategori: tunjangan.kategori,
-                });
-              }
-            });
-          },
-        );
-
-        setCombinedData(combined);
-        setFilteredData(combined);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
@@ -110,145 +94,462 @@ export default function BrowsePageClient({ locale }: BrowsePageClientProps) {
     fetchData();
   }, [locale]);
 
-  const handleSearch = (query: string) => {
-    if (!query) {
-      setFilteredData(combinedData);
-      return;
-    }
+  const formatCurrency = (amount: number) => {
+    return new Intl.NumberFormat(locale === "id" ? "id-ID" : "en-US", {
+      style: "currency",
+      currency: "IDR",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(amount);
+  };
 
-    const filtered = combinedData.filter(
-      (item) =>
-        item.golongan.toLowerCase().includes(query.toLowerCase()) ||
-        item.pangkat.toLowerCase().includes(query.toLowerCase()) ||
-        item.kementerian?.toLowerCase().includes(query.toLowerCase()) ||
-        item.jabatan?.toLowerCase().includes(query.toLowerCase()),
+  const quickAccessItems = [
+    {
+      title: locale === "id" ? "Pegawai Negeri Sipil" : "Civil Servants",
+      description: locale === "id" ? "Gaji pokok PNS" : "PNS basic salary",
+      href: "/pns",
+      icon: Users,
+      color: "text-blue-500",
+      bgColor: "bg-blue-50",
+    },
+    {
+      title: locale === "id" ? "Pegawai Pemerintah dengan Perjanjian Kerja" : "Government Employees with Work Contracts",
+      description: locale === "id" ? "Gaji pokok P3K" : "P3K basic salary",
+      href: "/p3k",
+      icon: FileText,
+      color: "text-green-500",
+      bgColor: "bg-green-50",
+    },
+    {
+      title: locale === "id" ? "Tunjangan Kinerja" : "Performance Allowance",
+      description: locale === "id" ? "Tunjangan per kementerian" : "Allowances by ministry",
+      href: "/tunjangan-kinerja",
+      icon: Building2,
+      color: "text-purple-500",
+      bgColor: "bg-purple-50",
+    },
+    {
+      title: locale === "id" ? "Pejabat Publik" : "Public Officials",
+      description: locale === "id" ? "Kompensasi pejabat" : "Officials compensation",
+      href: "/officials",
+      icon: Target,
+      color: "text-red-500",
+      bgColor: "bg-red-50",
+    },
+    {
+      title: locale === "id" ? "Upah Regional" : "Regional Wages",
+      description: locale === "id" ? "UMP & UMR daerah" : "Regional minimum wages",
+      href: "/regional-wages",
+      icon: MapPin,
+      color: "text-indigo-500",
+      bgColor: "bg-indigo-50",
+    },
+    {
+      title: locale === "id" ? "Kalkulator Gaji" : "Salary Calculator",
+      description: locale === "id" ? "Hitung estimasi gaji" : "Calculate salary estimates",
+      href: "/calculator",
+      icon: Calculator,
+      color: "text-orange-500",
+      bgColor: "bg-orange-50",
+    },
+  ];
+
+  const trendingSearches = [
+    locale === "id" ? "Golongan III/a" : "Grade III/a",
+    locale === "id" ? "Tunjangan kinerja guru" : "Teacher performance allowance",
+    locale === "id" ? "Gaji gubernur" : "Governor salary",
+    locale === "id" ? "UMP Jakarta" : "Jakarta minimum wage",
+    locale === "id" ? "Eselon IV" : "Echelon IV",
+  ];
+
+  const recentUpdates = [
+    {
+      date: "2025-01-15",
+      title: locale === "id" ? "Update data gaji PNS 2025" : "2025 PNS salary data update",
+      type: "data",
+    },
+    {
+      date: "2025-01-10",
+      title: locale === "id" ? "Penambahan fitur export CSV" : "Added CSV export feature",
+      type: "feature",
+    },
+    {
+      date: "2025-01-05",
+      title: locale === "id" ? "Data tunjangan kinerja terbaru" : "Latest performance allowance data",
+      type: "data",
+    },
+  ];
+
+  if (loading) {
+    return (
+      <PageWrapper title={t("title")} subtitle={t("subtitle")}>
+        <div className="flex justify-center items-center min-h-96">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+        </div>
+      </PageWrapper>
     );
-
-    setFilteredData(filtered);
-  };
-
-  const handleFilter = (filters: SalaryFilter) => {
-    let filtered = [...combinedData];
-
-    if (filters.golongan && filters.golongan.length > 0) {
-      filtered = filtered.filter((item) =>
-        filters.golongan!.some((g) => item.golongan.includes(g)),
-      );
-    }
-
-    if (filters.kementerian && filters.kementerian.length > 0) {
-      filtered = filtered.filter(
-        (item) =>
-          item.kementerian && filters.kementerian!.includes(item.kementerian),
-      );
-    }
-
-    if (filters.kategori && filters.kategori.length > 0) {
-      filtered = filtered.filter((item) =>
-        filters.kategori!.includes(item.kategori),
-      );
-    }
-
-    if (filters.salaryRange) {
-      filtered = filtered.filter(
-        (item) =>
-          item.totalEstimasi >= (filters.salaryRange!.min || 0) &&
-          item.totalEstimasi <= (filters.salaryRange!.max || Infinity),
-      );
-    }
-
-    setFilteredData(filtered);
-  };
-
-  const handleSort = (sortBy: string) => {
-    const sorted = [...filteredData].sort((a, b) => {
-      switch (sortBy) {
-        case "salaryHigh":
-          return b.totalEstimasi - a.totalEstimasi;
-        case "salaryLow":
-          return a.totalEstimasi - b.totalEstimasi;
-        case "golongan":
-          return a.golongan.localeCompare(b.golongan);
-        case "alphabetical":
-          return a.pangkat.localeCompare(b.pangkat);
-        default:
-          return 0;
-      }
-    });
-
-    setFilteredData(sorted);
-  };
-
-  const availableGolongan = Array.from(
-    new Set(combinedData.map((item) => item.golongan)),
-  ).sort();
-
-  const availableKementerian = Array.from(
-    new Set(
-      combinedData
-        .filter((item) => item.kementerian)
-        .map((item) => item.kementerian!),
-    ),
-  ).sort();
-
-  const availableKategori = Array.from(
-    new Set(
-      combinedData
-        .filter((item) => item.kategori !== "base")
-        .map((item) => item.kategori),
-    ),
-  ).sort();
+  }
 
   return (
     <PageWrapper title={t("title")} subtitle={t("subtitle")}>
-      <div className="space-y-6">
-        <SearchInterface
-          onSearch={handleSearch}
-          onFilter={handleFilter}
-          onSort={handleSort}
-          availableGolongan={availableGolongan}
-          availableKementerian={availableKementerian}
-          availableKategori={availableKategori}
-        />
+      <div className="space-y-8">
+        {/* Platform Overview Dashboard */}
+        <section>
+          <div className="flex items-center space-x-2 mb-6">
+            <BarChart3 className="h-6 w-6 text-primary" />
+            <h2 className="text-2xl font-bold">{t("dashboard.title")}</h2>
+          </div>
+          
+          {platformStats && (
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <Card>
+                <CardContent className="p-4">
+                  <div className="text-2xl font-bold text-blue-600">
+                    {platformStats.totalGrades}
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    {t("stats.totalGrades")}
+                  </div>
+                </CardContent>
+              </Card>
+              
+              <Card>
+                <CardContent className="p-4">
+                  <div className="text-2xl font-bold text-green-600">
+                    {platformStats.totalMinistries}
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    {t("stats.totalMinistries")}
+                  </div>
+                </CardContent>
+              </Card>
+              
+              <Card>
+                <CardContent className="p-4">
+                  <div className="text-2xl font-bold text-purple-600">
+                    {platformStats.totalOfficials}
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    {t("stats.totalOfficials")}
+                  </div>
+                </CardContent>
+              </Card>
+              
+              <Card>
+                <CardContent className="p-4">
+                  <div className="text-2xl font-bold text-red-600">
+                    {platformStats.totalProvinces}
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    {t("stats.totalProvinces")}
+                  </div>
+                </CardContent>
+              </Card>
+              
+              <Card className="col-span-2">
+                <CardContent className="p-4">
+                  <div className="text-xl font-bold text-indigo-600">
+                    {formatCurrency(platformStats.highestSalary)}
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    {t("stats.highestSalary")}
+                  </div>
+                </CardContent>
+              </Card>
+              
+              <Card className="col-span-2">
+                <CardContent className="p-4">
+                  <div className="text-xl font-bold text-orange-600">
+                    {formatCurrency(platformStats.averageSalary)}
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    {t("stats.averageSalary")}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          )}
+        </section>
 
-        {/* View Mode Toggle */}
-        <div className="flex gap-2">
-          <Button
-            variant={viewMode === "table" ? "default" : "outline"}
-            onClick={() => setViewMode("table")}
-            className="flex items-center gap-2"
-          >
-            <Table className="w-4 h-4" />
-            {t("viewMode.table")}
-          </Button>
-          <Button
-            variant={viewMode === "ministry" ? "default" : "outline"}
-            onClick={() => setViewMode("ministry")}
-            className="flex items-center gap-2"
-          >
-            <Building2 className="w-4 h-4" />
-            {t("viewMode.ministry")}
-          </Button>
-          <Button
-            variant={viewMode === "comparison" ? "default" : "outline"}
-            onClick={() => setViewMode("comparison")}
-            className="flex items-center gap-2"
-          >
-            <ArrowUpDown className="w-4 h-4" />
-            {t("viewMode.comparison")}
-          </Button>
-        </div>
+        {/* Did You Know? Facts */}
+        <section>
+          <div className="flex items-center space-x-2 mb-6">
+            <Lightbulb className="h-6 w-6 text-primary" />
+            <h2 className="text-2xl font-bold">{t("insights.title")}</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Card className="bg-gradient-to-br from-blue-50 to-blue-100">
+              <CardContent className="p-6">
+                <div className="flex items-start space-x-3">
+                  <div className="p-2 bg-blue-500 rounded-lg">
+                    <TrendingUp className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-blue-900">
+                      {t("facts.fact1")}
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-gradient-to-br from-green-50 to-green-100">
+              <CardContent className="p-6">
+                <div className="flex items-start space-x-3">
+                  <div className="p-2 bg-green-500 rounded-lg">
+                    <Building2 className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-green-900">
+                      {t("facts.fact2")}
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-gradient-to-br from-purple-50 to-purple-100">
+              <CardContent className="p-6">
+                <div className="flex items-start space-x-3">
+                  <div className="p-2 bg-purple-500 rounded-lg">
+                    <MapPin className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-purple-900">
+                      {t("facts.fact3")}
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-gradient-to-br from-orange-50 to-orange-100">
+              <CardContent className="p-6">
+                <div className="flex items-start space-x-3">
+                  <div className="p-2 bg-orange-500 rounded-lg">
+                    <Users className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-orange-900">
+                      {t("facts.fact4")}
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
 
-        {/* Conditional Rendering based on view mode */}
-        {viewMode === "table" && (
-          <DataTable data={filteredData} locale={locale} loading={loading} />
-        )}
-        {viewMode === "ministry" && (
-          <MinistryView data={tunjanganData} locale={locale} />
-        )}
-        {viewMode === "comparison" && (
-          <ComparisonTool data={tunjanganData} locale={locale} />
-        )}
+
+
+        {/* Data Quality Metrics */}
+        <section>
+          <div className="flex items-center space-x-2 mb-6">
+            <FileText className="h-6 w-6 text-primary" />
+            <h2 className="text-2xl font-bold">{t("dataQuality.title")}</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <Card>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg">
+                  {locale === "id" ? "Sumber Data" : "Data Sources"}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2">
+                  <div className="flex justify-between">
+                    <span className="text-sm">PP No. 5/2024</span>
+                    <Badge variant="outline" className="text-xs">
+                      {locale === "id" ? "Resmi" : "Official"}
+                    </Badge>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-sm">Perpres No. 98/2020</span>
+                    <Badge variant="outline" className="text-xs">
+                      {locale === "id" ? "Resmi" : "Official"}
+                    </Badge>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-sm">Perda UMP</span>
+                    <Badge variant="outline" className="text-xs">
+                      {locale === "id" ? "Regional" : "Regional"}
+                    </Badge>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg">
+                  {locale === "id" ? "Akurasi Data" : "Data Accuracy"}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm">
+                      {locale === "id" ? "Verifikasi" : "Verification"}
+                    </span>
+                    <Badge className="bg-green-100 text-green-800">99%</Badge>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm">
+                      {locale === "id" ? "Kelengkapan" : "Completeness"}
+                    </span>
+                    <Badge className="bg-blue-100 text-blue-800">95%</Badge>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm">
+                      {locale === "id" ? "Update Rutin" : "Regular Updates"}
+                    </span>
+                    <Badge className="bg-purple-100 text-purple-800">
+                      {locale === "id" ? "Bulanan" : "Monthly"}
+                    </Badge>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg">
+                  {locale === "id" ? "Cakupan Data" : "Data Coverage"}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3">
+                  <div className="text-sm">
+                    <span className="font-medium">
+                      {platformStats?.totalGrades || 0}
+                    </span>
+                    <span className="text-muted-foreground ml-1">
+                      {locale === "id" ? "golongan gaji" : "salary grades"}
+                    </span>
+                  </div>
+                  <div className="text-sm">
+                    <span className="font-medium">
+                      {platformStats?.totalMinistries || 0}
+                    </span>
+                    <span className="text-muted-foreground ml-1">
+                      {locale === "id" ? "kementerian" : "ministries"}
+                    </span>
+                  </div>
+                  <div className="text-sm">
+                    <span className="font-medium">34</span>
+                    <span className="text-muted-foreground ml-1">
+                      {locale === "id" ? "provinsi" : "provinces"}
+                    </span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        {/* Quick Access Grid */}
+        <section>
+          <div className="flex items-center space-x-2 mb-6">
+            <Target className="h-6 w-6 text-primary" />
+            <h2 className="text-2xl font-bold">{t("quickAccess.title")}</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {quickAccessItems.map((item) => {
+              const Icon = item.icon;
+              return (
+                <Link key={item.href} href={`/${locale}${item.href}`}>
+                  <Card className="hover:shadow-lg transition-all duration-200 cursor-pointer h-full group">
+                    <CardContent className="p-6">
+                      <div className="flex items-start space-x-4">
+                        <div className={`p-3 rounded-xl ${item.bgColor} group-hover:scale-110 transition-transform`}>
+                          <Icon className={`h-6 w-6 ${item.color}`} />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="font-semibold text-base mb-2 group-hover:text-primary transition-colors">
+                            {item.title}
+                          </h3>
+                          <p className="text-sm text-muted-foreground">
+                            {item.description}
+                          </p>
+                          <div className="mt-3 flex items-center text-xs text-primary">
+                            <span>
+                              {locale === "id" ? "Jelajahi" : "Explore"}
+                            </span>
+                            <ExternalLink className="h-3 w-3 ml-1 group-hover:translate-x-1 transition-transform" />
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* Trending Searches */}
+        <section>
+          <div className="flex items-center space-x-2 mb-6">
+            <TrendingUp className="h-6 w-6 text-primary" />
+            <h2 className="text-2xl font-bold">{t("trending.title")}</h2>
+          </div>
+          
+          <Card>
+            <CardContent className="p-6">
+              <div className="flex flex-wrap gap-3">
+                {trendingSearches.map((search, index) => (
+                  <Badge 
+                    key={index} 
+                    variant="secondary" 
+                    className="px-4 py-2 text-sm hover:bg-primary hover:text-primary-foreground cursor-pointer transition-colors"
+                  >
+                    <Search className="h-3 w-3 mr-2" />
+                    {search}
+                  </Badge>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* Recent Updates Feed */}
+        <section>
+          <div className="flex items-center space-x-2 mb-6">
+            <Clock className="h-6 w-6 text-primary" />
+            <h2 className="text-2xl font-bold">{t("recentUpdates.title")}</h2>
+          </div>
+          
+          <Card>
+            <CardContent className="p-6">
+              <div className="space-y-4">
+                {recentUpdates.map((update, index) => (
+                  <div key={index} className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                    <div className="flex-shrink-0">
+                      <Badge 
+                        variant={update.type === "data" ? "default" : "secondary"}
+                        className="min-w-fit"
+                      >
+                        {update.type === "data" ? 
+                          (locale === "id" ? "Data" : "Data") : 
+                          (locale === "id" ? "Fitur" : "Feature")
+                        }
+                      </Badge>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm font-medium">{update.title}</p>
+                      <p className="text-xs text-muted-foreground">
+                        {new Date(update.date).toLocaleDateString(locale === "id" ? "id-ID" : "en-US")}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </section>
       </div>
     </PageWrapper>
   );

@@ -12,29 +12,28 @@ import { Badge } from "@/components/ui/Badge";
 
 const navigationGroups = [
   {
-    key: "explore-data",
-    titleKey: "exploreData",
+    key: "salary-data",
+    titleKey: "salaryData",
     items: [
-      { key: "browse", href: "/browse" },
-      { key: "aparatur-sipil-negara", href: "/aparatur-sipil-negara" },
+      { key: "pns", href: "/pns" },
+      { key: "p3k", href: "/p3k" },
+      { key: "tunjangan-kinerja", href: "/tunjangan-kinerja" },
       { key: "officials", href: "/officials" },
       { key: "regional-wages", href: "/regional-wages" },
-    ]
+    ],
   },
   {
-    key: "tools-analysis",
-    titleKey: "toolsAnalysis",
+    key: "tools",
+    titleKey: "tools",
     items: [
       { key: "calculator", href: "/calculator" },
-      { key: "tunjangan-kinerja", href: "/tunjangan-kinerja" },
+      { key: "browse", href: "/browse" },
       { key: "analysis", href: "/analysis" },
-    ]
-  }
+    ],
+  },
 ];
 
-const staticNavigation = [
-  { key: "about", href: "/about" },
-];
+const staticNavigation = [{ key: "about", href: "/about" }];
 
 export function Header() {
   const t = useTranslations("navigation");
@@ -57,16 +56,16 @@ export function Header() {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Node;
       const clickedInsideDropdown = Object.values(dropdownRefs.current).some(
-        ref => ref && ref.contains(target)
+        (ref) => ref && ref.contains(target),
       );
-      
+
       if (!clickedInsideDropdown) {
         setOpenDropdown(null);
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const isActiveLink = (href: string) => {
@@ -79,8 +78,8 @@ export function Header() {
     );
   };
 
-  const isGroupActive = (group: typeof navigationGroups[0]) => {
-    return group.items.some(item => isActiveLink(item.href));
+  const isGroupActive = (group: (typeof navigationGroups)[0]) => {
+    return group.items.some((item) => isActiveLink(item.href));
   };
 
   return (
@@ -116,26 +115,26 @@ export function Header() {
               const isDropdownOpen = openDropdown === group.key;
 
               return (
-                <div 
-                  key={group.key} 
-                  className="relative" 
-                  ref={el => {
+                <div
+                  key={group.key}
+                  className="relative"
+                  ref={(el) => {
                     dropdownRefs.current[group.key] = el;
                   }}
                 >
                   <button
                     onClick={() => toggleDropdown(group.key)}
-                    className={`flex items-center space-x-1 text-sm font-medium transition-colors ${
+                    className={`flex items-center space-x-1 text-sm font-medium transition-colors cursor-pointer ${
                       isGroupActiveState
                         ? "text-foreground border-b-2 border-primary pb-1"
                         : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
                     <span>{t(group.titleKey as any)}</span>
-                    <ChevronDown 
+                    <ChevronDown
                       className={`h-3 w-3 transition-transform ${
                         isDropdownOpen ? "rotate-180" : ""
-                      }`} 
+                      }`}
                     />
                   </button>
 
@@ -236,7 +235,7 @@ export function Header() {
                   </div>
                 </div>
               ))}
-              
+
               {/* Static Navigation for Mobile */}
               <div className="pt-2 border-t">
                 {staticNavigation.map((item) => {

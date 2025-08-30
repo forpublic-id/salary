@@ -296,7 +296,7 @@
     {
       "id": "iii-b",
       "golongan": "III/b",
-      "pangkat": "Penata Muda Tingkat I", 
+      "pangkat": "Penata Muda Tingkat I",
       "description": {
         "id": "Golongan III/b - Penata Muda Tingkat I",
         "en": "Grade III/b - Junior Manager Level I"
@@ -430,7 +430,7 @@
     },
     {
       "id": "iv-b",
-      "golongan": "IV/b", 
+      "golongan": "IV/b",
       "pangkat": "Pembina Tingkat I",
       "description": {
         "id": "Golongan IV/b - Pembina Tingkat I",
@@ -463,7 +463,7 @@
       "golongan": "IV/c",
       "pangkat": "Pembina Utama Muda",
       "description": {
-        "id": "Golongan IV/c - Pembina Utama Muda", 
+        "id": "Golongan IV/c - Pembina Utama Muda",
         "en": "Grade IV/c - Junior Principal Manager"
       },
       "gajiPokok": [

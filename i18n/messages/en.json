@@ -8,9 +8,11 @@
     "officials": "Public Officials",
     "tunjangan-kinerja": "Performance Allowance",
     "aparatur-sipil-negara": "Civil State Apparatus",
+    "pns": "Civil Servants",
+    "p3k": "Government Employees with Work Contracts",
     "about": "About",
-    "exploreData": "Explore Data",
-    "toolsAnalysis": "Tools & Analysis"
+    "salaryData": "Salary Data",
+    "tools": "Tools"
   },
   "hero": {
     "title": "Indonesian Salary & Wage Transparency",
@@ -26,9 +28,21 @@
         "title": "Regional Wages",
         "desc": "Compare regional minimum wages across Indonesia"
       },
+      "pns": {
+        "title": "Civil Servants",
+        "desc": "Complete list of PNS basic salary by grade and years of service"
+      },
+      "p3k": {
+        "title": "Government Employees with Work Contracts",
+        "desc": "Complete list of P3K basic salary by grade and qualification"
+      },
+      "tunjanganKinerja": {
+        "title": "Performance Allowance",
+        "desc": "Database of PNS performance allowances from various ministries and agencies"
+      },
       "browse": {
-        "title": "Browse Data",
-        "desc": "Explore and compare salary data across sectors and institutions"
+        "title": "Data Discovery & Insights",
+        "desc": "Discover interesting insights and interactive statistics from transparency salary data"
       },
       "analysis": {
         "title": "Data Analysis",
@@ -37,10 +51,6 @@
       "officials": {
         "title": "Public Officials",
         "desc": "Complete database of national and regional officials compensation"
-      },
-      "openSource": {
-        "title": "Open Source",
-        "desc": "Open platform for public transparency and accountability"
       }
     },
     "stats": {
@@ -72,26 +82,46 @@
     }
   },
   "browse": {
-    "title": "Browse Salary Data",
-    "subtitle": "Explore and compare salaries based on various criteria and sectors",
-    "search": "Search positions, grades, or ministries...",
-    "filters": {
-      "golongan": "Filter by Grade",
-      "kementerian": "Filter by Ministry",
-      "kategori": "Filter by Category",
-      "salaryRange": "Salary Range"
+    "title": "Data Discovery & Insights",
+    "subtitle": "Discover interesting insights from Indonesian salary and wage data with interactive statistics",
+    "dashboard": {
+      "title": "Platform Overview",
+      "subtitle": "Comprehensive statistics from all transparency salary data"
     },
-    "sortBy": "Sort by",
-    "sortOptions": {
-      "salaryHigh": "Highest Salary",
-      "salaryLow": "Lowest Salary",
-      "golongan": "Grade",
-      "alphabetical": "Alphabetical"
+    "insights": {
+      "title": "Did You Know?",
+      "subtitle": "Interesting facts from Indonesian salary and wage data"
     },
-    "viewMode": {
-      "table": "Table View",
-      "ministry": "Ministry View",
-      "comparison": "Comparison"
+    "trending": {
+      "title": "Popular Searches",
+      "subtitle": "Most frequently searched data by users"
+    },
+    "dataQuality": {
+      "title": "Data Quality",
+      "subtitle": "Platform data accuracy and coverage information"
+    },
+    "recentUpdates": {
+      "title": "Recent Updates",
+      "subtitle": "Latest platform data and feature updates"
+    },
+    "quickAccess": {
+      "title": "Quick Access",
+      "subtitle": "Direct access to the data you need"
+    },
+    "stats": {
+      "totalGrades": "Total Grades",
+      "totalMinistries": "Total Ministries",
+      "totalOfficials": "Total Officials",
+      "totalProvinces": "Total Provinces",
+      "highestSalary": "Highest Salary",
+      "averageSalary": "Average Salary",
+      "lastUpdated": "Last Updated"
+    },
+    "facts": {
+      "fact1": "Grade IV/e has the highest basic salary reaching IDR 8.9 million",
+      "fact2": "Performance allowances can reach up to 5x basic salary",
+      "fact3": "DKI Jakarta has the highest provincial minimum wage in Indonesia",
+      "fact4": "There are 17 PNS salary grades from I/a to IV/e"
     },
     "ministryView": {
       "positions": "positions",
@@ -361,5 +391,13 @@
   "aparatur": {
     "title": "Civil State Apparatus",
     "subtitle": "Complete list of ASN and P3K basic salary by grade and rank"
+  },
+  "pns": {
+    "title": "Civil Servants (PNS)",
+    "subtitle": "Complete list of PNS basic salary by grade and rank with different years of service"
+  },
+  "p3k": {
+    "title": "Government Employees with Work Contracts (P3K)",
+    "subtitle": "Complete list of P3K basic salary by grade and educational qualification"
   }
 }
