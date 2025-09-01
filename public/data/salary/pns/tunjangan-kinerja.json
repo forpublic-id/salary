@@ -1,9 +1,9 @@
 {
   "metadata": {
     "lastUpdated": "2025-09-01",
-    "source": "PMK dan Peraturan Kementerian Terkait Tunjangan Kinerja 2024, WikiASN.id",
+    "source": "PMK dan Peraturan Kementerian Terkait Tunjangan Kinerja 2024, WikiASN.id, Perpres No. 8 Tahun 2018",
     "currency": "IDR",
-    "version": "2024.2"
+    "version": "2024.3"
   },
   "tunjanganKinerja": [
     {
@@ -421,6 +421,282 @@
       },
       "golongan": ["I/a", "I/b"],
       "nominal": 3332000,
+      "kategori": "pelaksana"
+    },
+    {
+      "id": "kemensetneg-kelas-18",
+      "kementerian": {
+        "id": "Kementerian Sekretariat Negara",
+        "en": "Ministry of State Secretariat"
+      },
+      "kode": "KEMENSETNEG",
+      "jabatan": {
+        "id": "Kelas Jabatan 18",
+        "en": "Position Class 18"
+      },
+      "golongan": ["IV/e"],
+      "nominal": 46950000,
+      "kategori": "struktural",
+      "regulations": [
+        {
+          "title": "Perpres No. 8 Tahun 2018",
+          "url": "https://www.wikiasn.id/tunjangan-kinerja/kementerian-sekretariat-negara"
+        }
+      ]
+    },
+    {
+      "id": "kemensetneg-kelas-17",
+      "kementerian": {
+        "id": "Kementerian Sekretariat Negara",
+        "en": "Ministry of State Secretariat"
+      },
+      "kode": "KEMENSETNEG",
+      "jabatan": {
+        "id": "Kelas Jabatan 17",
+        "en": "Position Class 17"
+      },
+      "golongan": ["IV/d", "IV/e"],
+      "nominal": 41550000,
+      "kategori": "struktural"
+    },
+    {
+      "id": "kemensetneg-kelas-16",
+      "kementerian": {
+        "id": "Kementerian Sekretariat Negara",
+        "en": "Ministry of State Secretariat"
+      },
+      "kode": "KEMENSETNEG",
+      "jabatan": {
+        "id": "Kelas Jabatan 16",
+        "en": "Position Class 16"
+      },
+      "golongan": ["IV/c", "IV/d"],
+      "nominal": 32540000,
+      "kategori": "struktural"
+    },
+    {
+      "id": "kemensetneg-kelas-15",
+      "kementerian": {
+        "id": "Kementerian Sekretariat Negara",
+        "en": "Ministry of State Secretariat"
+      },
+      "kode": "KEMENSETNEG",
+      "jabatan": {
+        "id": "Kelas Jabatan 15",
+        "en": "Position Class 15"
+      },
+      "golongan": ["IV/b", "IV/c"],
+      "nominal": 24100000,
+      "kategori": "struktural"
+    },
+    {
+      "id": "kemensetneg-kelas-14",
+      "kementerian": {
+        "id": "Kementerian Sekretariat Negara",
+        "en": "Ministry of State Secretariat"
+      },
+      "kode": "KEMENSETNEG",
+      "jabatan": {
+        "id": "Kelas Jabatan 14",
+        "en": "Position Class 14"
+      },
+      "golongan": ["IV/a", "IV/b"],
+      "nominal": 21330000,
+      "kategori": "struktural"
+    },
+    {
+      "id": "kemensetneg-kelas-13",
+      "kementerian": {
+        "id": "Kementerian Sekretariat Negara",
+        "en": "Ministry of State Secretariat"
+      },
+      "kode": "KEMENSETNEG",
+      "jabatan": {
+        "id": "Kelas Jabatan 13",
+        "en": "Position Class 13"
+      },
+      "golongan": ["III/d", "IV/a"],
+      "nominal": 13670000,
+      "kategori": "struktural"
+    },
+    {
+      "id": "kemensetneg-kelas-12",
+      "kementerian": {
+        "id": "Kementerian Sekretariat Negara",
+        "en": "Ministry of State Secretariat"
+      },
+      "kode": "KEMENSETNEG",
+      "jabatan": {
+        "id": "Kelas Jabatan 12",
+        "en": "Position Class 12"
+      },
+      "golongan": ["III/c", "III/d"],
+      "nominal": 12370000,
+      "kategori": "fungsional"
+    },
+    {
+      "id": "kemensetneg-kelas-11",
+      "kementerian": {
+        "id": "Kementerian Sekretariat Negara",
+        "en": "Ministry of State Secretariat"
+      },
+      "kode": "KEMENSETNEG",
+      "jabatan": {
+        "id": "Kelas Jabatan 11",
+        "en": "Position Class 11"
+      },
+      "golongan": ["III/b", "III/c"],
+      "nominal": 10947000,
+      "kategori": "fungsional"
+    },
+    {
+      "id": "kemensetneg-kelas-10",
+      "kementerian": {
+        "id": "Kementerian Sekretariat Negara",
+        "en": "Ministry of State Secretariat"
+      },
+      "kode": "KEMENSETNEG",
+      "jabatan": {
+        "id": "Kelas Jabatan 10",
+        "en": "Position Class 10"
+      },
+      "golongan": ["III/a", "III/b"],
+      "nominal": 8458000,
+      "kategori": "fungsional"
+    },
+    {
+      "id": "kemensetneg-kelas-9",
+      "kementerian": {
+        "id": "Kementerian Sekretariat Negara",
+        "en": "Ministry of State Secretariat"
+      },
+      "kode": "KEMENSETNEG",
+      "jabatan": {
+        "id": "Kelas Jabatan 9",
+        "en": "Position Class 9"
+      },
+      "golongan": ["II/d", "III/a"],
+      "nominal": 7474000,
+      "kategori": "fungsional"
+    },
+    {
+      "id": "kemensetneg-kelas-8",
+      "kementerian": {
+        "id": "Kementerian Sekretariat Negara",
+        "en": "Ministry of State Secretariat"
+      },
+      "kode": "KEMENSETNEG",
+      "jabatan": {
+        "id": "Kelas Jabatan 8",
+        "en": "Position Class 8"
+      },
+      "golongan": ["II/c", "II/d"],
+      "nominal": 6349000,
+      "kategori": "pelaksana"
+    },
+    {
+      "id": "kemensetneg-kelas-7",
+      "kementerian": {
+        "id": "Kementerian Sekretariat Negara",
+        "en": "Ministry of State Secretariat"
+      },
+      "kode": "KEMENSETNEG",
+      "jabatan": {
+        "id": "Kelas Jabatan 7",
+        "en": "Position Class 7"
+      },
+      "golongan": ["II/b", "II/c"],
+      "nominal": 5079000,
+      "kategori": "pelaksana"
+    },
+    {
+      "id": "kemensetneg-kelas-6",
+      "kementerian": {
+        "id": "Kementerian Sekretariat Negara",
+        "en": "Ministry of State Secretariat"
+      },
+      "kode": "KEMENSETNEG",
+      "jabatan": {
+        "id": "Kelas Jabatan 6",
+        "en": "Position Class 6"
+      },
+      "golongan": ["II/a", "II/b"],
+      "nominal": 4837000,
+      "kategori": "pelaksana"
+    },
+    {
+      "id": "kemensetneg-kelas-5",
+      "kementerian": {
+        "id": "Kementerian Sekretariat Negara",
+        "en": "Ministry of State Secretariat"
+      },
+      "kode": "KEMENSETNEG",
+      "jabatan": {
+        "id": "Kelas Jabatan 5",
+        "en": "Position Class 5"
+      },
+      "golongan": ["I/d", "II/a"],
+      "nominal": 4607000,
+      "kategori": "pelaksana"
+    },
+    {
+      "id": "kemensetneg-kelas-4",
+      "kementerian": {
+        "id": "Kementerian Sekretariat Negara",
+        "en": "Ministry of State Secretariat"
+      },
+      "kode": "KEMENSETNEG",
+      "jabatan": {
+        "id": "Kelas Jabatan 4",
+        "en": "Position Class 4"
+      },
+      "golongan": ["I/c", "I/d"],
+      "nominal": 4179000,
+      "kategori": "pelaksana"
+    },
+    {
+      "id": "kemensetneg-kelas-3",
+      "kementerian": {
+        "id": "Kementerian Sekretariat Negara",
+        "en": "Ministry of State Secretariat"
+      },
+      "kode": "KEMENSETNEG",
+      "jabatan": {
+        "id": "Kelas Jabatan 3",
+        "en": "Position Class 3"
+      },
+      "golongan": ["I/b", "I/c"],
+      "nominal": 3980000,
+      "kategori": "pelaksana"
+    },
+    {
+      "id": "kemensetneg-kelas-2",
+      "kementerian": {
+        "id": "Kementerian Sekretariat Negara",
+        "en": "Ministry of State Secretariat"
+      },
+      "kode": "KEMENSETNEG",
+      "jabatan": {
+        "id": "Kelas Jabatan 2",
+        "en": "Position Class 2"
+      },
+      "golongan": ["I/a", "I/b"],
+      "nominal": 3154000,
+      "kategori": "pelaksana"
+    },
+    {
+      "id": "kemensetneg-kelas-1",
+      "kementerian": {
+        "id": "Kementerian Sekretariat Negara",
+        "en": "Ministry of State Secretariat"
+      },
+      "kode": "KEMENSETNEG",
+      "jabatan": {
+        "id": "Kelas Jabatan 1",
+        "en": "Position Class 1"
+      },
+      "golongan": ["I/a"],
+      "nominal": 2575000,
       "kategori": "pelaksana"
     }
   ]
