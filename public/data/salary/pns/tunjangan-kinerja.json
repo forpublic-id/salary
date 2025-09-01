@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "lastUpdated": "2025-08-21",
-    "source": "PMK dan Peraturan Kementerian Terkait Tunjangan Kinerja 2024",
+    "lastUpdated": "2025-09-01",
+    "source": "PMK dan Peraturan Kementerian Terkait Tunjangan Kinerja 2024, WikiASN.id",
     "currency": "IDR",
-    "version": "2024.1"
+    "version": "2024.2"
   },
   "tunjanganKinerja": [
     {
@@ -160,6 +160,267 @@
       },
       "golongan": ["II/a", "II/b", "II/c", "II/d", "III/a", "III/b"],
       "nominal": 2880000,
+      "kategori": "pelaksana"
+    },
+    {
+      "id": "oikn-kelas-17",
+      "kementerian": {
+        "id": "Otorita Ibu Kota Nusantara",
+        "en": "Nusantara Capital Authority"
+      },
+      "kode": "OIKN",
+      "jabatan": {
+        "id": "Kelas Jabatan 17",
+        "en": "Position Class 17"
+      },
+      "golongan": ["IV/e"],
+      "nominal": 98152220,
+      "kategori": "struktural",
+      "regulations": [
+        {
+          "title": "Peraturan Kepala OIKN No. 11 Tahun 2023",
+          "url": "https://www.wikiasn.id/tunjangan-kinerja/otorita-ibu-kota-nusantara"
+        }
+      ]
+    },
+    {
+      "id": "oikn-kelas-16",
+      "kementerian": {
+        "id": "Otorita Ibu Kota Nusantara",
+        "en": "Nusantara Capital Authority"
+      },
+      "kode": "OIKN",
+      "jabatan": {
+        "id": "Kelas Jabatan 16",
+        "en": "Position Class 16"
+      },
+      "golongan": ["IV/d", "IV/e"],
+      "nominal": 82814888,
+      "kategori": "struktural"
+    },
+    {
+      "id": "oikn-kelas-15",
+      "kementerian": {
+        "id": "Otorita Ibu Kota Nusantara",
+        "en": "Nusantara Capital Authority"
+      },
+      "kode": "OIKN",
+      "jabatan": {
+        "id": "Kelas Jabatan 15",
+        "en": "Position Class 15"
+      },
+      "golongan": ["IV/c", "IV/d"],
+      "nominal": 67480566,
+      "kategori": "struktural"
+    },
+    {
+      "id": "oikn-kelas-14",
+      "kementerian": {
+        "id": "Otorita Ibu Kota Nusantara",
+        "en": "Nusantara Capital Authority"
+      },
+      "kode": "OIKN",
+      "jabatan": {
+        "id": "Kelas Jabatan 14",
+        "en": "Position Class 14"
+      },
+      "golongan": ["IV/b", "IV/c"],
+      "nominal": 62672646,
+      "kategori": "struktural"
+    },
+    {
+      "id": "oikn-kelas-13",
+      "kementerian": {
+        "id": "Otorita Ibu Kota Nusantara",
+        "en": "Nusantara Capital Authority"
+      },
+      "kode": "OIKN",
+      "jabatan": {
+        "id": "Kelas Jabatan 13",
+        "en": "Position Class 13"
+      },
+      "golongan": ["IV/a", "IV/b"],
+      "nominal": 52205000,
+      "kategori": "struktural"
+    },
+    {
+      "id": "oikn-kelas-12",
+      "kementerian": {
+        "id": "Otorita Ibu Kota Nusantara",
+        "en": "Nusantara Capital Authority"
+      },
+      "kode": "OIKN",
+      "jabatan": {
+        "id": "Kelas Jabatan 12",
+        "en": "Position Class 12"
+      },
+      "golongan": ["III/d", "IV/a"],
+      "nominal": 46003000,
+      "kategori": "fungsional"
+    },
+    {
+      "id": "oikn-kelas-11",
+      "kementerian": {
+        "id": "Otorita Ibu Kota Nusantara",
+        "en": "Nusantara Capital Authority"
+      },
+      "kode": "OIKN",
+      "jabatan": {
+        "id": "Kelas Jabatan 11",
+        "en": "Position Class 11"
+      },
+      "golongan": ["III/c", "III/d"],
+      "nominal": 36717000,
+      "kategori": "fungsional"
+    },
+    {
+      "id": "oikn-kelas-10",
+      "kementerian": {
+        "id": "Otorita Ibu Kota Nusantara",
+        "en": "Nusantara Capital Authority"
+      },
+      "kode": "OIKN",
+      "jabatan": {
+        "id": "Kelas Jabatan 10",
+        "en": "Position Class 10"
+      },
+      "golongan": ["III/b", "III/c"],
+      "nominal": 25430000,
+      "kategori": "fungsional"
+    },
+    {
+      "id": "oikn-kelas-9",
+      "kementerian": {
+        "id": "Otorita Ibu Kota Nusantara",
+        "en": "Nusantara Capital Authority"
+      },
+      "kode": "OIKN",
+      "jabatan": {
+        "id": "Kelas Jabatan 9",
+        "en": "Position Class 9"
+      },
+      "golongan": ["III/a", "III/b"],
+      "nominal": 20205000,
+      "kategori": "fungsional"
+    },
+    {
+      "id": "oikn-kelas-8",
+      "kementerian": {
+        "id": "Otorita Ibu Kota Nusantara",
+        "en": "Nusantara Capital Authority"
+      },
+      "kode": "OIKN",
+      "jabatan": {
+        "id": "Kelas Jabatan 8",
+        "en": "Position Class 8"
+      },
+      "golongan": ["II/d", "III/a"],
+      "nominal": 18424000,
+      "kategori": "pelaksana"
+    },
+    {
+      "id": "oikn-kelas-7",
+      "kementerian": {
+        "id": "Otorita Ibu Kota Nusantara",
+        "en": "Nusantara Capital Authority"
+      },
+      "kode": "OIKN",
+      "jabatan": {
+        "id": "Kelas Jabatan 7",
+        "en": "Position Class 7"
+      },
+      "golongan": ["II/c", "II/d"],
+      "nominal": 15933000,
+      "kategori": "pelaksana"
+    },
+    {
+      "id": "oikn-kelas-6",
+      "kementerian": {
+        "id": "Otorita Ibu Kota Nusantara",
+        "en": "Nusantara Capital Authority"
+      },
+      "kode": "OIKN",
+      "jabatan": {
+        "id": "Kelas Jabatan 6",
+        "en": "Position Class 6"
+      },
+      "golongan": ["II/b", "II/c"],
+      "nominal": 13129000,
+      "kategori": "pelaksana"
+    },
+    {
+      "id": "oikn-kelas-5",
+      "kementerian": {
+        "id": "Otorita Ibu Kota Nusantara",
+        "en": "Nusantara Capital Authority"
+      },
+      "kode": "OIKN",
+      "jabatan": {
+        "id": "Kelas Jabatan 5",
+        "en": "Position Class 5"
+      },
+      "golongan": ["II/a", "II/b"],
+      "nominal": 11311000,
+      "kategori": "pelaksana"
+    },
+    {
+      "id": "oikn-kelas-4",
+      "kementerian": {
+        "id": "Otorita Ibu Kota Nusantara",
+        "en": "Nusantara Capital Authority"
+      },
+      "kode": "OIKN",
+      "jabatan": {
+        "id": "Kelas Jabatan 4",
+        "en": "Position Class 4"
+      },
+      "golongan": ["I/d", "II/a"],
+      "nominal": 7875000,
+      "kategori": "pelaksana"
+    },
+    {
+      "id": "oikn-kelas-3",
+      "kementerian": {
+        "id": "Otorita Ibu Kota Nusantara",
+        "en": "Nusantara Capital Authority"
+      },
+      "kode": "OIKN",
+      "jabatan": {
+        "id": "Kelas Jabatan 3",
+        "en": "Position Class 3"
+      },
+      "golongan": ["I/c", "I/d"],
+      "nominal": 4054000,
+      "kategori": "pelaksana"
+    },
+    {
+      "id": "oikn-kelas-2",
+      "kementerian": {
+        "id": "Otorita Ibu Kota Nusantara",
+        "en": "Nusantara Capital Authority"
+      },
+      "kode": "OIKN",
+      "jabatan": {
+        "id": "Kelas Jabatan 2",
+        "en": "Position Class 2"
+      },
+      "golongan": ["I/b", "I/c"],
+      "nominal": 3679000,
+      "kategori": "pelaksana"
+    },
+    {
+      "id": "oikn-kelas-1",
+      "kementerian": {
+        "id": "Otorita Ibu Kota Nusantara",
+        "en": "Nusantara Capital Authority"
+      },
+      "kode": "OIKN",
+      "jabatan": {
+        "id": "Kelas Jabatan 1",
+        "en": "Position Class 1"
+      },
+      "golongan": ["I/a", "I/b"],
+      "nominal": 3332000,
       "kategori": "pelaksana"
     }
   ]
